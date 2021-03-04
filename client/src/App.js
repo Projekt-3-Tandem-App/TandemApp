@@ -1,17 +1,17 @@
 import React, {Fragment} from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+
 import Navbar from './components/layout/Navbar';
 
 
 const  App = ()  => {
   return (
-    <Fragment>
+    <div>
       <Navbar/>
-      <Switch>
-     
-      </Switch> 
-    </Fragment>
+    
+      
+      
+    </div>
   );
 }
 
