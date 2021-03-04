@@ -42,6 +42,10 @@ router.post('/signup', (req, res, next) => {
     })
 });
 
+router.get("/auth/loggedin", (req,res,next) => {
+  console.log("why is this not working")
+})
+
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user) => {
     if (err) {
@@ -66,7 +70,7 @@ router.delete('/logout', (req, res) => {
 })
 
 router.get('/loggedin', (req, res, next) => {
-  // this is where passport stores the logged in user
+  console.log("toggedin route")
   res.json(req.user);
 });
 
