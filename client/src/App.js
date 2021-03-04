@@ -2,10 +2,9 @@ import React from 'react';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage'
-import Navbar from './components/layout/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import ProtectedRoute from './components/ProtectedRoute';
+//import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './components/HomePage';
 
 
@@ -27,10 +26,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar/>
         <LandingPage user={this.state.user} setUser={this.setUser} />
         <Route
-          exact path='/homepage'
+          exact path='/'
           // component={Projects}
           render={props => {
             if (this.state.user) {
