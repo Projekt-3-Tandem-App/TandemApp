@@ -5,7 +5,7 @@ import LandingPage from './components/LandingPage'
 import Navbar from './components/layout/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
-//import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './components/HomePage';
 
 

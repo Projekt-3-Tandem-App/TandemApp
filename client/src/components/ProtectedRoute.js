@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 // here we destructure the props - we rename the component prop by using the colon
 const ProtectedRoute = ({
-  component: Component,
+  components: Component,
   user,
   path,
   redirectPath = '/',
