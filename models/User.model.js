@@ -8,12 +8,8 @@ const userSchema = new Schema({
   },
   password: String,
   name: String,
-  languages: [
-    {
-      language : String, 
-      level : String
-    }
-  ],
+  nativeLanguages: String,
+  learningLanguages: [String],
   location: String,
   age: Number,
   gender: String,
