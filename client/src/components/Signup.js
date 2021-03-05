@@ -98,16 +98,17 @@ export default class Signup extends Component {
 
 
           <label htmlFor="languages">Choose a native language:</label>
-          <select name="languages" id="languages" form="carform" >
+          <select name="languages" id="languages" form="carform"  onChange={this.handleChange} >
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
           <option value="italian">Italian</option>
           <option value="spanish">Spanish</option>
+        
           </select>
 
           <label htmlFor="languages">Choose a language:</label>
-          <select name="languages" id="languages" form="carform">
+          <select name="languages" id="languages" form="carform" >
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
