@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage'
 import Signup from './components/Signup';
 import Login from './components/Login';
-//import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './components/HomePage';
 class App extends React.Component {
   state = {
