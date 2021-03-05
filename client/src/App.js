@@ -24,10 +24,11 @@ class App extends React.Component {
           // component={Projects}
           render={props => {
             if (this.state.user) {
-              return <HomePage {...props} />
+              return <HomePage user={this.state.user} {...props} />
             } else return <Redirect to='/' />
           }}
         />
+
         {/* <ProtectedRoute
           exact path='/projects'
           user={this.state.user}
