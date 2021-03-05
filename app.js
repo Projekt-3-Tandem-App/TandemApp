@@ -35,7 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
       
     })
   })
@@ -106,12 +106,16 @@ const allRoutes = require("./routes");
 app.use("/api", allRoutes);
 const auth = require('./routes/auth')
 app.use('/api/auth', auth);
+/*
 const path = require("path");
 app.use(express.static(path.join(__dirname, "/client/public")));
-app.use((req, res) => {
+
+//app.use((req, res) => {
   // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/client/public/index.html");
+// res.sendFile(__dirname + "/client/public/index.html");
 });
+
+*/
 
 
 
