@@ -244,10 +244,11 @@ img {
 .form select,
 .form textarea {
   display: block;
-  width: 100%;
+  width: 70%;
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+
 }
 
 .form input[type='submit'],
@@ -373,6 +374,8 @@ button {
   justify-content: center;
   text-align: center;
 }
+
+
 
 .profile-top img {
   width: 250px;

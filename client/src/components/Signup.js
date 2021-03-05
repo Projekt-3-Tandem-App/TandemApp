@@ -65,9 +65,9 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <h2>Signup</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form className="form profile-top " onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username: </label>
           <input
             type="text"
@@ -98,7 +98,7 @@ export default class Signup extends Component {
 
 
           <label htmlFor="languages">Choose a native language:</label>
-          <select name="languages" id="languages" form="carform">
+          <select name="languages" id="languages" form="carform" >
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
@@ -131,6 +131,8 @@ export default class Signup extends Component {
             value={this.state.age}
             onChange={this.handleNumber}
             id="age"
+            min="16"
+             max="100"
           />
 
 
