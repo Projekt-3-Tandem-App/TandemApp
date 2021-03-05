@@ -42,3 +42,6 @@ export default function LandingPage(props) {
   </div>
   )
 }
+
+
+var langua

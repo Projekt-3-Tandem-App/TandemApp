@@ -35,7 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
       
     })
   })
@@ -109,6 +109,7 @@ const auth = require('./routes/auth')
 app.use('/api/auth', auth);
 
 
+
 //To had for deplotment : replace client with build 
 // const path = require("path");
 // app.use(express.static(path.join(__dirname, "/client/public")));
@@ -116,8 +117,6 @@ app.use('/api/auth', auth);
 //   // If no routes match, send them the React HTML.
 //   res.sendFile(__dirname + "/client/public/index.html");
 // });
-
-
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
