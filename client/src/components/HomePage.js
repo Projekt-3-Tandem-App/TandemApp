@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './layout/Navbar'
-import { logout } from '../services/auth';
+
 
 export default class HomePage extends Component {
   render() {
