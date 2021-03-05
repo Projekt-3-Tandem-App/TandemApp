@@ -35,8 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
-      
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
     })
   })
 )
@@ -102,8 +101,11 @@ app.use(passport.session());
 
 // :point_down: Start handling routes here
 // Contrary to the views version, all routes are controled from the routes/index.js
-const allRoutes = require("./routes");
-app.use("/api", allRoutes);
+// const allRoutes = require("./routes");
+// app.use("/api", allRoutes);
+
+const index = require("./routes/index")
+app.use("/api", index)
 
 const auth = require('./routes/auth')
 app.use('/api/auth', auth);
