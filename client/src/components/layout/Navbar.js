@@ -12,7 +12,7 @@ const Navbar = () => {
         <li><a href="#">Profil</a></li>
         {/* <li>
               <Link to='/' onClick={() => handleLogout(props)} >Logout</Link>
-            </li> */}
+        </li> */}
       </ul>
     </nav>
   )
