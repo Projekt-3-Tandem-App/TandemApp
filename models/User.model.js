@@ -6,7 +6,21 @@ const userSchema = new Schema({
     type: String,
     unique: true
   },
-  password: String
+  password: String,
+  name: String,
+  languages: [
+    {
+      language : String, 
+      level : String
+    }
+  ],
+  location: String,
+  age: Number,
+  gender: String,
+  // tag: String,
+  description: String, 
+  goal: String
+  //image: String, look if possible with heroko clounderari (link: string id: string}
 });
 
 const User = model("User", userSchema);

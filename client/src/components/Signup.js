@@ -16,6 +16,16 @@ export default class Signup extends Component {
     })
   }
 
+
+//   handleNumber = event => {
+//     let value = event.target.value;
+//     this.setState((state,props) => ({
+//         age : value
+//     }))
+// }
+
+
+
   handleSubmit = event => {
     event.preventDefault();
     const { username, password } = this.state;
@@ -58,6 +68,29 @@ export default class Signup extends Component {
             onChange={this.handleChange}
             id="password"
           />
+          <label htmlFor="name">User name: </label>
+          <input
+            type="name"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+            id="name"
+          />
+        {/* languages
+        location */}
+
+        <label htmlFor="age">Age: </label>
+          <input
+            type="Number"
+            name="age"
+            value={this.state.age}
+            onChange={this.handleNumber}
+            id="age"
+          />
+
+
+
+          
           <button type="submit">Sign Up</button>
           {this.state.message && (
             <h3>{this.state.message}</h3>

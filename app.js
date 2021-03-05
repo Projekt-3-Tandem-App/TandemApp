@@ -104,14 +104,18 @@ app.use(passport.session());
 // Contrary to the views version, all routes are controled from the routes/index.js
 const allRoutes = require("./routes");
 app.use("/api", allRoutes);
+
 const auth = require('./routes/auth')
 app.use('/api/auth', auth);
-const path = require("path");
-app.use(express.static(path.join(__dirname, "/client/public")));
-app.use((req, res) => {
-  // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/client/public/index.html");
-});
+
+
+//To had for deplotment : replace client with build 
+// const path = require("path");
+// app.use(express.static(path.join(__dirname, "/client/public")));
+// app.use((req, res) => {
+//   // If no routes match, send them the React HTML.
+//   res.sendFile(__dirname + "/client/public/index.html");
+// });
 
 
 
