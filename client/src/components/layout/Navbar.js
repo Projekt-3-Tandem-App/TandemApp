@@ -4,7 +4,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav >
+    <nav className="navbar" >
       <h1> Papagei | Parrot  </h1>
       <ul>
         <li><a href="#">Home</a></li>
