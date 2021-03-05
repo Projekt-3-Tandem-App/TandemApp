@@ -25,7 +25,7 @@ class App extends React.Component {
           render={props => {
             if (this.state.user) {
               return <HomePage {...props} />
-            } else return <Redirect to='/login' />
+            } else return <Redirect to='/' />
           }}
         />
         {/* <ProtectedRoute
