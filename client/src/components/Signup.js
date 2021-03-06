@@ -1,48 +1,36 @@
 import React, { Component } from 'react'
 import { signup } from '../services/auth';
-
 export default class Signup extends Component {
-
   state = {
     username: '',
     password: '',
     message: '',
     name:'',
-    languages:'',
+    nativeLanguages: '', 
+    learningLanguages: [],
     location: '', 
-    age: 0 ,
+    age: 0,
     gender: '', 
     description: '', 
     goal: '' 
-
   }
-
   handleChange = event => {
     console.log(event.target)
     const { name, value } = event.target;
-
     this.setState({
       [name]: value
     })
   }
-
-
-  handleNumber = event => {
+   handleNumber = event => {
     let value = event.target.value;
     this.setState({
         age : value
      })
  }
-
-
-
-
   handleSubmit = event => {
     event.preventDefault();
-
     const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
     signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
-
       .then(user => {
         if (user.message) {
           this.setState({
@@ -51,7 +39,8 @@ export default class Signup extends Component {
             password: '',
             message: '',
             name:'',
-            languages:'',
+            nativeLanguages:'',
+            learningLanguages: [],
             location: '', 
             age: 0, 
             gender: '',
@@ -67,7 +56,6 @@ export default class Signup extends Component {
         }
       })
   }
-
   render() {
     return (
       <div className="form-group" >
@@ -94,9 +82,6 @@ export default class Signup extends Component {
             id="password"
             placeholder="password"
           />
-
-
-
           <label htmlFor="name">Name: </label>
           <input
             type="text"
@@ -106,19 +91,18 @@ export default class Signup extends Component {
             id="name"
             placeholder="name"
           />
-
-
-          <label htmlFor="languages">Choose a native language:</label>
-          <select name="languages" id="languages" form="carform"  onChange={this.handleChange} >
+          <label htmlFor="nativeLanguages">Choose a native language:</label>
+          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <option selected>Choose...</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
           <option value="italian">Italian</option>
           <option value="spanish">Spanish</option>
           </select>
-
-          <label htmlFor="languages">Choose a language:</label>
-          <select name="languages" id="languages" form="carform" >
+          <label htmlFor="learningLanguages">Choose a learning language:</label>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
+          <option selected>Choose...</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
@@ -128,13 +112,13 @@ export default class Signup extends Component {
         {/* languages
         location */}
           <label htmlFor="location">Choose a city:</label>
-          <select name="location" id="location" form="carform">
+          <select name="location" id="location" form="carform" onChange={this.handleChange}>
+          <option selected>Choose...</option>
           <option value="berlin">Berlin</option>
           <option value="hambourg">Hambourg</option>
           <option value="paris">Paris</option>
           <option value="london">London</option>
           </select>
-
         <label htmlFor="age">Age: </label>
           <input
              className="form-group" 
@@ -146,15 +130,13 @@ export default class Signup extends Component {
             min="16"
              max="100"
           />
-
-
           <label htmlFor="gender">Gender:</label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
+          <option selected>Choose...</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="transgender">Transgender</option>
           </select>
-
           <label htmlFor="description">Description: </label>
           <input
              className="form-group" 
@@ -187,5 +169,3 @@ export default class Signup extends Component {
     )
   }
 }
-
-
