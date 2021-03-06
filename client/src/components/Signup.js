@@ -10,7 +10,7 @@ export default class Signup extends Component {
     name:'',
     languages:'',
     location: '', 
-    age: 0,
+    age: 0 ,
     gender: '', 
     description: '', 
     goal: '' 
@@ -27,12 +27,13 @@ export default class Signup extends Component {
   }
 
 
-//   handleNumber = event => {
-//     let value = event.target.value;
-//     this.setState((state,props) => ({
-//         age : value
-//     }))
-// }
+  handleNumber = event => {
+    let value = event.target.value;
+    this.setState({
+        age : value
+     })
+ }
+
 
 
 
