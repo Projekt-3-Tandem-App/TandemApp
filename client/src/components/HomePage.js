@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Navbar from './layout/Navbar'
+import UsersList from './UsersList'
+import axios from 'axios'; 
+
 
 
 export default class HomePage extends Component {
@@ -20,6 +23,7 @@ export default class HomePage extends Component {
 
 
 
+
   render() {
 
     
@@ -30,6 +34,7 @@ export default class HomePage extends Component {
       <div>
         <Navbar/>
         <h1 className= "m-3">HomePage</h1>
+        <UsersList/>
       </div>
     )
   }
