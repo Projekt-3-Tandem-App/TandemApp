@@ -11,7 +11,8 @@ export default class Signup extends Component {
     nativeLanguages: '', 
     learningLanguages: [],
     location: '', 
-    age: 0, 
+    age: 0,
+    gender: '', 
     description: '', 
     goal: '' 
 
@@ -37,8 +38,8 @@ export default class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, password, name, nativeLanguages, learningLanguages, location, age, description, goal} = this.state;
-    signup(username, password, name, nativeLanguages, learningLanguages, location, age, description, goal)
+    const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
+    signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
       .then(user => {
         if (user.message) {
           this.setState({
@@ -51,6 +52,7 @@ export default class Signup extends Component {
             learningLanguages: [],
             location: '', 
             age: 0, 
+            gender: '',
             description: '', 
             goal: '' 
           })
@@ -143,7 +145,12 @@ export default class Signup extends Component {
           />
 
 
-          {/* gender */}
+          <label htmlFor="gender">Gender:</label>
+          <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="transgender">Transgender</option>
+          </select>
 
           <label htmlFor="description">Description: </label>
           <input

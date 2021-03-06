@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, name, nativeLanguages, learningLanguages, location, age, description, goal } = req.body;
+  const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal } = req.body;
   if (password.length < 8) {
     return res.status(400).json({ message: 'Your password must be 8 chars minimum' });
   }
@@ -29,6 +29,7 @@ router.post('/signup', (req, res, next) => {
           learningLanguages: learningLanguages, 
           location: location, 
           age: age,
+          gender: gender,
           description: description, 
           goal: goal
 
