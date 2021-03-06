@@ -49,14 +49,19 @@ export default class UsersList extends Component {
        (
         this.state.users.map((user, index) => {
           return (
-            <div>
-             <h3 key={index}> {user.name} </h3>
-             <h3 key={index}> {user.age} </h3>
-             <h3 key={index}> {user.location} </h3>
-            
-            
+            <div key={index}>
+              <h2>{user.name} </h2>
+              <p> Age : {user.age}</p>
+              <p> Gender: {user.gender}</p>
+              <p>Live in {user.location}</p>
+              <p>Description: {user.description}</p>
+              <p>Goal: {user.goal}</p>
+
+              <p>Navite Language : {user.nativeLanguages}</p>
+              <p>Learning Language : {user.learningLanguages}</p>
             </div>
-          )
+            ) 
+
         })
       )}
 
