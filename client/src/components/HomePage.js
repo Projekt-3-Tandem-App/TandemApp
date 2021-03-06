@@ -6,18 +6,18 @@ import UsersList from './UsersList'
 export default class HomePage extends Component {
 
 
-  state = {
-    username: '',
-    password: '',
-    message: '',
-    name:'',
-    nativeLanguages: [], 
-    learningLanguages: [],
-    location: '', 
-    age: 0, 
-    description: '', 
-    goal: '' 
-  }
+  // state = {
+  //   username: '',
+  //   password: '',
+  //   message: '',
+  //   name:'',
+  //   nativeLanguages: [], 
+  //   learningLanguages: [],
+  //   location: '', 
+  //   age: 0, 
+  //   description: '', 
+  //   goal: '' 
+  // }
 
 
   render() {
