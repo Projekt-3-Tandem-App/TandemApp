@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../services/auth';
+import HomePage from './HomePage';
 
 const handleLogout = props => {
   logout().then(() => {
@@ -16,11 +17,8 @@ export default function LandingPage(props) {
       
       {/* If we have a logged in user -> show projects and logout otherwise show login and signup */}
       {props.user ? (
-        <>
-          {/* <li>
-            <Link to='/projects'>Projects</Link>
-          </li> */}
-         
+        <> 
+               
           <li>
             <Link to='/' onClick={() => handleLogout(props)} >Logout</Link>
           </li>

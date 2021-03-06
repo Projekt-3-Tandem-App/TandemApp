@@ -109,7 +109,7 @@ export default class Signup extends Component {
 
           <label htmlFor="nativeLanguages">Choose a native language:</label>
           <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
-
+          <option selected>Choose...</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
@@ -121,7 +121,7 @@ export default class Signup extends Component {
 
           <label htmlFor="learningLanguages">Choose a learning language:</label>
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
-
+          <option selected>Choose...</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
@@ -132,6 +132,7 @@ export default class Signup extends Component {
         location */}
           <label htmlFor="location">Choose a city:</label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
+          <option selected>Choose...</option>
           <option value="berlin">Berlin</option>
           <option value="hambourg">Hambourg</option>
           <option value="paris">Paris</option>
@@ -154,6 +155,7 @@ export default class Signup extends Component {
 
           <label htmlFor="gender">Gender:</label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
+          <option selected>Choose...</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="transgender">Transgender</option>
