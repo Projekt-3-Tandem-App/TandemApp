@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import Navbar from './layout/Navbar'
 import UsersList from './UsersList'
-import axios from 'axios'; 
-
-
 
 export default class HomePage extends Component {
+
 
   state = {
     username: '',
@@ -18,23 +16,17 @@ export default class HomePage extends Component {
     age: 0, 
     description: '', 
     goal: '' 
-
   }
 
 
-
-
   render() {
-
-    
-
-
-    console.log(this.state.user)
+   console.log(this.props, "props at homepage")
     return (
       <div>
         <Navbar/>
         <h1 className= "m-3">HomePage</h1>
-        <UsersList/>
+        <UsersList {...this.props}/>
+
       </div>
     )
   }
