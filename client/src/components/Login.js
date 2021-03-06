@@ -39,8 +39,9 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <h2>Login</h2>
-        <form onSubmit={this.handleSubmit}>
+         <h1 class="large text-primary">Sign In</h1>
+         <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
+        <form  onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username: </label>
           <input
             type="text"
@@ -57,12 +58,48 @@ export default class Login extends Component {
             onChange={this.handleChange}
             id="password"
           />
-          <button type="submit">Log in</button>
+          <button  className="btn btn-primary" type="submit">Log in</button>
           {this.state.message && (
             <h3>{this.state.message}</h3>
           )}
         </form>
+        <p class="my-1">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </p>
       </div>
     )
   }
 }
+
+
+/* 
+
+ <div class="alert alert-danger">
+        Invalid credentials
+      </div>
+      <h1 class="large text-primary">Sign In</h1>
+      <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
+      <form class="form" action="dashboard.html">
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+          />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login" />
+      </form>
+      <p class="my-1">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </p>
+    </section>
+
+*/ 
