@@ -1,15 +1,19 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 // import { logout } from '../services/auth';
 
-const Navbar = () => {
+
+
+const Navbar = (props) => {
   return (
     <nav >
-      <h1> Papagei | Parrot  </h1>
+      <h1> Papagei </h1>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Chat</a></li>
-        <li><a href="#">Profil</a></li>
+        <li><Link to="#">Home</Link></li>
+        <li><Link to="#">Chat</Link></li>
+        <li><Link to="#">Profile</Link></li>
+        
         {/* <li>
               <Link to='/' onClick={() => handleLogout(props)} >Logout</Link>
         </li> */}

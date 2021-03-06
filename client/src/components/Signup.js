@@ -10,7 +10,8 @@ export default class Signup extends Component {
     name:'',
     languages:'',
     location: '', 
-    age: 0, 
+    age: 0,
+    gender: '', 
     description: '', 
     goal: '' 
 
@@ -37,8 +38,10 @@ export default class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    signup(username, password)
+
+    const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
+    signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
+
       .then(user => {
         if (user.message) {
           this.setState({
@@ -50,6 +53,7 @@ export default class Signup extends Component {
             languages:'',
             location: '', 
             age: 0, 
+            gender: '',
             description: '', 
             goal: '' 
           })
@@ -65,24 +69,29 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div >
-        <h2>Signup</h2>
-        <form className="form profile-top " onSubmit={this.handleSubmit}>
+      <div className="form-group" >
+        <h1 class="large text-primary">Sign Up</h1>
+        <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
+        <form className="form profile-top" onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username: </label>
           <input
+            className="form-group" 
             type="text"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
             id="username"
+            placeholder="Username"
           />
           <label htmlFor="password">Password: </label>
           <input
+             className="form-group" 
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
             id="password"
+            placeholder="password"
           />
 
 
@@ -94,6 +103,7 @@ export default class Signup extends Component {
             value={this.state.name}
             onChange={this.handleChange}
             id="name"
+            placeholder="name"
           />
 
 
@@ -126,6 +136,7 @@ export default class Signup extends Component {
 
         <label htmlFor="age">Age: </label>
           <input
+             className="form-group" 
             type="Number"
             name="age"
             value={this.state.age}
@@ -136,38 +147,44 @@ export default class Signup extends Component {
           />
 
 
-          {/* gender */}
+          <label htmlFor="gender">Gender:</label>
+          <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="transgender">Transgender</option>
+          </select>
 
           <label htmlFor="description">Description: </label>
           <input
+             className="form-group" 
             type="text"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
             id="description"
+            placeholder="write something about you..."
           />
-          
           <label htmlFor="goal">Learning goals: </label>
           <input
+            className="form-group" 
             type="text"
             name="goal"
             value={this.state.goal}
             onChange={this.handleChange}
             id="goal"
-          />
-
-
-
-
-
-
-          
-          <button type="submit">Sign Up</button>
+            placeholder="my learning goals are... "
+          />   
+          <button className="btn btn-primary" type="submit">Sign Up</button>
           {this.state.message && (
             <h3>{this.state.message}</h3>
           )}
         </form>
+        <p class="my-1">
+        Already have an account? <a href="login.html">Sign In</a>
+      </p>
       </div>
     )
   }
 }
+
+
