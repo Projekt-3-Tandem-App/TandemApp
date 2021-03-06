@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 
+
 export default class UsersList extends Component {
 
   state = {
@@ -39,10 +40,15 @@ export default class UsersList extends Component {
   //  })
     
     return (
-      <div>
-        <h3>Bonjour {this.state.currentUser.name}</h3>
-        <p class="lead"> Find your Tandem Buddy</p>
-        
+      <div> 
+
+      <div className="flexbox m-3" >
+      <h1 className="  m-3">Language Learners</h1>
+
+      <a href="profile.html" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
+      </div>
+
+    
 
       {this.state.users.length === 0 ? (
         <div>Loading.....</div>
@@ -51,35 +57,33 @@ export default class UsersList extends Component {
        (
         this.state.users.map((user, index) => {
           return (
-            <div key={index} >
-            <div >
+            <div  className="profiles" key={index} >
+            <div className= "profile bg-light" >
           <img
-            class="round-img"
-            src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+            className="round-img "
+            src="https://www.iass-potsdam.de/sites/default/files/styles/square_round_2_up/public/default_images/default_avatar_0.png?itok=ytiGDvoH"
             alt=""
           />
-          <div>
-            <h2>{user.name}</h2>
-            <p> Age:{user.age}</p>
-            <p> Gender: {user.gender}</p>
-            <p> Location: {user.location}</p>
-            <p> Goal: {user.goal}</p>
-            <a href="profile.html" class="btn btn-primary">View Profile</a>
+          <div className="padding">
+            <h2 className="my-1">{user.name}</h2>
+            <h3> Age:{user.age}</h3>
+            <h3> Gender: {user.gender}</h3>
+            <h3> Location: {user.location}</h3>
+            <a href="profile.html" className="btn  btn-dark my-2">View Profile</a> 
           </div>
-
           <ul>
-            <li class="text-primary">
-              <i class="fas fa-check"></i>
-              <p>{user.nativeLanguages}</p>
+            <li className="text-primary">
+              <p className="grey"> <i class="far fa-comments text-secondary "></i>Speaks</p>
+              <h3>{user.nativeLanguages}</h3>
             </li>
-            <li class="text-primary">
-              <i class="fas fa-check"></i>
-              <p>{user.learningLanguages}</p>
+
+            <li className="text-primary">
+            <p className="grey"><i class="fas fa-comments  "></i> Learns</p>
+              <h3>{user.learningLanguages}</h3>   
             </li>
           </ul>
+         
         </div>
-
-    
             </div>
             ) 
         })

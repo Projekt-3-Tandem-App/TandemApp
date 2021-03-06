@@ -26,7 +26,7 @@ export default class HomePage extends Component {
     return (
       <div>
         <Navbar/>
-        <h1 className= "m-3">HomePage</h1>
+
         <UsersList {...this.props}/>
 
       </div>

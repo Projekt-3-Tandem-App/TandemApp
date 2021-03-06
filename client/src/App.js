@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './auth.css';
 import { Route, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage'
 import Signup from './components/Signup';
