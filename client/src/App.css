@@ -416,6 +416,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  
 }
 
 .profile-top img {
@@ -423,17 +424,25 @@ button {
 }
 
 .profile-top .icons a {
-  color: #fff;
+  color: var(--dark-color);
+  margin: 0 0.3rem;
+}
+
+.icons a {
+  color: grey;
   margin: 0 0.3rem;
 }
 
 .profile-top .icons a:hover {
   color: var(--dark-color);
+
 }
 
 .profile-about {
   grid-area: about;
   text-align: center;
+  border-radius: 0 0 0.5rem 0.5rem ;
+
 }
 
 .profile-about .skills {
@@ -441,14 +450,17 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 0.2rem;
 }
 
 .profile-exp {
   grid-area: exp;
+  border-radius: 0.2rem;
 }
 
 .profile-edu {
   grid-area: edu;
+  border-radius: 0.5rem;
 }
 
 .profile-exp h2,

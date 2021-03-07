@@ -10,6 +10,7 @@ import HomePage from './components/HomePage';
 import Profile from './components/Profile';
 import AboutMe from './components/AboutMe';
 import Languages from './components/Languages';
+import ShowProfile from './components/ShowProfile'
 
 
 class App extends React.Component {
@@ -57,6 +58,15 @@ class App extends React.Component {
           render={props => {
             if (this.state.user) {
               return <Languages user={this.state.user} {...props} />
+            } else return <Redirect to='/' />
+          }}
+        />
+        
+        <Route
+          exact path='/showprofil'
+          render={props => {
+            if (this.state.user) {
+              return <ShowProfile user={this.state.user} {...props} />
             } else return <Redirect to='/' />
           }}
         />

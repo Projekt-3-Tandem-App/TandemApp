@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
+
+
 
 
 
@@ -69,7 +72,8 @@ export default class UsersList extends Component {
             <h3> Age:{user.age}</h3>
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
-            <a href="profile.html" className="btn  btn-dark my-2">View Profile</a> 
+            <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link>
+            
           </div>
           <ul>
             <li className="text-primary">
