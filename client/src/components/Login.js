@@ -38,6 +38,7 @@ export default class Login extends Component {
   }
   render() {
     return (
+      <section class="container" >
       <div>
          <h1 class="large text-primary">Sign In</h1>
          <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
@@ -67,6 +68,7 @@ export default class Login extends Component {
         Don't have an account? <a href="register.html">Sign Up</a>
       </p>
       </div>
+      </section>
     )
   }
 }
