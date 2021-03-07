@@ -12,13 +12,13 @@ export default class Profile extends Component{
         <Navbar/>  
         <div className="profile-grid my-1">
         <div className="profile-exp bg-white p-2">
-        <h1> Settings </h1>
+        <h1> Profile settings </h1>
         <ul>
-        <li><Link to="/aboutme" className="text-primary">About me</Link></li>
+        <li><Link to="/profile" className="text-primary">About me</Link></li>
         <li><Link to="/languages" className="text-primary">Languages</Link></li>
         <li><Link to="/languages" className="text-primary">Pricture Upload? </Link></li>
         </ul>
-        <button>  <Link to="/" >Logout </Link></button>
+        <button>  <Link to="/"> Logout </Link></button>
         
         </div>
         <div className="profile-edu bg-white p-2">
