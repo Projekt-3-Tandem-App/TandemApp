@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../services/auth';
-import HomePage from './HomePage';
+
+
 
 
 const handleLogout = props => {
@@ -52,6 +53,7 @@ export default function LandingPage(props) {
         </li> */}
               </ul>
             </nav>
+         
          
           </>
         )}
