@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { signup } from '../services/auth';
+import {Link} from 'react-router-dom';
 export default class Signup extends Component {
   state = {
     username: '',
@@ -58,11 +59,12 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <div className="form-group" >
+      <section className="container-auth">
+      <div className="form-group" > 
         <h1 class="large text-primary">Sign Up</h1>
         <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
         <form className="form profile-top" onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username"> </label>
           <input
             className="form-group" 
             type="text"
@@ -72,7 +74,7 @@ export default class Signup extends Component {
             id="username"
             placeholder="Username"
           />
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password" > </label>
           <input
              className="form-group" 
             type="password"
@@ -82,7 +84,7 @@ export default class Signup extends Component {
             id="password"
             placeholder="password"
           />
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name" className="m"></label>
           <input
             type="text"
             name="name"
@@ -91,18 +93,19 @@ export default class Signup extends Component {
             id="name"
             placeholder="name"
           />
-          <label htmlFor="nativeLanguages">Choose a native language:</label>
+           <h2 className="m-3">Languages</h2>
+          <label htmlFor="nativeLanguages" className="m"></label>
           <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
-          <option selected>Choose...</option>
+          <option selected> Choose a native language</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
           <option value="italian">Italian</option>
           <option value="spanish">Spanish</option>
           </select>
-          <label htmlFor="learningLanguages">Choose a learning language:</label>
+          <label htmlFor="learningLanguages" className="m-1"></label>
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
-          <option selected>Choose...</option>
+          <option selected>Choose a learning language</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
@@ -111,33 +114,34 @@ export default class Signup extends Component {
           </select>
         {/* languages
         location */}
-          <label htmlFor="location">Choose a city:</label>
+          <label htmlFor="location" className="m-1"></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
-          <option selected>Choose...</option>
+          <option selected>Choose a city</option>
           <option value="berlin">Berlin</option>
-          <option value="hambourg">Hambourg</option>
+          <option value="hambourg">Hamburg</option>
           <option value="paris">Paris</option>
           <option value="london">London</option>
           </select>
-        <label htmlFor="age">Age: </label>
+          <h2 className="m-3"> Profile Settings </h2>
+        <label htmlFor="age"> <h3>Choose your age</h3>
           <input
-             className="form-group" 
+            className="form-group" 
             type="Number"
             name="age"
             value={this.state.age}
             onChange={this.handleNumber}
             id="age"
             min="16"
-             max="100"
-          />
-          <label htmlFor="gender">Gender:</label>
+            max="100"
+          />  </label>
+          <label htmlFor="gender" className="m-1"></label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
-          <option selected>Choose...</option>
+          <option selected>Choose a gender...</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="transgender">Transgender</option>
           </select>
-          <label htmlFor="description">Description: </label>
+          <label htmlFor="description" className="m"></label>
           <input
              className="form-group" 
             type="text"
@@ -145,9 +149,9 @@ export default class Signup extends Component {
             value={this.state.description}
             onChange={this.handleChange}
             id="description"
-            placeholder="write something about you..."
+            placeholder="Write something about you..."
           />
-          <label htmlFor="goal">Learning goals: </label>
+          <label htmlFor="goal" ></label>
           <input
             className="form-group" 
             type="text"
@@ -155,17 +159,19 @@ export default class Signup extends Component {
             value={this.state.goal}
             onChange={this.handleChange}
             id="goal"
-            placeholder="my learning goals are... "
+            placeholder="Your learning goals... "
           />   
-          <button className="btn btn-primary" type="submit">Sign Up</button>
+          <button  className="btn btn-primary m-2" type="submit"> 
+          <h3 >Sign Up</h3></button>
           {this.state.message && (
             <h3>{this.state.message}</h3>
           )}
         </form>
         <p class="my-1">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account?  <Link to="/login" className="text-dark">Login</Link>
       </p>
       </div>
+      </section>
     )
   }
 }
