@@ -28,40 +28,6 @@ export default class Profile extends Component{
     console.log('STEP 1', this.state)
   }
 
-//    handleNumber = event => {
-//     let value = event.target.value;
-//     this.setState({
-//         age : value
-//      })
-//  }
-
-
-//  componentDidMount() {
-//   this.getUser();
-// }
-
-// getUser = () => {
-//   console.log('USERS ICI', this.props.match.params)
-//   axios.get(`/api/user/${this.props.match.params._id}`)
-  
-//     .then(response => {
-//       console.log("ICI reponse", response)
-//       this.setState({
-//         user: response.data,
-//       })
-//     })
-//     .catch(err => {
-//       console.log(err.response)
-//       if (err.response.status === 404) {
-//         // we have a 404 error
-//         this.setState({
-//           error: 'Not found 🤷‍♀️🤷‍♂️'
-//         })
-//       }
-//     })
-
-// }
-
 
  //axio put resquet with the dynamic id + setUser
 //  Edit profile
@@ -83,15 +49,6 @@ handleSubmit = event => {
   })
   .then(response => {
     console.log("RESPONSE", response)
-    // this.setState({
-    // name: this.state.name,
-    // location: this.state.location,
-    // age: this.state.age,
-    // gender: this.state.gender, 
-    // description: this.state.description, 
-    // goal: this.state.goal 
-   // })
-    // this.getData(); / with some changes
   })
   .catch(err => {
     console.log(err)
@@ -99,83 +56,7 @@ handleSubmit = event => {
 }
 
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
-  //   signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
-  //     .then(user => {
-  //       if (user.message) {
-  //         this.setState({
-  //           message: user.message,
-  //           username: '',
-  //           password: '',
-  //           message: '',
-  //           name:'',
-  //           nativeLanguages:'',
-  //           learningLanguages: [],
-  //           location: '', 
-  //           age: 0, 
-  //           gender: '',
-  //           description: '', 
-  //           goal: '' 
-  //         })
-  //       } else {
-  //         // the response from the server is a user object -> signup was successful
-  //         // we want to put the user object in the state of App.js
-  //         console.log(user)
-  //         this.props.setUser(user);
-  //         this.props.history.push('/');
-  //       }
-  //     })
-  // }
 
-
-//   state = {
-//     message: '',
-//     name:'',
-//     location: '', 
-//     age: 0,
-//     gender: '', 
-//     description: '', 
-//     goal: '' 
-//   }
-//   handleChange = event => {
-//     console.log(event.target)
-//     const { name, value } = event.target;
-//     this.setState({
-//       [name]: value
-//     })
-//   }
-//    handleNumber = event => {
-//     let value = event.target.value;
-//     this.setState({
-//         age : value
-//      })
-//  }
-//   handleSubmit = event => {
-//     event.preventDefault();
-//     const {name, location, age, gender, description, goal} = this.state;
-//     signup(name, location, age, gender, description, goal)
-//       .then(user => {
-//         if (user.message) {
-//           this.setState({
-//             message: '',
-//             name:'',
-//             location: '', 
-//             age: 0, 
-//             gender: '',
-//             description: '', 
-//             goal: '' 
-//           })
-//         } else {
-//           // the response from the server is a user object -> signup was successful
-//           // we want to put the user object in the state of App.js
-//           console.log(user)
-//           this.props.setUser(user);
-//           this.props.history.push('/');
-//         }
-//       })
-//   }
 
 
   render() {
@@ -211,7 +92,6 @@ handleSubmit = event => {
             value={this.state.name}
             onChange={this.handleChange}
             id="name"
-            //placeholder= {this.state.name}
           />
           
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
@@ -222,7 +102,6 @@ handleSubmit = event => {
           <option value="london">London</option>
           </select>
           <h2 className="m-3"> Profile Settings </h2>
-          
            
           <input 
             type="number"
@@ -233,7 +112,6 @@ handleSubmit = event => {
             min="16"
             max="100"
           />
-         
           
           <select name="gender"   id="gender" form="carform" onChange={this.handleChange}>
           <option selected>{this.state.gender}</option>
@@ -250,7 +128,6 @@ handleSubmit = event => {
             value={this.state.description}
             onChange={this.handleChange}
             id="description"
-            //placeholder={this.state.description}
           />
         
           <input
@@ -259,8 +136,6 @@ handleSubmit = event => {
             name="goal"
             value={this.state.goal}
             onChange={this.handleChange}
-            id="goal"
-            //placeholder="Your learning goals... "
           />  
          
        
@@ -287,84 +162,7 @@ handleSubmit = event => {
   }
 }
 
-/*     <div className="profile-edu bg-white p-2">
-        <h1>About me</h1>
-        <h2>{this.props.user.name}</h2>
-        <p>{this.props.user.age} years odl</p>
-        <p> Gender: {this.props.user.gender}</p>
-        <p>Live in {this.props.user.location}</p>
-        <p>Description: {this.props.user.description}</p>
-        <p>Goal: {this.props.user.goal}</p>
 
-      
-        </div>*/
-
-
-{/* 
-
-        <form className="form profile-top" onSubmit={this.handleSubmit}>
-          <label htmlFor="name" className="m"></label>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-            id="name"
-            placeholder="name"
-          />
-          <label htmlFor="location" className="m-1"></label>
-          <select name="location" id="location" form="carform" onChange={this.handleChange}>
-          <option selected>Choose a city</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
-          </select>
-          <h2 className="m-3"> Profile Settings </h2>
-        <label htmlFor="age"> <h3>Choose your age</h3>
-          <input
-            className="form-group" 
-            type="Number"
-            name="age"
-            value={this.state.age}
-            onChange={this.handleNumber}
-            id="age"
-            min="16"
-            max="100"
-          />  </label>
-          <label htmlFor="gender" className="m-1"></label>
-          <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
-          <option selected>Choose a gender...</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-          <option value="transgender">Transgender</option>
-          </select>
-          <label htmlFor="description" className="m"></label>
-          <input
-             className="form-group" 
-            type="text"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-            id="description"
-            placeholder="Write something about you..."
-          />
-          <label htmlFor="goal" ></label>
-          <input
-            className="form-group" 
-            type="text"
-            name="goal"
-            value={this.state.goal}
-            onChange={this.handleChange}
-            id="goal"
-            placeholder="Your learning goals... "
-          />   
-          <button  className="btn btn-primary m-2" type="submit"> 
-          <h3 >Save</h3></button>
-          {this.state.message && (
-            <h3>{this.state.message}</h3>
-          )}
-        </form> */}
 
 
    
