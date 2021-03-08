@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 
 
+
 //import UsersList from './UsersList'
 
 export default class Languages extends Component{
@@ -33,7 +34,16 @@ export default class Languages extends Component{
         <p>Learning Language : {this.props.user.learningLanguages}</p>     
         </div>
         </div>
+
+
+
         </div>
+
+
+
+
+
+        
     
       
       
