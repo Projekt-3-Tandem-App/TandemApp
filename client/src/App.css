@@ -35,6 +35,11 @@ ul {
   list-style: none;
 }
 
+.center { 
+  justify-content: center;
+  text-align: center;
+}
+
 img {
   width: 100%;
 }
@@ -65,6 +70,7 @@ img {
   margin-bottom: 3rem;
 
 }
+
 
 /* Text Styles*/
 .x-large {
@@ -155,6 +161,9 @@ img {
 .my-3 {
   margin: 3rem 0;
 }
+.my-5 {
+  margin: 5rem 0;
+}
 
 .margin-y {
   margin: 0 0.5rem;
@@ -175,6 +184,11 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  
+}
+
+.btn-width {
+  width:150px;
 }
 
 .badge {
@@ -240,7 +254,7 @@ img {
 .alert-white {
   background: #fff;
   color: #333;
-  border: #ccc solid 1px;
+  border: rgb(228, 228, 228) solid 1px;
 }
 
 .btn:hover {
@@ -249,7 +263,7 @@ img {
 
 .bg-light,
 .badge-light {
-  border: #ccc solid 1px;
+  border: rgb(228, 228, 228) solid 1px;
 }
 
 .round-img {
@@ -353,10 +367,13 @@ button {
 
 .flexbox { 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 3rem;
 }
+
+
 
 .navbar ul {
   display: flex;
@@ -414,9 +431,18 @@ button {
   grid-template-areas:
     'top top'
     'about about'
-    'exp edu'
+    'exp edu '
     'github github';
   grid-gap: 1rem;
+}
+
+
+
+
+.profile-exp{
+  grid-area: exp;
+  border-radius: 0.2rem;
+
 }
 
 .profile-top {
@@ -471,6 +497,7 @@ button {
 .profile-edu {
   grid-area: edu;
   border-radius: 0.5rem;
+  
 }
 
 .profile-exp h2,
@@ -552,6 +579,14 @@ button {
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
+  }
+
+  .flex-smart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem;
   }
 
   .hide-sm {

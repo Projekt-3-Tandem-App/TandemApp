@@ -38,26 +38,28 @@ export default class Login extends Component {
   }
   render() {
     return (
-      <section class="container" >
+      <section  className="container-auth" >
       <div>
          <h1 class="large text-primary">Sign In</h1>
          <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
-        <form  onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username: </label>
+        <form  s onSubmit={this.handleSubmit}>
+          <label htmlFor="username"></label>
           <input
             type="text"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
             id="username"
+            placeholder="Username"
           />
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
             id="password"
+            placeholder="Password"
           />
           <button  className="btn btn-primary" type="submit">Log in</button>
           {this.state.message && (

@@ -36,7 +36,7 @@ export default class ShowProfile  extends Component{
           <div>
           </div>
           <h2 class="text-dark">John learning </h2>
-          <h3>Spanish: {this.props.user.learningLanguages}</h3>  
+          <h3>Spanish {this.props.user.learningLanguages}</h3>  
         </div>
       
 

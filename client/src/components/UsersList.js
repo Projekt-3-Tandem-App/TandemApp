@@ -46,7 +46,7 @@ export default class UsersList extends Component {
       <div> 
 
       <div className="flexbox m-3" >
-      <h1 className="  m-3">Language Learners</h1>
+      <h1 className=" m-3">Language Learners</h1>
 
       <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
       </div>
