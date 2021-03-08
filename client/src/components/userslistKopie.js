@@ -1,7 +1,8 @@
+
 import React, { Component } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-
+/*
 
 
 
@@ -124,4 +125,42 @@ export default class UsersList extends Component {
   }
 }
 
+*/
 
+export default class UsersList extends Component { 
+
+  constructor(props) {
+    super(props);
+
+    state = {
+      currentUser: this.props.user,
+      users: [], 
+      showfilter: false,
+    }
+
+    componentDidMount(){
+      this.getUsers()
+    }
+    getUsers = async () => {
+      //console.log("route triggered to fget users")
+      let response = await axios.get('http://localhost:5005/api/userinformation')
+      //console.log(response, "response at FE")
+      let {data} = response;
+      //console.log(data, "userlsit at FE")
+      this.setState({users: data})
+    }
+  
+    toggleFilterHandler = () => {
+      const doesShow = this.state.showfilter;
+     this.setState( {showfilter : !doesShow})
+   }
+   
+    render() {
+      console.log(this.props, "props at userslist")
+  
+
+  
+
+
+
+}

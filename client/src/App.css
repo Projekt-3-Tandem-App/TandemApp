@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap');
 
+/* background-image:url( "http://i1.wp.com/www.bankpixel.com/wp-content/uploads/2014/06/slide1-img.png?fit=1205%2C494");*/
+
+
 :root {
   --primary-color:#e6b141;
-  --dark-color:   #217575;
+  --dark-color:   #056d5a;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -20,7 +23,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: rgb(252, 247, 247);
+  background-color: rgb(252, 247, 247); 
   color: #333;
 }
 
@@ -33,6 +36,14 @@ a {
 
 ul {
   list-style: none;
+}
+
+.background {
+
+ background-image:url( "https://image.freepik.com/vektoren-kostenlos/glueckliche-junge-leute-die-hallo-in-verschiedenen-sprachen-sagen-schueler-mit-sprechblasen-und-haenden-in-begruessungsgeste_74855-10827.jpg");
+  z-index: 0;
+background-size: auto;
+
 }
 
 .center { 

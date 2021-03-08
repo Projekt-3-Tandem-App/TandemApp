@@ -48,11 +48,19 @@ export default function LandingPage(props) {
                   </Link>
                 </li>
 
+                
+
+
                 {/* <li>
               <Link to='/' onClick={() => handleLogout(props)} >Logout</Link>
         </li> */}
               </ul>
             </nav>
+
+          
+            
+
+            
          
          
           </>
