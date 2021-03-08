@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
+import axios from 'axios';
 
 
 
@@ -9,18 +10,10 @@ import { signup } from '../services/auth';
 
 export default class Languages extends Component{
   state = {
-    username: '',
-    password: '',
-    message: '',
-    name:'',
-    nativeLanguages: '', 
-    learningLanguages: [],
-    location: '', 
-    age: 0,
-    gender: '', 
-    description: '', 
-    goal: '' 
-  }
+    nativeLanguages: this.props.user.nativeLanguages, 
+    learningLanguages: this.props.user.learningLanguages
+    }
+
   handleChange = event => {
     console.log(event.target)
     const { name, value } = event.target;
@@ -28,40 +21,19 @@ export default class Languages extends Component{
       [name]: value
     })
   }
-   handleNumber = event => {
-    let value = event.target.value;
-    this.setState({
-        age : value
-     })
- }
+
   handleSubmit = event => {
     event.preventDefault();
-    const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
-    signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
-      .then(user => {
-        if (user.message) {
-          this.setState({
-            message: user.message,
-            username: '',
-            password: '',
-            message: '',
-            name:'',
-            nativeLanguages:'',
-            learningLanguages: [],
-            location: '', 
-            age: 0, 
-            gender: '',
-            description: '', 
-            goal: '' 
-          })
-        } else {
-          // the response from the server is a user object -> signup was successful
-          // we want to put the user object in the state of App.js
-          console.log(user)
-          this.props.setUser(user);
-          this.props.history.push('/');
-        }
-      })
+    console.log('Step 2')
+    axios.put(`/api/user/${this.props.user._id}`, { 
+      nativeLanguages: this.state.user.nativeLanguages
+    })
+    .then(response => {
+      console.log("RESPONSE", response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
 
