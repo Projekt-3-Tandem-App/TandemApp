@@ -10,7 +10,6 @@ export default class Profile extends Component{
     //...this.props.user
     //message: '',
     name: this.props.user.name,
-
     location: this.props.user.location, 
     age: this.props.user.age,
     gender: this.props.user.gender, 

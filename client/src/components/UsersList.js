@@ -46,7 +46,8 @@ export default class UsersList extends Component {
       <div> 
 
       <div className="flexbox m-3" >
-      <h1 className=" m-3">Language Learners</h1>
+      <h1 className=" m-3">Find your tandem partner</h1>
+      {/* <h1 className=" m-3">Language Learners</h1> */}
 
       <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
       </div>
@@ -72,7 +73,7 @@ export default class UsersList extends Component {
             <h3> Age:{user.age}</h3>
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
-            <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link>
+            {/* <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link> */}
             <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
             
           </div>
