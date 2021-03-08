@@ -22,7 +22,7 @@ export default class UsersList extends Component {
   }
   getUsers = async () => {
     //console.log("route triggered to fget users")
-    let response = await axios.get('http://localhost:5005/api/userinformation')
+    let response = await axios.get('/api/users')
     //console.log(response, "response at FE")
     let {data} = response;
     //console.log(data, "userlsit at FE")
@@ -100,6 +100,7 @@ export default class UsersList extends Component {
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
             <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link>
+            <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
             
           </div>
           <ul>
@@ -125,3 +126,42 @@ export default class UsersList extends Component {
 }
 
 
+<<<<<<< HEAD
+=======
+
+/*   <h1 class="large text-primary">Developers</h1>
+      <p class="lead">
+        <i class="fab fa-connectdevelop"></i> Browse and connect with developers
+      </p>
+      <div class="profiles">
+        <div class="profile bg-light">
+          <img
+            class="round-img"
+            src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+            alt=""
+          />
+          <div>
+            <h2>John Doe</h2>
+            <p>Developer at Microsoft</p>
+            <p>Seattle, WA</p>
+            <a href="profile.html" class="btn btn-primary">View Profile</a>
+          </div>
+          <ul>
+            <li class="text-primary">
+              <i class="fas fa-check"></i> HTML
+            </li>
+            <li class="text-primary">
+              <i class="fas fa-check"></i> CSS
+            </li>
+            <li class="text-primary">
+              <i class="fas fa-check"></i> JavaScript
+            </li>
+            <li class="text-primary">
+              <i class="fas fa-check"></i> Python
+            </li>
+            <li class="text-primary">
+              <i class="fas fa-check"></i> C#
+            </li>
+          </ul>
+        </div> */ 
+>>>>>>> master
