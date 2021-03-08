@@ -63,8 +63,8 @@ class App extends React.Component {
         />
         
         <Route
-          exact path='/showprofil'
-          render={props => {
+          //exact path='/showprofil'
+          exact path='/users/:id'          render={props => {
             if (this.state.user) {
               return <ShowProfile user={this.state.user} {...props} />
             } else return <Redirect to='/' />

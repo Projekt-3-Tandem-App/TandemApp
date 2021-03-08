@@ -57,6 +57,12 @@ router.get("/auth/loggedin", (req,res,next) => {
   console.log("why is this not working")
 })
 
+
+
+
+
+
+
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user) => {
     if (err) {

@@ -21,7 +21,7 @@ export default class UsersList extends Component {
   }
   getUsers = async () => {
     //console.log("route triggered to fget users")
-    let response = await axios.get('http://localhost:5005/api/userinformation')
+    let response = await axios.get('/api/users')
     //console.log(response, "response at FE")
     let {data} = response;
     //console.log(data, "userlsit at FE")
@@ -73,6 +73,7 @@ export default class UsersList extends Component {
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
             <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link>
+            <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
             
           </div>
           <ul>
@@ -116,7 +117,6 @@ export default class UsersList extends Component {
             <p>Seattle, WA</p>
             <a href="profile.html" class="btn btn-primary">View Profile</a>
           </div>
-
           <ul>
             <li class="text-primary">
               <i class="fas fa-check"></i> HTML

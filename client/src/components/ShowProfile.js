@@ -1,13 +1,49 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
+import axios from 'axios';
 
 //import UsersList from './UsersList'
 
 export default class ShowProfile  extends Component{
 
+  state = {
+    user: ''
+  }
+
+  componentDidMount() {
+    this.getUserDetails();
+  }
+
+  getUserDetails = () => {
+    const {id} = this.props.match.params
+    console.log("STEP 1", id);
+    axios.get(`/api/users/${this.props.match.params.id}`)
+    
+      .then(response => {
+        console.log("ICI reponse", response)
+        //const user = response.data; 
+        this.setState({
+         user: response.data,
+        
+        })
+      })
+      .catch(err => {
+        console.log(err.response)
+        if (err.response.status === 404) {
+          // we have a 404 error
+          this.setState({
+            error: 'Not found 🤷‍♀️🤷‍♂️'
+          })
+        }
+      })
+
+  }
+
 
   render() {
+    console.log("STEP 1", this.props)
+    console.log("STEP 2", this.state.user)
     return (
 
       <div>
@@ -24,19 +60,20 @@ export default class ShowProfile  extends Component{
             src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
             alt=""
           />
-          <h1 class="large">John Doe</h1>
-          <p class="lead">is currently in Hamburg</p>
+          
+          <h1 class="large">{this.state.user.name}</h1>
+          <p class="lead">is currently in {this.state.user.location}</p>
           <a href="profiles.html" class="btn btn-light">Message </a>
         </div>
 
         <div class="profile-exp bg-white p-2">
           <h2 class="text-dark">John speaks </h2>
-          <h3 > English{this.props.user.nativeLanguages}
+          <h3 >{this.props.user.nativeLanguages}
           </h3> 
           <div>
           </div>
           <h2 class="text-dark">John learning </h2>
-          <h3>Spanish {this.props.user.learningLanguages}</h3>  
+          <h3>{this.props.user.learningLanguages}</h3>  
         </div>
       
 
@@ -44,14 +81,12 @@ export default class ShowProfile  extends Component{
         <div class="profile-edu bg-white p-2">
       
           <div>
-            <h3> About John</h3>
-            <p> 18 Jahre </p>
+            <h3> About {this.state.user.name}</h3>
+            <p> {this.state.user.age} </p>
 
             <p>
-              <strong>Description: </strong>Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Dignissimos placeat, dolorum ullam
-              ipsam, sapiente suscipit dicta eius velit amet aspernatur
-              asperiores modi quidem expedita fugit.
+              <strong>Description: </strong>
+              {this.state.user.description} 
             </p>
           </div>
         </div>
@@ -61,9 +96,7 @@ export default class ShowProfile  extends Component{
         <div class="profile-about bg-light p-2">
           <h2 class="text-primary"> Goals</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed
-            doloremque nesciunt, repellendus nostrum deleniti recusandae nobis
-            neque modi perspiciatis similique?
+            {this.state.user.description}
           </p>
           <div class="line"></div>
           <div class=" icons my-4">
