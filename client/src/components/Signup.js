@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { signup } from '../services/auth';
 import {Link} from 'react-router-dom';
+
+
 export default class Signup extends Component {
   state = {
     username: '',
