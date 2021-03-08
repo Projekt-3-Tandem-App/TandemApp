@@ -14,6 +14,27 @@ router.get("/userinformation", (req, res, next) => {
   }).catch((err) => {console.log(err)})
 })
 
+
+// to get a specific project
+router.get('/userinformation/:id', (req, res, next) => {
+  User.findById(req.params.id)
+    .then(project => {
+      if (!project) {
+        res.status(404).json(project)
+      } else {
+        res.status(200).json(project)
+      }
+    })
+    .catch(err => {
+      next(err)
+    })
+});
+
+
+
+
+
+
 // You put the next routes here 👇
 // example: router.use("/auth", authRoutes)
 

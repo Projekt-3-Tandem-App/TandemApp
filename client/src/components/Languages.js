@@ -4,6 +4,7 @@ import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
 
 
+
 //import UsersList from './UsersList'
 
 export default class Languages extends Component{
@@ -83,6 +84,7 @@ export default class Languages extends Component{
         </div>
 
 
+
         <section className=" profile-edu bg-white p-3">
       <div className="form-group" > 
 
@@ -122,6 +124,12 @@ export default class Languages extends Component{
 
 
       </div>
+
+
+        </div>
+
+
+
     
       
       
