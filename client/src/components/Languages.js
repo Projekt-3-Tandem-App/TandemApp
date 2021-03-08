@@ -126,7 +126,7 @@ export default class Languages extends Component{
       </div>
 
 
-        </div>
+    
 
 
 

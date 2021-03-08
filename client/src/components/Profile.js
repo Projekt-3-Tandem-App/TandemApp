@@ -2,64 +2,132 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
+import axios from 'axios';
 //import UsersList from './UsersList'
 
 export default class Profile extends Component{
   state = {
-    username: '',
-    password: '',
-    message: '',
-    name:'',
-    nativeLanguages: '', 
-    learningLanguages: [],
-    location: '', 
-    age: 0,
-    gender: '', 
-    description: '', 
-    goal: '' 
+    //...this.props.user
+    //message: '',
+    name: this.props.user.name,
+
+    location: this.props.user.location, 
+    age: this.props.user.age,
+    gender: this.props.user.gender, 
+    description: this.props.user.description, 
+    goal: this.props.user.goal 
   }
+
+
   handleChange = event => {
-    console.log(event.target)
     const { name, value } = event.target;
+    console.log('STEP 0', event.target)
     this.setState({
       [name]: value
-    })
+    }) 
+    console.log('STEP 1', this.state)
   }
-   handleNumber = event => {
-    let value = event.target.value;
-    this.setState({
-        age : value
-     })
- }
-  handleSubmit = event => {
-    event.preventDefault();
-    const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
-    signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
-      .then(user => {
-        if (user.message) {
-          this.setState({
-            message: user.message,
-            username: '',
-            password: '',
-            message: '',
-            name:'',
-            nativeLanguages:'',
-            learningLanguages: [],
-            location: '', 
-            age: 0, 
-            gender: '',
-            description: '', 
-            goal: '' 
-          })
-        } else {
-          // the response from the server is a user object -> signup was successful
-          // we want to put the user object in the state of App.js
-          console.log(user)
-          this.props.setUser(user);
-          this.props.history.push('/');
-        }
-      })
-  }
+
+//    handleNumber = event => {
+//     let value = event.target.value;
+//     this.setState({
+//         age : value
+//      })
+//  }
+
+
+//  componentDidMount() {
+//   this.getUser();
+// }
+
+// getUser = () => {
+//   console.log('USERS ICI', this.props.match.params)
+//   axios.get(`/api/user/${this.props.match.params._id}`)
+  
+//     .then(response => {
+//       console.log("ICI reponse", response)
+//       this.setState({
+//         user: response.data,
+//       })
+//     })
+//     .catch(err => {
+//       console.log(err.response)
+//       if (err.response.status === 404) {
+//         // we have a 404 error
+//         this.setState({
+//           error: 'Not found 🤷‍♀️🤷‍♂️'
+//         })
+//       }
+//     })
+
+// }
+
+
+ //axio put resquet with the dynamic id + setUser
+//  Edit profile
+// 1. Make a put request to smth like “/edit-profile”
+// 1. Make a put request to smith like “/user/:id”
+// 2. Update the user, and respond it, so the client can use the updated user information
+// 3. Set the updated user information to the state
+// 4. Set the updated user information to the parent component state
+handleSubmit = event => {
+  event.preventDefault();
+  console.log('Step 2')
+  axios.put(`/api/user/${this.props.user._id}`, { 
+    name: this.state.name,
+    location: this.state.location,
+    age: this.state.age,
+    gender: this.state.gender, 
+    description: this.state.description, 
+    goal: this.state.goal 
+  })
+  .then(response => {
+    console.log("RESPONSE", response)
+    // this.setState({
+    // name: this.state.name,
+    // location: this.state.location,
+    // age: this.state.age,
+    // gender: this.state.gender, 
+    // description: this.state.description, 
+    // goal: this.state.goal 
+   // })
+    // this.getData(); / with some changes
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const { username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal} = this.state;
+  //   signup(username, password, name, nativeLanguages, learningLanguages, location, age, gender, description, goal)
+  //     .then(user => {
+  //       if (user.message) {
+  //         this.setState({
+  //           message: user.message,
+  //           username: '',
+  //           password: '',
+  //           message: '',
+  //           name:'',
+  //           nativeLanguages:'',
+  //           learningLanguages: [],
+  //           location: '', 
+  //           age: 0, 
+  //           gender: '',
+  //           description: '', 
+  //           goal: '' 
+  //         })
+  //       } else {
+  //         // the response from the server is a user object -> signup was successful
+  //         // we want to put the user object in the state of App.js
+  //         console.log(user)
+  //         this.props.setUser(user);
+  //         this.props.history.push('/');
+  //       }
+  //     })
+  // }
 
 
 //   state = {
@@ -135,19 +203,19 @@ export default class Profile extends Component{
 
 <form className="form profile-top" onSubmit={this.handleSubmit}>   
 
-<label htmlFor="username"> </label>   
-          <label htmlFor="name" className="m"> name{this.state.name}</label>
+
+          <label htmlFor="name" className="m"></label>
           <input
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
             id="name"
-            placeholder= {this.state.name}
+            //placeholder= {this.state.name}
           />
-            <label htmlFor="location" className="m-1"></label>
+          
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
-          <option selected>Choose a city</option>
+          <option selected>{this.state.location}</option>
           <option value="berlin">Berlin</option>
           <option value="hambourg">Hamburg</option>
           <option value="paris">Paris</option>
@@ -155,25 +223,26 @@ export default class Profile extends Component{
           </select>
           <h2 className="m-3"> Profile Settings </h2>
           
-          <label htmlFor="age"> <h3>Choose your age</h3>  
+           
           <input 
-            type="Number"
+            type="number"
             name="age"
             value={this.state.age}
-            onChange={this.handleNumber}
+            onChange={this.handleChange}
             id="age"
             min="16"
             max="100"
           />
-          </label>
-          <label htmlFor="gender" className="m-1"></label>
-          <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
-          <option selected>Choose a gender...</option>
+         
+          
+          <select name="gender"   id="gender" form="carform" onChange={this.handleChange}>
+          <option selected>{this.state.gender}</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
-          <option value="transgender">Transgender</option>
+          <option value="transgender">Nonbinary</option>
           </select>
-          <label htmlFor="description" className="m"></label>
+
+          
           <input
              className="form-group" 
             type="text"
@@ -181,9 +250,9 @@ export default class Profile extends Component{
             value={this.state.description}
             onChange={this.handleChange}
             id="description"
-            placeholder="Write something about you..."
+            //placeholder={this.state.description}
           />
-          <label htmlFor="goal"></label>
+        
           <input
             className="form-group" 
             type="text"
@@ -191,11 +260,10 @@ export default class Profile extends Component{
             value={this.state.goal}
             onChange={this.handleChange}
             id="goal"
-            placeholder="Your learning goals... "
+            //placeholder="Your learning goals... "
           />  
          
        
-          
  
  
   <button  className="btn btn-primary m-2" type="submit"> 
@@ -299,11 +367,4 @@ export default class Profile extends Component{
         </form> */}
 
 
-      </div>
-    
-      
-      
-    )
-  }
-}
-
+   
