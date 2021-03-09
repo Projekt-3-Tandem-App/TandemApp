@@ -64,7 +64,7 @@ export default class Languages extends Component{
         <li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
         <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
         <li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
-        <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li>
+        <li> <Link to="/picture" className="btn my-1 btn-width">Logout </Link></li>
         </ul> 
         </div>
 

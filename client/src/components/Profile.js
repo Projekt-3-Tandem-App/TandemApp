@@ -87,7 +87,7 @@ handleLogout = () => {
 <ul className="flex-smart " >
 <li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
-<li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
+<li><Link to="/upload" className="btn my-1 btn-width ">Picture </Link></li>
 {/* <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li> */}
 <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
 
