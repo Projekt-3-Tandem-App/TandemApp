@@ -65,6 +65,7 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
   new LocalStrategy((username, password, done) => {
+    console.log('STEP 4')
     // login
     User.findOne({ username: username })
       .then(userFromDB => {

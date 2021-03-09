@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require('../models/User.model');
 const bcrypt = require('bcrypt');
+const passport = require('passport')
 
 
 router.post('/signup', (req, res, next) => {
@@ -64,7 +65,9 @@ router.get("/auth/loggedin", (req,res,next) => {
 
 
 router.post('/login', (req, res, next) => {
+  console.log('STEP 3')
   passport.authenticate('local', (err, user) => {
+    console.log('USER', user)
     if (err) {
       return res.status(500).json({ message: 'Error while attempting to login' })
     }

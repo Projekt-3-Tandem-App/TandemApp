@@ -23,6 +23,8 @@ class App extends React.Component {
     })
   }
   render() {
+
+    console.log('check the user', this.state.user)
     return (
       <div className="App">
         <LandingPage user={this.state.user} setUser={this.setUser} />
@@ -39,7 +41,7 @@ class App extends React.Component {
           exact path='/profile'
           render={props => {
             if (this.state.user) {
-              return <Profile user={this.state.user} {...props} />
+              return <Profile user={this.state.user} {...props} setUser={this.setUser} />
             } else return <Redirect to='/' />
           }}
         />

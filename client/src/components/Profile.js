@@ -52,7 +52,8 @@ handleSubmit = event => {
     goal: this.state.goal 
   })
   .then(response => {
-    console.log("RESPONSE", response)
+    console.log("RESPONSE", response.data)
+    this.props.setUser(response.data)
   })
   .catch(err => {
     console.log(err)
@@ -61,13 +62,13 @@ handleSubmit = event => {
 
 
 
-// handleLogout = () => {
-//  // event.preventDefault();
-//   logout().then(() => {
-//     this.setUser(null)
-//     this.history.push('/');
-//   }) 
-// }
+handleLogout = () => {
+ // event.preventDefault();
+  logout().then(() => {
+    this.props.setUser(null)
+    this.props.history.push('/');
+  }) 
+}
 
 
 
@@ -87,8 +88,8 @@ handleSubmit = event => {
 <li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
-<li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li>
-{/* <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li> */}
+{/* <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li> */}
+<li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
 
 </ul> 
 </div>

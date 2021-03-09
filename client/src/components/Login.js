@@ -17,6 +17,7 @@ export default class Login extends Component {
   }
 
   handleSubmit = event => {
+    console.log('STEP 1', this.state)
     event.preventDefault();
     const { username, password } = this.state;
     login(username, password)
