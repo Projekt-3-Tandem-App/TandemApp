@@ -85,17 +85,17 @@ handleLogout = () => {
 
 <h2 ><i class="fas fa-user my-1"></i> Settings</h2>
 <ul className="flex-smart " >
-<li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
-<li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
-<li><Link to="/upload" className="btn my-1 btn-width ">Picture </Link></li>
+<li><Link to="/profile" className="btn my-1 btn-width btn-smart ">Profile</Link></li>
+<li><Link to="/languages" className="btn my-1 btn-width btn-smart">Languages</Link></li>
+<li><Link to="/upload" className="btn my-1 btn-width btn-smart ">Picture </Link></li>
 {/* <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li> */}
-<li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
+<li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width btn-smart">Logout </Link></li>
 
 </ul> 
 </div>
 
 
-<section className=" profile-edu bg-white p-3">
+<section className=" profile-edu bg-white p-2">
 <div className="form-group" > 
 
 <h2 class="large text-primary center">Edit your Profile</h2>

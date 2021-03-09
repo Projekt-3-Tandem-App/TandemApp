@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
 import axios from 'axios';
+import { logout } from "../services/auth";
 
 
 
@@ -28,6 +29,9 @@ export default class Languages extends Component{
     })
   }
 
+ 
+  
+
   handleSubmit = event => {
     event.preventDefault();
     console.log('Step 2')
@@ -49,6 +53,13 @@ export default class Languages extends Component{
     })
   }
 
+  handleLogout = () => {
+    // event.preventDefault();
+     logout().then(() => {
+       this.props.setUser(null)
+       this.props.history.push('/');
+     }) 
+   }
 
 
   render() {
@@ -63,8 +74,8 @@ export default class Languages extends Component{
         <ul className="flex-smart " >
         <li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
         <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
-        <li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
-        <li> <Link to="/picture" className="btn my-1 btn-width">Logout </Link></li>
+        <li><Link to="/upload" className="btn my-1 btn-width ">Picture </Link></li>
+        <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
         </ul> 
         </div>
 
