@@ -8,6 +8,7 @@ export default class UsersList extends Component {
     location: '',
     nativeLanguages: '',
     learningLanguages: '', 
+    showPersons: false,
   }
   componentDidMount(){
     this.getUsers()
@@ -20,6 +21,11 @@ export default class UsersList extends Component {
     //console.log(data, "userlsit at FE")
     this.setState({users: data})
   }
+
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+   this.setState( {showPersons : !doesShow})
+ }
 
   handleChange = event => {
     const name = event.target.name;
@@ -52,10 +58,11 @@ export default class UsersList extends Component {
 
 
       <div> 
-      <div className=" m-3" >
-      <h1 className=" m-3">Language Learners</h1>
-      <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
-      <form className="form profile-top" onSubmit={this.handleSubmit}>
+      <div className="  container-list m-3" >
+      <div className=" flexbox" >
+      <h1 className=" home-h1 m-3">Language Learners</h1>
+      <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a> </div>
+      <form className=" form profile-top" onSubmit={this.handleSubmit}>
       <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option value='' selected> Choose your tandem location</option>
           <option value="">Show all location</option>
@@ -64,7 +71,7 @@ export default class UsersList extends Component {
           <option value="paris">Paris</option>
           <option value="london">London</option>
           </select>
-          <label htmlFor="learningLanguages" className="m-1"></label>
+          <label htmlFor="learningLanguages" className=""></label>
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
           <option value="" selected> I want to learn </option>
           <option value="">All</option>
@@ -102,14 +109,14 @@ export default class UsersList extends Component {
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
           return (
-            <div  className="profiles" key={index} >
+            <div  className="profiles container-list" key={index} >
             <div className= "profile bg-light" >
           <img
             className="round-img "
             src="https://www.iass-potsdam.de/sites/default/files/styles/square_round_2_up/public/default_images/default_avatar_0.png?itok=ytiGDvoH"
             alt=""
           />
-          <div className="padding">
+          <div className="">
             <h2 className="my-1">{user.name}</h2>
             <h3> Age:{user.age}</h3>
             <h3> Gender: {user.gender}</h3>

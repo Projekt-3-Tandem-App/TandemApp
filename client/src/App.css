@@ -82,6 +82,15 @@ img {
 
 }
 
+.container-list { 
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+ 
+
+}
+
 
 /* Text Styles*/
 .x-large {
@@ -433,7 +442,7 @@ button {
   line-height: 1.8;
   margin-bottom: 1rem;
   border-radius:5px;
-  margin:3rem;
+  margin:2rem;
 }
 
 /* Profile Page */
@@ -463,6 +472,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  grid-gap: 1rem;
   
 }
 
