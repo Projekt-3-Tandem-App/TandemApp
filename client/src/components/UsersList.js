@@ -38,7 +38,7 @@ export default class UsersList extends Component {
     const name = event.target.name;
     const target = event.target; 
     const value = target.value;
-    console.log(name , value)
+   // console.log(name , value)
     this.setState({
       [name]: value
     })
@@ -48,14 +48,15 @@ export default class UsersList extends Component {
  
   render() {
     //console.log(this.props, "props at userslist")
-    console.log("USER location", this.state.currentUser.location)
+    //console.log("USER location", this.state.currentUser.location)
 
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
       && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-      && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+      && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
     console.log(filteredUsers)
+    console.log("Check problem 1", this.state)
 
 
  
@@ -108,7 +109,7 @@ export default class UsersList extends Component {
        ( */}
         {/* this.state.users.map((user, index) => { */}
         {filteredUsers.map((user, index) => {
-          console.log('HERE USER', user)
+          //console.log('HERE USER', user)
           return (
             <div  className="profiles" key={index} >
             <div className= "profile bg-light" >
