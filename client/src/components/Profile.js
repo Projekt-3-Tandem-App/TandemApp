@@ -3,14 +3,18 @@ import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
 import axios from 'axios';
+import {logout} from '../services/auth'
 //import UsersList from './UsersList'
+
+
+
+
 
 export default class Profile extends Component{
   state = {
     //...this.props.user
     //message: '',
     name: this.props.user.name,
-
     location: this.props.user.location, 
     age: this.props.user.age,
     gender: this.props.user.gender, 
@@ -57,6 +61,17 @@ handleSubmit = event => {
 
 
 
+// handleLogout = () => {
+//  // event.preventDefault();
+//   logout().then(() => {
+//     this.setUser(null)
+//     this.history.push('/');
+//   }) 
+// }
+
+
+
+
 
 
   render() {
@@ -73,6 +88,8 @@ handleSubmit = event => {
 <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
 <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li>
+{/* <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li> */}
+
 </ul> 
 </div>
 

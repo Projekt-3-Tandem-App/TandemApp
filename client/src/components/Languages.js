@@ -10,6 +10,12 @@ import axios from 'axios';
 
 export default class Languages extends Component{
   state = {
+    // name: this.props.user.name,
+    // location: this.props.user.location, 
+    // age: this.props.user.age,
+    // gender: this.props.user.gender, 
+    // description: this.props.user.description, 
+    // goal: this.props.user.goal, 
     nativeLanguages: this.props.user.nativeLanguages, 
     learningLanguages: this.props.user.learningLanguages
     }
@@ -26,7 +32,14 @@ export default class Languages extends Component{
     event.preventDefault();
     console.log('Step 2')
     axios.put(`/api/user/${this.props.user._id}`, { 
-      nativeLanguages: this.state.user.nativeLanguages
+      //name: this.state.name,
+      // location: this.state.location,
+      // age: this.state.age,
+      // gender: this.state.gender, 
+      // description: this.state.description, 
+      // goal: this.state.goal, 
+      nativeLanguages: this.state.nativeLanguages,
+      learningLanguages: this.state.learningLanguages
     })
     .then(response => {
       console.log("RESPONSE", response)
@@ -64,18 +77,18 @@ export default class Languages extends Component{
 
         <form className="form profile-top" onSubmit={this.handleSubmit}>   
         <h2 className="m-3"> Choose your native Language</h2>
-          <label htmlFor="nativeLanguages" className="m"></label>
+          
           <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
-          <option selected> Choose a native language</option>
+          <option selected>{this.state.nativeLanguages}</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>
           <option value="italian">Italian</option>
           <option value="spanish">Spanish</option>
           </select>
-          <label htmlFor="learningLanguages" className="m-1"></label>
+         
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
-          <option selected>Choose a learning language</option>
+          <option selected>{this.state.learningLanguages}</option>
           <option value="english">English</option>
           <option value="french">French</option>
           <option value="german">German</option>

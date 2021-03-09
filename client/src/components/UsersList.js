@@ -20,6 +20,7 @@ export default class UsersList extends Component {
     //console.log(data, "userlsit at FE")
     this.setState({users: data})
   }
+
   handleChange = event => {
     const name = event.target.name;
     const target = event.target; 
@@ -29,16 +30,27 @@ export default class UsersList extends Component {
       [name]: value
     })
     }
+
+
+
+ 
   render() {
     //console.log(this.props, "props at userslist")
     console.log("USER location", this.state.currentUser.location)
+
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
       && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-      || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+      && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
     })
     console.log(filteredUsers)
+
+
+ 
+    
     return (
+
+
       <div> 
       <div className=" m-3" >
       <h1 className=" m-3">Language Learners</h1>
@@ -75,11 +87,17 @@ export default class UsersList extends Component {
           <h3> Filter </h3></button> */}
       </form>
       </div>
+
+
 {/*     
+
       {this.state.users.length === 0 ? (
         <div>Loading.....</div>
       ):
+      
+
        ( */}
+
         {/* this.state.users.map((user, index) => { */}
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
@@ -113,8 +131,14 @@ export default class UsersList extends Component {
             </div>
             ) 
         })}
+
       {/* )} */}
       </div>
     )
   }
+
 }
+
+
+
+
