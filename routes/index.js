@@ -33,11 +33,11 @@ router.get('/users/:id', (req, res, next) => {
 
 
 router.put('/user/:id', (req, res, next) => {
-  const { name, location, age, gender, description, goal } = req.body;
+  //const { name, location, age, gender, description, goal, nativeLanguages, learningLanguages} = req.body;
   console.log("STEP 4", req.body)
   // if we don't have {new: true} findByIdAndUpdate() will return the old version of 
   // the project
-  User.findByIdAndUpdate(req.params.id, { name, location, age, gender, description, goal }, { new: true })
+  User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(user => {
       res.status(200).json(user)
     })
@@ -47,6 +47,21 @@ router.put('/user/:id', (req, res, next) => {
 });
 
 
+
+
+// router.put('/user/:id', (req, res, next) => {
+//   const { name, location, age, gender, description, goal, nativeLanguages, learningLanguages} = req.body;
+//   console.log("STEP 4", req.body)
+//   // if we don't have {new: true} findByIdAndUpdate() will return the old version of 
+//   // the project
+//   User.findByIdAndUpdate(req.params.id, { name, location, age, gender, description, goal, nativeLanguages, learningLanguages }, { new: true })
+//     .then(user => {
+//       res.status(200).json(user)
+//     })
+//     .catch(err => {
+//       next(err)
+//     })
+// });
 
 
 

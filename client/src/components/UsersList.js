@@ -11,7 +11,10 @@ export default class UsersList extends Component {
 
   state = {
     currentUser: this.props.user,
-    users: []
+    users: [],
+    location: '',
+    nativeLanguages: '',
+    learningLanguages: '', 
   }
 
 
@@ -27,38 +30,85 @@ export default class UsersList extends Component {
     //console.log(data, "userlsit at FE")
     this.setState({users: data})
   }
+
+
+
+
+  handleChange = event => {
+    const name = event.target.name;
+    const target = event.target; 
+    const value = target.value;
+    console.log(name , value)
+    this.setState({
+      [name]: value
+    })
+    }
+
+
  
   render() {
-    console.log(this.props, "props at userslist")
+    //console.log(this.props, "props at userslist")
+    console.log("USER location", this.state.currentUser.location)
+
+    const filteredUsers = this.state.users.filter(eachuser => {
+      return (eachuser.location === this.state.location || !this.state.location)
+      && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
+      && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+    })
+    console.log(filteredUsers)
+
 
  
-
-  //  const users = this.state.users.map(user => {
-  //    return(
-  //      <div>
-  //        <h2>{user.name}</h2>
-  //        <p>{user.age}</p>
-  //      </div>
-  //    )
-  //  })
     
     return (
+
       <div> 
-
-      <div className="flexbox m-3" >
+      <div className=" m-3" >
       <h1 className=" m-3">Language Learners</h1>
-
       <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
+      <form className="form profile-top" onSubmit={this.handleSubmit}>
+      <select name="location" id="location" form="carform" onChange={this.handleChange}>
+          <option value='' selected> Choose your tandem location</option>
+          <option value="">Show all location</option>
+          <option value="berlin">Berlin</option>
+          <option value="hambourg">Hamburg</option>
+          <option value="paris">Paris</option>
+          <option value="london">London</option>
+          </select>
+          <label htmlFor="learningLanguages" className="m-1"></label>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
+          <option value="" selected> I want to learn </option>
+          <option value="">All</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+          <option value="italian">Italian</option>
+          <option value="spanish">Spanish</option>
+          </select>
+          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <option value="" selected> I speak </option>
+          <option value="">All</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+          <option value="italian">Italian</option>
+          <option value="spanish">Spanish</option>
+          </select>
+          {/* <button  className="btn btn-primary m-2" type="submit"> 
+          <h3> Filter </h3></button> */}
+      </form>
       </div>
 
-    
+{/*     
 
       {this.state.users.length === 0 ? (
         <div>Loading.....</div>
       ):
       
-       (
-        this.state.users.map((user, index) => {
+       ( */}
+        {/* this.state.users.map((user, index) => { */}
+        {filteredUsers.map((user, index) => {
+          console.log('HERE USER', user)
           return (
             <div  className="profiles" key={index} >
             <div className= "profile bg-light" >
@@ -72,7 +122,7 @@ export default class UsersList extends Component {
             <h3> Age:{user.age}</h3>
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
-            <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link>
+            {/* <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link> */}
             <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
             
           </div>
@@ -91,8 +141,9 @@ export default class UsersList extends Component {
         </div>
             </div>
             ) 
-        })
-      )}
+        })}
+
+      {/* )} */}
       </div>
     )
   }
@@ -100,38 +151,3 @@ export default class UsersList extends Component {
 
 
 
-/*   <h1 class="large text-primary">Developers</h1>
-      <p class="lead">
-        <i class="fab fa-connectdevelop"></i> Browse and connect with developers
-      </p>
-      <div class="profiles">
-        <div class="profile bg-light">
-          <img
-            class="round-img"
-            src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
-            alt=""
-          />
-          <div>
-            <h2>John Doe</h2>
-            <p>Developer at Microsoft</p>
-            <p>Seattle, WA</p>
-            <a href="profile.html" class="btn btn-primary">View Profile</a>
-          </div>
-          <ul>
-            <li class="text-primary">
-              <i class="fas fa-check"></i> HTML
-            </li>
-            <li class="text-primary">
-              <i class="fas fa-check"></i> CSS
-            </li>
-            <li class="text-primary">
-              <i class="fas fa-check"></i> JavaScript
-            </li>
-            <li class="text-primary">
-              <i class="fas fa-check"></i> Python
-            </li>
-            <li class="text-primary">
-              <i class="fas fa-check"></i> C#
-            </li>
-          </ul>
-        </div> */ 
