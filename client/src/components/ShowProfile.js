@@ -63,7 +63,8 @@ export default class ShowProfile  extends Component{
           
           <h1 class="large">{this.state.user.name}</h1>
           <p class="lead">is currently in {this.state.user.location}</p>
-          <a href="profiles.html" class="btn btn-light">Message </a>
+          {/* <a href="profiles.html" class="btn btn-light">Message </a> */}
+          <Link to={`/users/${this.state.user._id}/message`} className="btn btn-light">Message</Link>
         </div>
 
         <div class="profile-exp bg-white p-2">
