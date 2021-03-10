@@ -8,8 +8,12 @@ export default class UsersList extends Component {
     users: [],
     location: '',
     nativeLanguages: '',
-    learningLanguages: '', 
+    learningLanguages: '',
+    imageUrl: '',
+ 
   }
+ 
+
   componentDidMount(){
     this.getUsers()
   }
@@ -21,6 +25,7 @@ export default class UsersList extends Component {
     //console.log(data, "userlsit at FE")
     this.setState({users: data})
   }
+
   handleChange = event => {
     const name = event.target.name;
     const target = event.target; 
@@ -30,8 +35,16 @@ export default class UsersList extends Component {
       [name]: value
     })
     }
+
+
+
+
+
+
   render() {
+    console.log("IMG URL ", this.state.imageUrl)
     //console.log(this.props, "props at userslist")
+    
     console.log("USER location", this.state.currentUser.location)
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
@@ -87,10 +100,11 @@ export default class UsersList extends Component {
           return (
             <div  className="profiles" key={index} >
             <div className= "profile bg-light" >
-          <img
-            className="round-img "
-            src="https://www.iass-potsdam.de/sites/default/files/styles/square_round_2_up/public/default_images/default_avatar_0.png?itok=ytiGDvoH"
-            alt=""
+          <img className="img-profile"
+           
+            src={user.imageUrl}
+            /*src={`https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,r_max/${user.imageUrl}`} */
+            /*https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg */
           />
           <div>
             <h2 className="my-1">{user.name}</h2>

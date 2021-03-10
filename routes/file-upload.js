@@ -4,15 +4,29 @@ const router = express.Router();
 // include CLOUDINARY:
 
 const uploader = require('../config/cloudinary-setup'); 
+const User = require('../models/User.model');
 
 
-router.post('/upload', uploader.single('imageUrl'), (req, res, next) => {
-  // console.log('file is: ', req.file)
+router.post('/upload/:userId', uploader.single('imageUrl'), (req, res, next) => {
+  
+  console.log(' Ola from req.params', req.params)
+  console.log(' Ola from req.file.path ', req.file.path )
 
   if (!req.file) {
     next(new Error('No file uploaded!'));
     return;
   }
+
+  User.findByIdAndUpdate(req.params.userId, {
+    imageUrl: req.file.path
+
+  } , {new: true}).then(user => {
+    console.log(user);
+   });
+   
+
+
+
   // get secure_url from the file object and save it in the
   // variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
 

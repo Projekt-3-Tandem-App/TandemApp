@@ -12,10 +12,10 @@ const errorHandler = err => {
   throw err;
 };
 
-const handleUpload = (theFile) => {
+const handleUpload = (theFile, userId) => {
   // console.log('file in service: ', theFile)
   return service
-    .post('/upload', theFile)
+    .post(`/upload/${userId}`, theFile)
     .then(res => res.data)
     .catch(errorHandler);
 }

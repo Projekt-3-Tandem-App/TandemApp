@@ -55,6 +55,8 @@ img {
   width: 100%;
 }
 
+
+
 .png {
   width:40px;
 }
@@ -287,7 +289,16 @@ img {
 }
 
 .round-img {
-  border-radius: 50%;
+  border-radius: 80%;
+}
+
+.img-profile { 
+    border: 2rem grey;
+    border-radius:10rem;
+     height: 200px;
+    width: 200px !important;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .line {
