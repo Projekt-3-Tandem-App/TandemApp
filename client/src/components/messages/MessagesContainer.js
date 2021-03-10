@@ -10,7 +10,7 @@ export default class MessagesContainer  extends Component{
 
   state= {
     messages : [], 
-    users: [], 
+    // users: [], 
   }
 
   componentDidMount() {
@@ -31,6 +31,13 @@ export default class MessagesContainer  extends Component{
       console.log(err);
     })
   }
+
+
+  // getUsers = async () => {
+  //   let response = await axios.get('/api/users')
+  //   let {data} = response;
+  //   this.setState({users: data})
+  // }
 
 
 
@@ -56,7 +63,7 @@ export default class MessagesContainer  extends Component{
 
   render() {
 
-    const userList
+    // const userList
 
     
    
