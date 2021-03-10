@@ -22,6 +22,8 @@ router.post('/upload/:userId', uploader.single('imageUrl'), (req, res, next) => 
 
   } , {new: true}).then(user => {
     console.log(user);
+    res.json(user)
+   
    });
    
 

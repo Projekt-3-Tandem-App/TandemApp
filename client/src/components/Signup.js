@@ -144,9 +144,9 @@ export default class Signup extends Component {
           <option value="transgender">Transgender</option>
           </select>
           <label htmlFor="description" className="m"></label>
-          <input
+          <textarea
              className="form-group" 
-            type="text"
+             type="text" rows="4" cols="50"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
@@ -154,9 +154,9 @@ export default class Signup extends Component {
             placeholder="Write something about you..."
           />
           <label htmlFor="goal" ></label>
-          <input
+          <textarea
             className="form-group" 
-            type="text"
+            type="text" rows="4" cols="50"
             name="goal"
             value={this.state.goal}
             onChange={this.handleChange}

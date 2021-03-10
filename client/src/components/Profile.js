@@ -121,6 +121,7 @@ handleLogout = () => {
           </select>
           <h2 className="m-3"> Profile Settings </h2>
            
+          <label htmlFor="age"><p>Choose your age</p>
           <input 
             type="number"
             name="age"
@@ -129,27 +130,20 @@ handleLogout = () => {
             id="age"
             min="16"
             max="100"
-          />
+          /> </label>
           
-          <select name="gender"   id="gender" form="carform" onChange={this.handleChange}>
-          <option selected>{this.state.gender}</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-          <option value="transgender">Nonbinary</option>
-          </select>
+        
 
-          
-          <input
-             className="form-group" 
-            type="text"
+          <label className="grey" htmlFor="goal">Edit decription</label>
+          <textarea
+            type="text" rows="4" cols="50"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
             id="description"
           />
-        
-          <input
-            className="form-group" 
+          <label htmlFor="goal" className="grey" >Edit your learning Goals</label>
+          <textarea  
             type="text"
             name="goal"
             value={this.state.goal}

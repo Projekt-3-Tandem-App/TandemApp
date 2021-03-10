@@ -10,8 +10,11 @@ export default class UsersList extends Component {
     nativeLanguages: '',
     learningLanguages: '',
     imageUrl: '',
- 
+    showFilter: false,
+    
   }
+
+
  
 
   componentDidMount(){
@@ -36,28 +39,22 @@ export default class UsersList extends Component {
     })
     }
 
+    toggleFilterHandler = () => {
+     this.setState( (state , props ) => ( {showFilter : !state.showFilter}))
+     console.log('Hey from FilterHandler')
+   }
 
+  
 
 
 
 
   render() {
-    console.log("IMG URL ", this.state.imageUrl)
-    //console.log(this.props, "props at userslist")
-    
-    console.log("USER location", this.state.currentUser.location)
-    const filteredUsers = this.state.users.filter(eachuser => {
-      return (eachuser.location === this.state.location || !this.state.location)
-      && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-      || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
-    })
-    console.log(filteredUsers)
-    return (
-      <div> 
-      <div className=" m-3" >
-      <h1 className=" m-3">Language Learners</h1>
-      <a href="/" className="btn btn-primary"> <i className="fas fa-sliders-h  margin-y"></i> </a>
-      <form className="form profile-top" onSubmit={this.handleSubmit}>
+
+    let toggleFilter = null;
+    if ( this.state.showPersons) {
+      toggleFilter = ( 
+          <form className="form profile-top" onSubmit={this.handleSubmit}>
       <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option value='' selected> Choose your tandem location</option>
           <option value="">Show all location</option>
@@ -88,6 +85,30 @@ export default class UsersList extends Component {
           {/* <button  className="btn btn-primary m-2" type="submit"> 
           <h3> Filter </h3></button> */}
       </form>
+     )
+   }
+    console.log("IMG URL ", this.state.imageUrl)
+    //console.log(this.props, "props at userslist")
+    
+    console.log("USER location", this.state.currentUser.location)
+    const filteredUsers = this.state.users.filter(eachuser => {
+      return (eachuser.location === this.state.location || !this.state.location)
+      && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
+      || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+    })
+    console.log(filteredUsers)
+    return (
+      <div> 
+      <div className=" m-3" >
+      <h1 className=" m-3">Language Learners</h1>
+
+      <button 
+      className="btn btn-primary"
+      onClick={this.toggleFilterHandler}
+    >
+       <i className="fas fa-sliders-h  margin-y"></i>
+      </button>
+      {toggleFilter}
       </div>
 {/*     
       {this.state.users.length === 0 ? (
@@ -103,6 +124,7 @@ export default class UsersList extends Component {
           <img className="img-profile"
            
             src={user.imageUrl}
+            alt = ""
             /*src={`https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,r_max/${user.imageUrl}`} */
             /*https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg */
           />
