@@ -11,6 +11,7 @@ export default class MessagesContainer  extends Component{
   state= {
     messages : [], 
     // users: [], 
+    recipientIdforConversation: null 
   }
 
   componentDidMount() {
@@ -33,49 +34,36 @@ export default class MessagesContainer  extends Component{
   }
 
 
-  // getUsers = async () => {
-  //   let response = await axios.get('/api/users')
-  //   let {data} = response;
-  //   this.setState({users: data})
-  // }
-
-
-
-
-  // getData = () => {
-  //   const id = this.props.user._id
-  //   console.log('SENDER', id)
-  //   axios.get(`/api/message/history`, {
-  //     params: { 
-  //       userID: id
-  //     }
-  //   })
-  //   .then(response => {
-  //     console.log('RESPONSE FRONTEND', response.data)
-  //   this.setState({messages :response.data})
-  //   })
-  //   .catch(err =>{
-  //     console.log(err);
-  //   })
-  // }
-  
-
+ 
 
   render() {
 
     // const userList
 
-    
+    //show the list of the users we want to see
+    // get list of all the messages / recipient object
+    // filter the duplicate (pour pas avoir 2 fois le same utilisateur)
+    // array user on the left side
+
+    // value state id recipient 
    
-    const messagesSent = this.state.messages.map(message =>{
-      if(message.sender === this.props.user._id ) {
-        return (
-          <div>
-          <p>{message.content}</p>
+    // const messagesSent = this.state.messages.map(message =>{
+    //   if(message.sender === this.props.user._id ) {
+    //     return (
+    //       <div>
+    //       <p>{message.content}</p>
+    //     </div>
+    //     )
+    //   }
+    // })
+
+     const displayMessages = this.state.messages.map(message =>{
+      return (
+         <div key={message._id}>
+            <p>{message.recipient.name}</p>
         </div>
-        )
-      }
-    })
+       )
+     })
 
 
     
@@ -89,7 +77,7 @@ export default class MessagesContainer  extends Component{
 
 
             <div> <p>conversation with one of the user</p>
-                  <p>{messagesSent}</p>
+                  <p>{displayMessages}</p>
             
             </div>
           </div>
