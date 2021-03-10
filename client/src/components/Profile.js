@@ -120,8 +120,8 @@ handleLogout = () => {
           <option value="london">London</option>
           </select>
           <h2 className="m-3"> Profile Settings </h2>
-           
-          <label htmlFor="age"><p>Choose your age</p>
+          
+          <label   className="grey" htmlFor="age "><p>Choose your age</p>
           <input 
             type="number"
             name="age"
@@ -131,6 +131,13 @@ handleLogout = () => {
             min="16"
             max="100"
           /> </label>
+
+
+
+
+
+          
+          
           
         
 

@@ -10,7 +10,7 @@ export default class UsersList extends Component {
     nativeLanguages: '',
     learningLanguages: '',
     imageUrl: '',
-    showFilter: false,
+    /*showFilter: false,*/
     
   }
 
@@ -20,6 +20,7 @@ export default class UsersList extends Component {
   componentDidMount(){
     this.getUsers()
   }
+  
   getUsers = async () => {
     //console.log("route triggered to fget users")
     let response = await axios.get('/api/users')
@@ -39,54 +40,27 @@ export default class UsersList extends Component {
     })
     }
 
+    /*
     toggleFilterHandler = () => {
+
      this.setState( (state , props ) => ( {showFilter : !state.showFilter}))
      console.log('Hey from FilterHandler')
    }
 
-  
+  */
 
 
 
 
   render() {
-
+ /*
     let toggleFilter = null;
     if ( this.state.showPersons) {
       toggleFilter = ( 
-          <form className="form profile-top" onSubmit={this.handleSubmit}>
-      <select name="location" id="location" form="carform" onChange={this.handleChange}>
-          <option value='' selected> Choose your tandem location</option>
-          <option value="">Show all location</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
-          </select>
-          <label htmlFor="learningLanguages" className="m-1"></label>
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
-          <option value="" selected> I want to learn </option>
-          <option value="">All</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
-          </select>
-          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
-          <option value="" selected> I speak </option>
-          <option value="">All</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
-          </select>
-          {/* <button  className="btn btn-primary m-2" type="submit"> 
-          <h3> Filter </h3></button> */}
-      </form>
+          
      )
    }
+*/
     console.log("IMG URL ", this.state.imageUrl)
     //console.log(this.props, "props at userslist")
     
@@ -99,17 +73,68 @@ export default class UsersList extends Component {
     console.log(filteredUsers)
     return (
       <div> 
-      <div className=" m-3" >
-      <h1 className=" m-3">Language Learners</h1>
-
-      <button 
-      className="btn btn-primary"
-      onClick={this.toggleFilterHandler}
-    >
-       <i className="fas fa-sliders-h  margin-y"></i>
-      </button>
-      {toggleFilter}
+      <div>
+     
+      <div class="profile-top  p-2">
+  
+    
+   
+         
       </div>
+      </div>
+      
+
+
+      
+      
+     
+      
+      <div className="" >
+      <div className=" ">
+   
+      <form className="form profile bg-light" onSubmit={this.handleSubmit}>
+      <div>
+      <select name="location" id="location" form="carform" onChange={this.handleChange}>
+          <option value='' selected> show member from </option>
+          <option value="">all locations</option>
+          <option value="berlin">Berlin</option>
+          <option value="hambourg">Hamburg</option>
+          <option value="paris">Paris</option>
+          <option value="london">London</option>
+          </select> 
+          </div>
+          <div>
+
+          <label htmlFor="learningLanguages" ></label>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
+          <option value="" selected> show member that speaks</option>
+          <option value="">All</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+          <option value="italian">Italian</option>
+          <option value="spanish">Spanish</option>
+          </select>
+          </div>
+          <div>
+          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <option value="" selected> your native language </option>
+          <option value="">All</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+          <option value="italian">Italian</option>
+          <option value="spanish">Spanish</option>
+          </select>
+          </div>
+          {/* <button  className="btn btn-primary m-2" type="submit"> 
+          <h3> Filter </h3></button> */}
+      </form>
+      </div>
+      </div>
+      
+     
+      
 {/*     
       {this.state.users.length === 0 ? (
         <div>Loading.....</div>
@@ -119,7 +144,7 @@ export default class UsersList extends Component {
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
           return (
-            <div  className="profiles" key={index} >
+            <div  className="profiles " key={index} >
             <div className= "profile bg-light" >
           <img className="img-profile"
            
@@ -137,12 +162,12 @@ export default class UsersList extends Component {
             <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
           </div>
           <ul>
-            <li className="text-primary">
-              <p className="grey"> <i class="far fa-comments text-secondary "></i>Speaks</p>
+            <li className="text-primary ">
+              <p className="grey   "> <i class="far fa-comments text-secondary "></i>Speaks</p>
               <h3>{user.nativeLanguages}</h3>
             </li>
             <li className="text-primary">
-            <p className="grey"><i class="fas fa-comments  "></i> Learns</p>
+            <p className="grey "><i class="fas fa-comments  "></i> Learns</p>
               <h3>{user.learningLanguages}</h3>   
             </li>
           </ul>
@@ -155,3 +180,10 @@ export default class UsersList extends Component {
     )
   }
 }
+
+/*   <button 
+      className="btn btn-primary"
+      onClick={this.toggleFilterHandler}
+    >
+       <i className="fas fa-sliders-h  margin-y"></i>
+      </button>*/

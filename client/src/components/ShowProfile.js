@@ -65,14 +65,15 @@ export default class ShowProfile  extends Component{
           <p class="lead">is currently in {this.state.user.location}</p>
           <a href="profiles.html" class="btn btn-light">Message </a>
         </div>
+        
 
         <div class="profile-exp bg-white p-2">
-          <h2 class="text-dark">John speaks </h2>
+          <h2 class="text-dark"> {this.state.user.name} speaks </h2>
           <h3 >{this.props.user.nativeLanguages}
           </h3> 
           <div>
           </div>
-          <h2 class="text-dark">John learning </h2>
+          <h2 class="text-dark">{this.state.user.name}  learning </h2>
           <h3>{this.props.user.learningLanguages}</h3>  
         </div>
       

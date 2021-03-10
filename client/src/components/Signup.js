@@ -94,35 +94,44 @@ export default class Signup extends Component {
             onChange={this.handleChange}
             id="name"
             placeholder="name"
+           
           />
            <h2 className="m-3">Languages</h2>
           <label htmlFor="nativeLanguages" className="m"></label>
-          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}  required >
           <option selected> Choose a native language</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
           <label htmlFor="learningLanguages" className="m-1"></label>
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple required >
           <option selected>Choose a learning language</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
         {/* languages
         location */}
           <label htmlFor="location" className="m-1"></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option selected>Choose a city</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
+          <option value="Berlin">Berlin</option>
+          <option value="Hamburg">Hamburg</option>
+          <option value="Paris">Paris</option>
+          <option value="London">London</option>
+          <option value="Köln">London</option>
+           
           </select>
           <h2 className="m-3"> Profile Settings </h2>
         <label htmlFor="age"> <h3>Choose your age</h3>
@@ -135,6 +144,7 @@ export default class Signup extends Component {
             id="age"
             min="16"
             max="100"
+            required 
           />  </label>
           <label htmlFor="gender" className="m-1"></label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>

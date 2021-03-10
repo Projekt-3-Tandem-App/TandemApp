@@ -72,6 +72,8 @@ export default function LandingPage(props) {
 
 
 /* DONT DELETE IT
+
+<p>On Pagaei, millions of members explore the world of language together. Become part of the community, find language partners that suit you and share your learning successes with them. </p>
    <section className="showcase">
               <div class="overlay"></div>
               <div class="text">

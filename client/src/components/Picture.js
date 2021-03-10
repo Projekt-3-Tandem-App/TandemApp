@@ -136,15 +136,17 @@ class Picture extends Component {
                   className="form profile-top"
                  /* onSubmit={(e) => this.handleSubmit(e)}*/
                 >
-                  <label>Choose file</label>
-                  <input type="file" id='image' name='iage' onChange={e => this.handleFileUpload(e)} />
+               
+              
 
 
                 
-                    <img className="img-profile"
+                    <img className="img-profile m-3"
                      src={this.props.user.imageUrl}
                        alt=""
                      />
+
+<input classname="btn" type="file" id='image' name='iage' onChange={e => this.handleFileUpload(e)} />
                   
 
                   
