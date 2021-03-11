@@ -13,6 +13,7 @@ import ShowProfile from './components/ShowProfile';
 import MessagesContainer from './components/messages/MessagesContainer';
 import MessageForm from './components/messages/MessageForm'; 
 import Picture from './components/Picture'
+import AboutPapagei from './components/AboutPapagei'
 
 
 class App extends React.Component {
@@ -114,6 +115,12 @@ class App extends React.Component {
         <Route
           exact path='/login'
           render={props => <Login setUser={this.setUser} {...props} />}
+        />
+
+
+        <Route
+          exact path='/'
+          render={props => <AboutPapagei setUser={this.setUser} {...props} />}
         />
       </div>
     );
