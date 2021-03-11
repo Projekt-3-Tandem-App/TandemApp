@@ -120,8 +120,12 @@ handleLogout = () => {
           <option value="Hamburg">Hamburg</option>
           <option value="Köln">Köln</option>
           <option value="Paris">Paris</option>
+          <option value="Grenoble">Grenoble</option>
           <option value="London">London</option>
           <option value="Barcelona">Barcelona</option>
+          <option value="Rome">Rome</option>
+          <option value="Poznan">Poznan</option>
+          <option value="Amsterdam">Amsterdam</option>
           </select>
        
           
