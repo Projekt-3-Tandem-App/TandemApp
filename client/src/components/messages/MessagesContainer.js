@@ -113,7 +113,7 @@ export default class MessagesContainer  extends Component{
      const displayMessages = filtered.map(message => {
        return (
          <div>
-           <p><b>from {message.sender.name} to {message.recipient.name}</b></p>
+           <p><b>from {message.sender.name}</b></p>
            <p>{message.content}</p>
            
          </div>
@@ -182,9 +182,9 @@ export default class MessagesContainer  extends Component{
   
               <div className=" profile-edu bg-white p-3">
               
-                <p>{displayMessages}</p>
+                {/* <p>{displayMessages}</p> */}
 
-                <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
+                <p> Message box  </p>
                 <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
                 
                 

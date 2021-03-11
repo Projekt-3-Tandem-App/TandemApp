@@ -40,6 +40,18 @@ export default class UsersList extends Component {
     })
     }
 
+
+
+    // sortbyName = () => {
+    //   const sortedUsers = this.state.users.sort((a,b) => {
+    //     if (a.name < b.name) return -1
+    //     if (a.name > b.name) return 1
+    //     return 0
+    //   })
+    //   this.setState({
+    //     users: sortedUsers
+    //   })
+    // }
     /*
     toggleFilterHandler = () => {
 
@@ -65,11 +77,19 @@ export default class UsersList extends Component {
     //console.log(this.props, "props at userslist")
     
     console.log("USER location", this.state.currentUser.location)
+    // const filteredUsers = this.state.users.filter(eachuser => {
+    //   return (eachuser.location === this.state.location || !this.state.location)
+    //   && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
+    //   || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+    // })
+
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
       && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-      || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+     // && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+      && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
+
     console.log(filteredUsers)
     return (
       <div> 
@@ -95,7 +115,7 @@ export default class UsersList extends Component {
       <form className="form profile bg-light" onSubmit={this.handleSubmit}>
       <div>
       <select name="location" id="location" form="carform" onChange={this.handleChange}>
-          <option value='' selected> show member from </option>
+          <option value='' selected> Select a city </option>
           <option value="">all locations</option>
           <option value="Berlin">Berlin</option>
           <option value="Hamburg">Hamburg</option>
@@ -113,11 +133,11 @@ export default class UsersList extends Component {
 
           <label htmlFor="learningLanguages" ></label>
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
-          <option value="" selected> show member that speaks</option>
+          <option value="" selected>Select your learning language</option>
           <option value="">All</option>
           <option value="English">English</option>
-          <option value="french">French</option>
-          <option value="French">German</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
           <option value="Italian">Italian</option>
           <option value="Spanish">Spanish</option>
           <option value="Chinese">Chinese</option>
@@ -129,11 +149,11 @@ export default class UsersList extends Component {
           </div>
           <div>
           <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
-          <option value="" selected> your native language </option>
+          <option value="" selected>Select your native language </option>
           <option value="">All</option>
           <option value="English">English</option>
-          <option value="french">French</option>
-          <option value="French">German</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
           <option value="Italian">Italian</option>
           <option value="Spanish">Spanish</option>
           <option value="Chinese">Chinese</option>
@@ -143,6 +163,8 @@ export default class UsersList extends Component {
           <option value="Portuguese">Portuguese</option> 
           </select>
           </div>
+
+          {/* <div><button onClick={this.sortbyName}>Sort by name</button></div> */}
           {/* <button  className="btn btn-primary m-2" type="submit"> 
           <h3> Filter </h3></button> */}
       </form>
