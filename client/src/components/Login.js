@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { login } from '../services/auth';
+import {Link} from 'react-router-dom';
 
 export default class Login extends Component {
 
@@ -39,13 +40,14 @@ export default class Login extends Component {
   }
   render() {
     return (
-      <section  className="container-auth" >
+      <section  className="container-auth p-2" >
       <div>
          <h1 class="large text-primary">Sign In</h1>
          <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
-        <form  s onSubmit={this.handleSubmit}>
+        <form class="form profile-top auth" s onSubmit={this.handleSubmit}>
           <label htmlFor="username"></label>
           <input
+            className="form-group" 
             type="text"
             name="username"
             value={this.state.username}
@@ -55,6 +57,7 @@ export default class Login extends Component {
           />
           <label htmlFor="password"></label>
           <input
+            className="form-group" 
             type="password"
             name="password"
             value={this.state.password}
@@ -62,13 +65,15 @@ export default class Login extends Component {
             id="password"
             placeholder="Password"
           />
-          <button  className="btn btn-primary" type="submit">Log in</button>
+          <button  className="btn btn-primary" type="submit">Login</button>
           {this.state.message && (
             <h3>{this.state.message}</h3>
           )}
         </form>
-        <p class="my-1">
-        Don't have an account? <a href="register.html">Sign Up</a>
+      
+        <p class="my-3">
+        Don't have an account?
+        <Link to="/signup" className=" text-dark"> Signup </Link>
       </p>
       </div>
       </section>

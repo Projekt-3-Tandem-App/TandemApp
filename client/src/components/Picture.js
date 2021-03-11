@@ -1,12 +1,10 @@
-
 import { Link } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import { signup } from "../services/auth";
 import { logout } from "../services/auth";
 // components/AddThing.js
 import React, { Component } from "react";
-import axios from 'axios';
-
+import axios from "axios";
 
 // import the service file since we need it to send (and get) the data to(from) server
 import service from "../api/service";
@@ -14,11 +12,7 @@ import service from "../api/service";
 class Picture extends Component {
   state = {
     imageUrl: "",
-
   };
-
-
-
 
   // this method handles just the file upload
   handleFileUpload = (e) => {
@@ -30,7 +24,7 @@ class Picture extends Component {
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
-      .handleUpload(uploadData , this.props.user._id )
+      .handleUpload(uploadData, this.props.user._id)
       .then((response) => {
         // console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
@@ -41,44 +35,36 @@ class Picture extends Component {
       });
   };
 
-
   handleSubmit = (event) => {
     event.preventDefault();
 
     service
       .createEvent(this.state)
-      .then(res => {
-        console.log('added: ', res);
+      .then((res) => {
+        console.log("added: ", res);
         // here you would redirect to some other page
       })
-      .catch(err => {
-        console.log('Error while adding the thing: ', err);
+      .catch((err) => {
+        console.log("Error while adding the thing: ", err);
       });
 
     axios
       .post("/api/upload", {
         imageUrl: this.state.imageUrl,
-        
       })
       .then(() => {
-        console.log( "IMAGE AFTER" , this.state.imageUrl)
+        console.log("IMAGE AFTER", this.state.imageUrl);
         this.setState({
-          
-     
           imageUrl: "",
-        
         });
-        this.props.history.push("./upload")
-      })
-      /*
+        this.props.history.push("./upload");
+      });
+    /*
       .then(() => {
         this.setState({ redirect: "/upload" });
       });
       */
   };
-
-  
-
 
   // this method submits the form
   /*handleSubmit = (e) => {
@@ -123,41 +109,44 @@ class Picture extends Component {
                 </li>
                 <li>
                   {" "}
-                  <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
+                  <li>
+                    {" "}
+                    <Link
+                      to="/"
+                      onClick={() => this.handleLogout()}
+                      className="btn my-1 btn-width"
+                    >
+                      Logout{" "}
+                    </Link>
+                  </li>
                 </li>
               </ul>
             </div>
 
-            <section className=" profile-edu bg-white p-3">
-      
+            <section className=" profile-edu bg-white p-2">
               <div className="form-group">
-                <h2 class="large text-primary center ">Upload your Picture</h2>
+                <h2 class="large text-primary center my-3-profile  ">
+                  Upload your Picture
+                </h2>
                 <form
-                  className="form profile-top"
-                 /* onSubmit={(e) => this.handleSubmit(e)}*/
+                  className="form profile-top-profile"
+                  /* onSubmit={(e) => this.handleSubmit(e)}*/
                 >
-               
-              
+                  <img
+                    className="img-profile m-3"
+                    src={this.props.user.imageUrl}
+                    alt=""
+                  />
 
+                  <input
+                    classname="btn"
+                    type="file"
+                    id="image"
+                    name="iage"
+                    onChange={(e) => this.handleFileUpload(e)}
+                  />
 
-                
-                    <img className="img-profile m-3"
-                     src={this.props.user.imageUrl}
-                       alt=""
-                     />
-
-<input classname="btn" type="file" id='image' name='iage' onChange={e => this.handleFileUpload(e)} />
-                  
-
-                  
-
-             
-                  
-
-                  <button className="btn btn-primary m-2" type="submit">
-
-                  
-
+                  <button className="btn btn-primary m-3" type="submit">
                     <h3>Submit changes </h3>
                   </button>
                 </form>
@@ -165,11 +154,9 @@ class Picture extends Component {
             </section>
           </div>
         </div>
-        
       </div>
     );
   }
 }
 
 export default Picture;
-

@@ -96,14 +96,15 @@ handleLogout = () => {
 
 
 <section className=" profile-edu bg-white p-2">
-<div className="form-group" > 
+<div className="form-group " > 
 
-<h2 class="large text-primary center">Edit your Profile</h2>
-
-<form className="form profile-top" onSubmit={this.handleSubmit}>   
+<h2 class="large text-primary center my-3-profile p-3 ">Edit your Profile</h2>
 
 
-          <label htmlFor="name" className="m"></label>
+<form className="form profile-top-profile" onSubmit={this.handleSubmit}>   
+
+<label className="grey " htmlFor="age "><p>change your name</p></label>
+          <label htmlFor="name" ></label>
           <input
             type="text"
             name="name"
@@ -111,7 +112,8 @@ handleLogout = () => {
             onChange={this.handleChange}
             id="name"
           />
-          
+       
+          <label className="grey" htmlFor="age "><p>change your location</p></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option selected>{this.state.location}</option>
           <option value="berlin">Berlin</option>
@@ -119,9 +121,9 @@ handleLogout = () => {
           <option value="paris">Paris</option>
           <option value="london">London</option>
           </select>
-          <h2 className="m-3"> Profile Settings </h2>
+       
           
-          <label   className="grey" htmlFor="age "><p>Choose your age</p>
+          <label className="grey" htmlFor="age "><p>Choose your age</p></label>
           <input 
             type="number"
             name="age"
@@ -130,20 +132,14 @@ handleLogout = () => {
             id="age"
             min="16"
             max="100"
-          /> </label>
+          /> 
 
-
-
-
-
-          
-          
           
         
 
           <label className="grey" htmlFor="goal">Edit decription</label>
           <textarea
-            type="text" rows="4" cols="50"
+            type="text" rows="5" cols="30"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
@@ -160,7 +156,7 @@ handleLogout = () => {
        
  
  
-  <button  className="btn btn-primary m-2" type="submit"> 
+  <button  className="btn btn-primary m-3" type="submit"> 
   <h3 >Submit changes </h3></button>
   {this.state.message && (
     <h3>{this.state.message}</h3>

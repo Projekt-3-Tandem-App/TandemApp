@@ -61,11 +61,11 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <section className="container-auth">
+      <section className="container-auth p-2 ">
       <div className="form-group" > 
         <h1 class="large text-primary">Sign Up</h1>
         <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
-        <form className="form profile-top" onSubmit={this.handleSubmit}>
+        <form className="form profile-top auth" onSubmit={this.handleSubmit}>
           <label htmlFor="username"> </label>
           <input
             className="form-group" 
@@ -86,8 +86,9 @@ export default class Signup extends Component {
             id="password"
             placeholder="password"
           />
-          <label htmlFor="name" className="m"></label>
+          <label htmlFor="name" ></label>
           <input
+          className="form-group" 
             type="text"
             name="name"
             value={this.state.name}
@@ -110,7 +111,7 @@ export default class Signup extends Component {
           <option value="Russian">Russian</option>
           </select>
           <label htmlFor="learningLanguages" className="m-1"></label>
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple required >
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} required >
           <option selected>Choose a learning language</option>
           <option value="English">English</option>
           <option value="French">French</option>
@@ -134,7 +135,7 @@ export default class Signup extends Component {
            
           </select>
           <h2 className="m-3"> Profile Settings </h2>
-        <label htmlFor="age"> <h3>Choose your age</h3>
+          <label className="grey " htmlFor="age "><p>choose your age</p></label>
           <input
             className="form-group" 
             type="Number"
@@ -145,7 +146,7 @@ export default class Signup extends Component {
             min="16"
             max="100"
             required 
-          />  </label>
+          />  
           <label htmlFor="gender" className="m-1"></label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
           <option selected>Choose a gender...</option>
@@ -180,7 +181,7 @@ export default class Signup extends Component {
           )}
         </form>
         <p class="my-1">
-        Already have an account?  <Link to="/login" className="text-dark">Login</Link>
+        Already have an account? <Link to="/login" className="text-dark">Login</Link>
       </p>
       </div>
       </section>

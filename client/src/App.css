@@ -38,6 +38,9 @@ ul {
   list-style: none;
 }
 
+
+
+
 .background {
 
  background-image:url( "https://image.freepik.com/vektoren-kostenlos/glueckliche-junge-leute-die-hallo-in-verschiedenen-sprachen-sagen-schueler-mit-sprechblasen-und-haenden-in-begruessungsgeste_74855-10827.jpg");
@@ -121,7 +124,11 @@ img {
 }
 
 .grey {
-  color:rgb(173, 169, 169)
+  color:rgb(184, 181, 181)
+}
+
+.grey-profile{
+  color:rgb(226, 223, 223)
 }
 
 .text-dark {
@@ -183,6 +190,10 @@ img {
 .my-3 {
   margin: 3rem 0;
 }
+
+.my-3-profile {
+  margin: 0 0 3rem 0;
+}
 .my-5 {
   margin: 5rem 0;
 }
@@ -193,6 +204,14 @@ img {
 
 .padding { 
   padding: 0 3rem 0 0; 
+}
+
+.p-3 {
+  padding: 0 0 2rem 0; 
+}
+
+.padding-1 {
+  padding: 0 0 0.5rem 0; 
 }
 
 padding-y { 
@@ -367,9 +386,24 @@ button {
   font: inherit;
 }
 
-input:hover {
-  color:#056d5a;
+.form input:hover[type='text'],
+.form input:hover[type='password'],
+.form input:hover[type='date'],
+.form input:hover[type='number'],
+.form input:hover[type='select'],
+.form select:hover
+ {
+  color:var(--dark-color);
+  font-weight:bold;
 }
+
+
+.form textarea:hover{ 
+  color:var(--dark-color);
+
+}
+
+
 
 /*
 .form .social-input {
@@ -481,7 +515,7 @@ input:hover {
   line-height: 1.8;
   margin-bottom: 1rem;
   border-radius:5px;
-  margin:2rem;
+  margin:2rem 2rem 0 2rem;
 }
 
 /* Profile Page */
@@ -515,6 +549,25 @@ input:hover {
   
 }
 
+
+.profile-top-profile {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-gap: 0.5rem;
+  padding: 0 3rem;
+  
+}
+
+.auth {
+
+  grid-gap: 0.5rem;
+
+  
+}
 
 
 
