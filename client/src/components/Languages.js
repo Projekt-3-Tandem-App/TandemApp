@@ -11,12 +11,6 @@ import { logout } from "../services/auth";
 
 export default class Languages extends Component{
   state = {
-    // name: this.props.user.name,
-    // location: this.props.user.location, 
-    // age: this.props.user.age,
-    // gender: this.props.user.gender, 
-    // description: this.props.user.description, 
-    // goal: this.props.user.goal, 
     nativeLanguages: this.props.user.nativeLanguages, 
     learningLanguages: this.props.user.learningLanguages
     }

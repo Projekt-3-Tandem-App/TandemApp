@@ -81,6 +81,14 @@ class Picture extends Component {
       });
   }; */
 
+  handleLogout = () => {
+    // event.preventDefault();
+     logout().then(() => {
+       this.props.setUser(null)
+       this.props.history.push('/');
+     }) 
+   }
+
   render() {
     return (
       <div>
