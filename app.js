@@ -35,7 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
     })
   })
 )
@@ -91,6 +91,19 @@ app.use(passport.session());
 
 
 // end of passport
+
+// Cloudinary config
+const cors = require('cors');
+//app.use('/api', require('./routes/file-upload.routes'));//
+app.use('/api', require('./routes/file-upload'));
+
+// allow access to the API from different domains/origins
+app.use(
+  cors({
+    // this could be multiple domains/origins, but we will allow just our React app
+    origin: ['http://localhost:3000']
+  })
+);
 
 
 

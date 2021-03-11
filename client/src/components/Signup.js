@@ -61,11 +61,11 @@ export default class Signup extends Component {
   }
   render() {
     return (
-      <section className="container-auth">
+      <section className="container-auth p-2 ">
       <div className="form-group" > 
         <h1 class="large text-primary">Sign Up</h1>
         <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
-        <form className="form profile-top" onSubmit={this.handleSubmit}>
+        <form className="form profile-top auth" onSubmit={this.handleSubmit}>
           <label htmlFor="username"> </label>
           <input
             className="form-group" 
@@ -86,46 +86,58 @@ export default class Signup extends Component {
             id="password"
             placeholder="password"
           />
-          <label htmlFor="name" className="m"></label>
+          <label htmlFor="name" ></label>
           <input
+          className="form-group" 
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
             id="name"
             placeholder="name"
+           
           />
            <h2 className="m-3">Languages</h2>
           <label htmlFor="nativeLanguages" className="m"></label>
-          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}  required >
           <option selected> Choose a native language</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
           <label htmlFor="learningLanguages" className="m-1"></label>
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} required >
           <option selected>Choose a learning language</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
         {/* languages
         location */}
           <label htmlFor="location" className="m-1"></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option selected>Choose a city</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
+          <option value="Berlin">Berlin</option>
+          <option value="Hamburg">Hamburg</option>
+          <option value="Köln">Köln</option>
+          <option value="Paris">Paris</option>
+          <option value="London">London</option>
+          <option value="Barcelona">Barcelona</option>
+        
+           
           </select>
           <h2 className="m-3"> Profile Settings </h2>
-        <label htmlFor="age"> <h3>Choose your age</h3>
+          <label className="grey " htmlFor="age "><p>choose your age</p></label>
           <input
             className="form-group" 
             type="Number"
@@ -135,7 +147,8 @@ export default class Signup extends Component {
             id="age"
             min="16"
             max="100"
-          />  </label>
+            required 
+          />  
           <label htmlFor="gender" className="m-1"></label>
           <select name="gender" id="gender" form="carform" onChange={this.handleChange}>
           <option selected>Choose a gender...</option>
@@ -144,9 +157,9 @@ export default class Signup extends Component {
           <option value="transgender">Transgender</option>
           </select>
           <label htmlFor="description" className="m"></label>
-          <input
+          <textarea
              className="form-group" 
-            type="text"
+             type="text" rows="4" cols="50"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
@@ -154,9 +167,9 @@ export default class Signup extends Component {
             placeholder="Write something about you..."
           />
           <label htmlFor="goal" ></label>
-          <input
+          <textarea
             className="form-group" 
-            type="text"
+            type="text" rows="4" cols="50"
             name="goal"
             value={this.state.goal}
             onChange={this.handleChange}
@@ -170,7 +183,7 @@ export default class Signup extends Component {
           )}
         </form>
         <p class="my-1">
-        Already have an account?  <Link to="/login" className="text-dark">Login</Link>
+        Already have an account? <Link to="/login" className="text-dark">Login</Link>
       </p>
       </div>
       </section>

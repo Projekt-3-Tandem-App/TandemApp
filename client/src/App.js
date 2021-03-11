@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import AboutMe from './components/AboutMe';
 import Languages from './components/Languages';
 import ShowProfile from './components/ShowProfile'
+import Picture from './components/Picture'
 
 
 class App extends React.Component {
@@ -60,6 +61,15 @@ class App extends React.Component {
           render={props => {
             if (this.state.user) {
               return <Languages user={this.state.user} {...props} />
+            } else return <Redirect to='/' />
+          }}
+        />
+
+        <Route
+          exact path='/upload'
+          render={props => {
+            if (this.state.user) {
+              return <Picture user={this.state.user} {...props} />
             } else return <Redirect to='/' />
           }}
         />

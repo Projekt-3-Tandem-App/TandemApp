@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap');
 
+/* background-image:url( "http://i1.wp.com/www.bankpixel.com/wp-content/uploads/2014/06/slide1-img.png?fit=1205%2C494");*/
+
+
 :root {
   --primary-color:#e6b141;
-  --dark-color:   #217575;
+  --dark-color:   #056d5a;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -20,7 +23,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: rgb(252, 247, 247);
+  background-color: rgb(252, 247, 247); 
   color: #333;
 }
 
@@ -35,6 +38,17 @@ ul {
   list-style: none;
 }
 
+
+
+
+.background {
+
+ background-image:url( "https://image.freepik.com/vektoren-kostenlos/glueckliche-junge-leute-die-hallo-in-verschiedenen-sprachen-sagen-schueler-mit-sprechblasen-und-haenden-in-begruessungsgeste_74855-10827.jpg");
+  z-index: 0;
+background-size: auto;
+
+}
+
 .center { 
   justify-content: center;
   text-align: center;
@@ -43,6 +57,8 @@ ul {
 img {
   width: 100%;
 }
+
+
 
 .png {
   width:40px;
@@ -68,6 +84,15 @@ img {
   padding: 0 2rem;
   margin-top: 6rem;
   margin-bottom: 3rem;
+
+}
+
+.container-list { 
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+ 
 
 }
 
@@ -99,7 +124,11 @@ img {
 }
 
 .grey {
-  color:rgb(173, 169, 169)
+  color:rgb(184, 181, 181)
+}
+
+.grey-profile{
+  color:rgb(226, 223, 223)
 }
 
 .text-dark {
@@ -161,6 +190,10 @@ img {
 .my-3 {
   margin: 3rem 0;
 }
+
+.my-3-profile {
+  margin: 0 0 3rem 0;
+}
 .my-5 {
   margin: 5rem 0;
 }
@@ -171,6 +204,18 @@ img {
 
 .padding { 
   padding: 0 3rem 0 0; 
+}
+
+.p-3 {
+  padding: 0 0 2rem 0; 
+}
+
+.padding-1 {
+  padding: 0 0 0.5rem 0; 
+}
+
+padding-y { 
+  padding: 0 0.4
 }
 
 .btn {
@@ -184,6 +229,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border:none;
   
 }
 
@@ -232,6 +278,11 @@ img {
   color: #fff;
 }
 
+.bg-blue {
+  background-color: #183153;
+  color: #fff;
+}
+
 .btn-danger,
 .bg-danger,
 .badge-danger,
@@ -248,13 +299,15 @@ img {
   color: #fff;
 }
 
+
+
 .btn-white,
 .bg-white,
 .badge-white,
 .alert-white {
   background: #fff;
   color: #333;
-  border: rgb(228, 228, 228) solid 1px;
+  border: rgb(228, 228, 228) solid 1px; 
 }
 
 .btn:hover {
@@ -267,7 +320,16 @@ img {
 }
 
 .round-img {
-  border-radius: 50%;
+  border-radius: 80%;
+}
+
+.img-profile { 
+    border: 2rem grey;
+    border-radius:10rem;
+     height: 230px;
+    width: 230px !important;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .line {
@@ -298,23 +360,52 @@ img {
 }
 
 .form input[type='text'],
-.form input[type='email'],
 .form input[type='password'],
 .form input[type='date'],
+.form input[type='number'],
+
+
 .form select,
 .form textarea {
   display: block;
   width: 100%;
   padding: 0.4rem;
+  padding-left:0.8rem;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  border:  1px solid #ccc;
+  transform: capitalize;
+  border-radius:0.5rem;
 }
+
+
+
+
 
 .form input[type='submit'],
 button {
   font: inherit;
 }
 
+.form input:hover[type='text'],
+.form input:hover[type='password'],
+.form input:hover[type='date'],
+.form input:hover[type='number'],
+.form input:hover[type='select'],
+.form select:hover
+ {
+  color:var(--dark-color);
+  font-weight:bold;
+}
+
+
+.form textarea:hover{ 
+  color:var(--dark-color);
+
+}
+
+
+
+/*
 .form .social-input {
   display: flex;
 }
@@ -340,6 +431,8 @@ button {
   color: #0077b5;
 }
 
+*/
+
 .table th,
 .table td {
   padding: 1rem;
@@ -361,7 +454,7 @@ button {
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
+  /*opacity: 0.9;*/
   color:#f4f4f4;
 }
 
@@ -422,7 +515,7 @@ button {
   line-height: 1.8;
   margin-bottom: 1rem;
   border-radius:5px;
-  margin:3rem;
+  margin:2rem 2rem 0 2rem;
 }
 
 /* Profile Page */
@@ -452,8 +545,32 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  grid-gap: 1rem;
   
 }
+
+
+.profile-top-profile {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-gap: 0.5rem;
+  padding: 0 3rem;
+  
+}
+
+.auth {
+
+  grid-gap: 0.5rem;
+
+  
+}
+
+
+
 
 .profile-top img {
   width: 250px;
@@ -586,8 +703,23 @@ button {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 3rem;
+    margin: 2.5rem;
   }
+  
+  .btn-smart{
+    display: inline-block;
+    background: var(--light-color);
+    color: #333;
+ 
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-right: 0.5rem; */
+    transition: opacity 0.2s ease-in;
+    outline: none;
+}
+
+
 
   .hide-sm {
     display: none;
@@ -633,7 +765,13 @@ button {
   .profile {
     grid-template-columns: 1fr;
     text-align: center;
+    grid-gap: 2rem;
   }
+
+  .profile-edu {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
 
   .profile ul {
     display: none;
@@ -645,6 +783,7 @@ button {
   .profile img {
     width: 200px;
     margin: auto;
+    margin-top:1rem;
   }
 
   .profile-grid {
@@ -679,150 +818,6 @@ button {
 /* */
 
 
-/* sidebar */ 
-.sidebar {
-  position: fixed; 
-  left: -550px;
-  width: 400px;
-  height: 100%;
-  transition: all .5s ease;
-  z-index: 100;
-}
-
-
-
-#check:checked ~ .sidebar .sidebar{
-  left: 0;
-}
-
-
-.sidebar ul a{
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 65px;
-  font-size: 20px;
-  color: white;
-  padding-left: 40px;
-  box-sizing: border-box;
-  border-bottom: 1px solid black;
-  border-top: 1px solid rgba(255,255,255,.1);
-  transition: .4s;
-}
-ul li:hover a{
-  padding-left: 50px;
-}
-
-.sidebar ul a i{
-  margin-right: 17px;
-}
-
-/* checkbox*/
-
-label #btn,label #cancel{
-  position: absolute;
-  background:#8eb2c4;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-
-label #btn{
-  left: 10px;
-  top: 25px;
-  font-size: 35px;
-  color: white;
-  padding: 6px 12px;
-  transition: all .5s;
-}
-
-label #cancel{
-  z-index: 1111;
-  left: -195px;
-  top: 17px;
-  font-size: 30px;
-  color: #0a5275;
-  padding: 4px 9px;
-  transition: all .5s ease;
-}
-
-#check{
-   display:none;
-}
-
-/* Ohne checked ist content weg buttons da */ 
-#check:checked ~ .sidebar{
-  left: 0; 
-}
-
-
-#check:checked ~ label #btn{
-  left: 250px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* X  ist dann weg wenn*/ 
-#check:checked ~ label #cancel{
-  left: 350px;
-}
-
-
-#check:checked ~ section{
-  margin-left: 250px;
-}
-
-
-
-.profile-card{
-  width: 400px; 
-  text-align: center;
-  border-radius: 0px 0px 0px 0px;
-  overflow: hidden; 
-  /* background-color: blueviolet;*/
-}
-
-
-.card-header{
- /* background: #2c3a47;*/
-  background: #2c3a47;
-  height:430px;
-  padding: 20px;
-  
-}
-
-
-.sidebar header {
-  font-size: 22px;
-  color: white;
-  line-height: 70px;
-  text-align: center;
-  background:#8eb2c4;
-  user-select: none;
-}
-
-.search-bar {
-  /*background: #8eb2c4;*/
-  background:#8eb2c4;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.card-footer{
-  /*background: #f4f4f4;*/
-  background: #f4f4f4;;
-  padding: 20px 10px;
-  top: 30px;
-  border-radius: 0px 0px 30px 0px;
-}
-
-.card-scrollbar {
-  background: #2c3a47;
-  height:430px;
-  padding: 20px;
-
-}
 
 /* scrollbar need to be fixed 
 .card-scrollbar::-webkit-scrollbar {
@@ -838,15 +833,4 @@ label #cancel{
   outline: 1px solid slategrey;
 }
 */
-.pic{
-
-  display: inline-block;
-  padding: 8px;
-  background: linear-gradient(130deg, #74b9ff, #e66767);
-  margin: auto;
-  border-radius: 50%;
-  /*background-size: 200% 200%;*/
-  /*animation: animated-gradient 2s linear infinite;*/
-
-}
 

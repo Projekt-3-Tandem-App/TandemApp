@@ -32,7 +32,8 @@ router.post('/signup', (req, res, next) => {
           age: age,
           gender: gender,
           description: description, 
-          goal: goal
+          goal: goal,
+          imageUrl:"https://www.iass-potsdam.de/sites/default/files/styles/square_round_2_up/public/default_images/default_avatar_0.png?itok=ytiGDvoH"
 
 
 
