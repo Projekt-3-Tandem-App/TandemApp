@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from '../layout/Navbar'
 import axios from 'axios';
+import UsersList from '../UsersList'
 
 //import UsersList from './UsersList'
 
@@ -138,68 +139,93 @@ export default class MessagesContainer  extends Component{
      })
 
 
-    
-    return (
-      <div>
-        <Navbar/>  
-        <div className="profile-grid my-5 container">
-          <div className="profile-exp bg-white p-2 ">
-            <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-            <div> 
-              <h3>Contacts</h3>
-              <p>{UsersList}</p></div>
-
-
-          
-            <div className=" profile-edu bg-white p-3">
-            
-              
-              <p>{displayMessages}</p>
-
-
-
-
-              <form className="form profile-top" onSubmit={this.handleSubmit}>   
+     if (this.state.recipientIdforConversation){
+      return (
+        <div>
+          <Navbar/>  
+          <div className="profile-grid my-5 container">
+            <div className="profile-exp bg-white p-2 ">
+              <h2><i class="fas fa-user my-1"></i> Your messages</h2>
+             
+             
+              <div> 
+                <h3>Contacts</h3>
+                <p>{UsersList}</p>
+              </div>
   
-  
-                 <input
-                 className="form-group" 
-                  type="text"
-                name="reply"
-                value={this.state.reply}
-                  onChange={this.handleChange}
-                  id="reply"
-                  placeholder="Write you message here"
-  />  
- 
-
-
-
-<button  className="btn btn-primary m-2" type="submit"> 
-<h3 >Submit changes </h3></button>
-{this.state.message && (
-<h3>{this.state.message}</h3>
-)}
-</form>
-
-
-
-
-
-
-
-
-
+              <div className=" profile-edu bg-white p-3">
               
+                <p>{displayMessages}</p>
+                
+              
+                
+                <form className="form profile-top" onSubmit={this.handleSubmit}>   
+  
+                  <input
+                    className="form-group" 
+                    type="text"
+                    name="reply"
+                    value={this.state.reply}
+                    onChange={this.handleChange}
+                    id="reply"
+                    placeholder="Write you message here"
+                    />  
+  
+                  <button  className="btn btn-primary m-2" type="submit"> 
+                    <h3 >Submit changes </h3>
+                  </button>
+                    
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        
+     
       
-   
+        
+        
+      )
+     } else {
+      return (
+        <div>
+          <Navbar/>  
+          <div className="profile-grid my-5 container">
+            <div className="profile-exp bg-white p-2 ">
+              <h2><i class="fas fa-user my-1"></i> Your messages</h2>
+             
+             
+              <div> 
+                <h3>Contacts</h3>
+                <p>{UsersList}</p>
+              </div>
+  
+              <div className=" profile-edu bg-white p-3">
+              
+                <p>{displayMessages}</p>
+
+                <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
+                <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
+                
+              
+                
+                
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+     
+      
+        
+        
+      )
+     }
+
+
     
-      
-      
-    )
+    
   }
 }

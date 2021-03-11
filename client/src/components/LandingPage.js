@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../services/auth';
-import AboutPapagei from './AboutPapagei'; 
+
 
 
 

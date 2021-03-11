@@ -29,16 +29,27 @@ class App extends React.Component {
 
     console.log('check the user', this.state.user)
     return (
-      <div className="App">
-        <LandingPage user={this.state.user} setUser={this.setUser} />
-        <Route
-          exact path='/'
-          render={props => {
-            if (this.state.user) {
-              return <HomePage user={this.state.user} {...props} />
-            } else return <Redirect to='/' />
-          }}
-        />
+      // <div className="App">
+      //   <LandingPage user={this.state.user} setUser={this.setUser} />
+      //   <Route
+      //     exact path='/'
+      //     render={props => {
+      //       if (this.state.user) {
+      //         return <HomePage user={this.state.user} {...props} />
+      //       } else return <Redirect to='/' />
+      //     }}
+      //   />
+
+         <div className="App">
+          <LandingPage user={this.state.user} setUser={this.setUser} />
+          <Route
+            exact path='/'
+            render={props => {
+              if (this.state.user) {
+                return <HomePage user={this.state.user} {...props} />
+              } else return <AboutPapagei />
+            }}
+          /> 
 
         <Route
           exact path='/profile'
@@ -118,10 +129,10 @@ class App extends React.Component {
         />
 
 
-        <Route
+        {/* <Route
           exact path='/'
-          render={props => <AboutPapagei setUser={this.setUser} {...props} />}
-        />
+          render={props => <AboutPapagei {...props} />}
+        /> */}
       </div>
     );
   }
