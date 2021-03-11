@@ -97,10 +97,16 @@ export default class UsersList extends Component {
       <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option value='' selected> show member from </option>
           <option value="">all locations</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
+          <option value="Berlin">Berlin</option>
+          <option value="Hamburg">Hamburg</option>
+          <option value="Köln">Köln</option>
+          <option value="Paris">Paris</option>
+          <option value="Grenoble">Grenoble</option>
+          <option value="London">London</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Rome">Rome</option>
+          <option value="Poznan">Poznan</option>
+          <option value="Amsterdam">Amsterdam</option>
           </select> 
           </div>
           <div>
@@ -109,22 +115,32 @@ export default class UsersList extends Component {
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
           <option value="" selected> show member that speaks</option>
           <option value="">All</option>
-          <option value="english">English</option>
+          <option value="English">English</option>
           <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="French">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option>
           </select>
           </div>
           <div>
           <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
           <option value="" selected> your native language </option>
           <option value="">All</option>
-          <option value="english">English</option>
+          <option value="English">English</option>
           <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="French">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option> 
           </select>
           </div>
           {/* <button  className="btn btn-primary m-2" type="submit"> 

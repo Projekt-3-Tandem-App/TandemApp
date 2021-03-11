@@ -4,7 +4,7 @@ import Navbar from '../layout/Navbar'
 import axios from 'axios';
 import UsersList from '../UsersList'
 
-//import UsersList from './UsersList'
+
 
 export default class MessagesContainer  extends Component{
 
@@ -21,8 +21,6 @@ export default class MessagesContainer  extends Component{
 
   getData = () => {
     const id = this.props.user._id
-    // const recipientId = this.props.recipientId._id
-    // console.log('RECIPIENT', recipientId)
     console.log('SENDER', id)
      axios.get(`/api/message/history`)
     .then(response => {
@@ -62,11 +60,8 @@ export default class MessagesContainer  extends Component{
       content: this.state.reply, 
     })
     .then(response =>{
-      // this.setState(response.data)
-      // console.log('STATE', this.state)
       this.getData()
       this.setState({reply:''})
-      // console.log('STEP 3', response.data)
     })
     .catch(err =>{
       console.log(err)
@@ -74,17 +69,6 @@ export default class MessagesContainer  extends Component{
   }
 
   
-
-
-
-
-  // renderingMessages(id) {
-  //   const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
-  // }
-
-
- 
-
   render() {
     console.log(this.state.messages);
 
@@ -157,7 +141,6 @@ export default class MessagesContainer  extends Component{
               
                 <p>{displayMessages}</p>
                 
-              
                 
                 <form className="form profile-top" onSubmit={this.handleSubmit}>   
   
@@ -180,9 +163,6 @@ export default class MessagesContainer  extends Component{
             </div>
           </div>
         </div>
-        
-     
-      
         
         
       )
@@ -207,19 +187,11 @@ export default class MessagesContainer  extends Component{
                 <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
                 <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
                 
-              
-                
                 
               </div>
-              
             </div>
           </div>
-          
         </div>
-        
-     
-      
-        
         
       )
      }
