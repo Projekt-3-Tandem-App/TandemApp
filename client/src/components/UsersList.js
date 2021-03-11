@@ -160,6 +160,7 @@ export default class UsersList extends Component {
             <h3> Location: {user.location}</h3>
             {/* <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link> */}
             <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
+            <Link to={`/users/${user._id}/message`} className="btn btn-light">Message</Link>
           </div>
           <ul>
             <li className="text-primary ">
