@@ -145,7 +145,7 @@ app.use('/api/message', message);
 require("./error-handling")(app);
 
 // for deployment
-/*
+
 const path = require('path');
 app.use(express.static(path.join(__dirname, "/client/build")));
 
@@ -153,5 +153,5 @@ app.use((req, res) => {
   // If no routes match, send them the React HTML.
   res.sendFile(__dirname + "/client/build/index.html");
 });
-*/ 
+
 module.exports = app;
