@@ -129,9 +129,11 @@ export default class Signup extends Component {
           <option selected>Choose a city</option>
           <option value="Berlin">Berlin</option>
           <option value="Hamburg">Hamburg</option>
+          <option value="Köln">Köln</option>
           <option value="Paris">Paris</option>
           <option value="London">London</option>
-          <option value="Köln">London</option>
+          <option value="Barcelona">Barcelona</option>
+        
            
           </select>
           <h2 className="m-3"> Profile Settings </h2>

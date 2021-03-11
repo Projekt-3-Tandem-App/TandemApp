@@ -116,10 +116,12 @@ handleLogout = () => {
           <label className="grey" htmlFor="age "><p>change your location</p></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option selected>{this.state.location}</option>
-          <option value="berlin">Berlin</option>
-          <option value="hambourg">Hamburg</option>
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
+          <option value="Berlin">Berlin</option>
+          <option value="Hamburg">Hamburg</option>
+          <option value="Köln">Köln</option>
+          <option value="Paris">Paris</option>
+          <option value="London">London</option>
+          <option value="Barcelona">Barcelona</option>
           </select>
        
           

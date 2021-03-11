@@ -92,11 +92,14 @@ export default class Languages extends Component{
           
           <select className="my-3-profile" name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
           <option selected>{this.state.nativeLanguages}</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>    
           </select>
 
         
@@ -104,11 +107,14 @@ export default class Languages extends Component{
          
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
           <option selected>{this.state.learningLanguages}</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
          
           <button  className="btn btn-primary m-3" type="submit"> 
