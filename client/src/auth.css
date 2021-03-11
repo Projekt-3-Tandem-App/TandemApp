@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap');
 
 :root { 
-  --overlay-color: #1b4355;
+  --overlay-color: #234252;
   }
   
   * {
@@ -19,8 +19,8 @@
   padding:100px;
 
   align-items: center;
-  background-color:#217575;
-  color:#fff;
+
+  color:black;
   z-index: 2;
   transition: 0.5s;
   }
@@ -38,8 +38,8 @@
   left: 0;
   width:100%;
   height:100%;
-  background:var(--overlay-color);
-  mix-blend-mode: overlay;
+  background-color: rgb(252, 247, 247); 
+ 
   }
   
   

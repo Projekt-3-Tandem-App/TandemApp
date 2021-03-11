@@ -96,7 +96,7 @@ export default class ShowProfile  extends Component{
 
         
         <div class="profile-about bg-light p-2">
-          <h2 class="text-primary"> Goals</h2>
+          <h2 class="text-primary "> Goals</h2>
           <p>
             {this.state.user.goal}
           </p>
