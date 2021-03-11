@@ -3,22 +3,17 @@ import {Link} from 'react-router-dom'
 import Navbar from '../layout/Navbar'
 import axios from 'axios';
 import UsersList from '../UsersList'
-
 //import UsersList from './UsersList'
 
 export default class MessagesContainer  extends Component{
-
-
   state= {
     messages : [], 
     recipientIdforConversation: null,
     reply: ''
   }
-
   componentDidMount() {
     this.getData()
   }
-
   getData = () => {
     const id = this.props.user._id
     // const recipientId = this.props.recipientId._id
@@ -33,8 +28,6 @@ export default class MessagesContainer  extends Component{
       console.log(err);
     })
   }
-
-
   handleClick = event => {
     console.log("ICI", event.target)
     const { value } = event.target;
@@ -42,9 +35,6 @@ export default class MessagesContainer  extends Component{
       recipientIdforConversation : value 
     })
   }
-
-
-
   handleChange = event => {
     console.log("Event target", event.target)
     const { name, value } = event.target;
@@ -52,8 +42,6 @@ export default class MessagesContainer  extends Component{
       [name]: value
     })
   }
-
-
   handleSubmit = event => {
     console.log('STEP 1')
     event.preventDefault();
@@ -72,26 +60,9 @@ export default class MessagesContainer  extends Component{
       console.log(err)
     })
   }
-
-  
-
-
-
-
-  // renderingMessages(id) {
-  //   const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
-  // }
-
-
- 
-
   render() {
     console.log(this.state.messages);
-
     console.log("TEST TO GET MESSAGES", this.state.recipientIdforConversation)
-
-  
-
     const id = this.props.user._id //loggedin user id
     const unique = []
     // messages will be replaced with this.state.messages
@@ -111,9 +82,6 @@ export default class MessagesContainer  extends Component{
     const clickedId = this.state.recipientIdforConversation
     const filtered = this.state.messages.filter(m => m.recipient._id === clickedId || m.sender._id === clickedId)
     console.log("Filtered", filtered)
-
-
-
      const UsersList = unique.map(message =>{
       return (
         <div>
@@ -122,23 +90,16 @@ export default class MessagesContainer  extends Component{
             <button value={message._id} onClick={this.handleClick}>see messages</button>
           </div>
         </div>
-         
        )
      })
-
      const displayMessages = filtered.map(message => {
        return (
          <div>
            <p><b>from {message.sender.name} to {message.recipient.name}</b></p>
            <p>{message.content}</p>
-           
          </div>
-
-
        )
      })
-
-
      if (this.state.recipientIdforConversation){
       return (
         <div>
@@ -146,21 +107,13 @@ export default class MessagesContainer  extends Component{
           <div className="profile-grid my-5 container">
             <div className="profile-exp bg-white p-2 ">
               <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-             
-             
               <div> 
                 <h3>Contacts</h3>
                 <p>{UsersList}</p>
               </div>
-  
               <div className=" profile-edu bg-white p-3">
-              
                 <p>{displayMessages}</p>
-                
-              
-                
                 <form className="form profile-top" onSubmit={this.handleSubmit}>   
-  
                   <input
                     className="form-group" 
                     type="text"
@@ -170,21 +123,14 @@ export default class MessagesContainer  extends Component{
                     id="reply"
                     placeholder="Write you message here"
                     />  
-  
                   <button  className="btn btn-primary m-2" type="submit"> 
                     <h3 >Submit changes </h3>
                   </button>
-                    
                 </form>
               </div>
             </div>
           </div>
         </div>
-        
-     
-      
-        
-        
       )
      } else {
       return (
@@ -193,39 +139,19 @@ export default class MessagesContainer  extends Component{
           <div className="profile-grid my-5 container">
             <div className="profile-exp bg-white p-2 ">
               <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-             
-             
               <div> 
                 <h3>Contacts</h3>
                 <p>{UsersList}</p>
               </div>
-  
               <div className=" profile-edu bg-white p-3">
-              
                 <p>{displayMessages}</p>
-
                 <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
                 <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
-                
-              
-                
-                
               </div>
-              
             </div>
           </div>
-          
         </div>
-        
-     
-      
-        
-        
       )
      }
-
-
-    
-    
   }
 }
