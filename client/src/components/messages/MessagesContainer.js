@@ -26,92 +26,78 @@ export default class MessagesContainer  extends Component{
      axios.get(`/api/message/history`)
     .then(response => {
       console.log('RESPONSE FRONTEND', response.data)
-    this.setState({messages :response.data})
+      this.setState({messages :response.data})
     })
     .catch(err =>{
       console.log(err);
     })
   }
 
+  
+
 
   handleClick = event => {
     console.log("ICI", event.target)
     const { name, value } = event.target;
     this.setState({
-      [name]: value,
+      // [name]: value,
       recipientIdforConversation : value 
     })
+  }
+
+  renderingMessages(id) {
+    const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
   }
 
 
  
 
   render() {
+    console.log(this.state.messages);
 
     console.log("TEST TO GET MESSAGES", this.state.recipientIdforConversation)
 
-    // const userList
+  
 
-    //show the list of the users we want to see
-    // get list of all the messages / recipient object
-    // filter the duplicate (pour pas avoir 2 fois le same utilisateur)
-    // array user on the left side
-
-     //itetate over message array 
-    // for each message compare recipient id 
-    // if recipient id new push id in new array 
-    //in the for lot take 
-    
-   //create of a map inside all Id 
-
-
-//    <div>
-//    {people.filter(person => person.age < 60).map(filteredPerson => (
-//      <li>
-//        {filteredPerson.name}
-//      </li>
-//    ))}
-//  </div>
-
-
-  //  let tableData;
-  //           let filtered = this.props.products.filter(product => product.name.toLowerCase(). includes(this.props.query.toLowerCase()))
-  //           tableData = filtered.map((product, index) => {
-  //               return <ProductRow key={index} product={product} />
-  //           })
-  //       
-
-    // const filteredDuplicates = this.state.messages.filter(message => message.recipient._id === message.recipient._id)
-    // console.log("Filtered Duplicates",filteredDuplicates);
-
-    // let filteredDuplicates = [...new Set([...this.state.messages.map(message => this.state.messages[message._id])])]
-    //   console.log("Filtered Duplicates",filteredDuplicates);
+    const id = this.props.user._id //loggedin user id
+    const unique = []
+    // messages will be replaced with this.state.messages
+    const usernames = [...this.state.messages.map(message => message.recipient),
+    ...this.state.messages.map(message => message.sender)]
+    console.log(usernames)
+    // id will be replaces with this.props.user._id - 
+    usernames.forEach(user => {
+      if (user._id !== id && unique.filter(x => x._id === user._id).length === 0) {
+      unique.push(user)
+      }
+    })
+    console.log("Unique", unique)
+  // clicked name is alice: show all messages where bob is sender
+  // or recipient
+  // this clickedId is in the state
+    const clickedId = this.state.recipientIdforConversation
+    const filtered = this.state.messages.filter(m => m.recipient._id === clickedId || m.sender._id === clickedId)
+    console.log("Filtered", filtered)
 
 
-    //  const filteredDuplicates = this.state.messages.recipient._id.filter(message => message.recipient._id === message.recipient._id)
-    //  console.log("Filtered Duplicates",filteredDuplicates);
 
-    //  const removeDuplicates = this.state.messages.filter((message, index) =>{
-    //    return this.state.messages.indexOf(message) === index; 
-    //  })
-    //  const uniqueName = this.state.messages.filter(message => message.recipient._id !== this.state.messages.recipient._id)
-    //  console.log("UNIQUE NAME", uniqueName)
-    
-
-     const displayMessages = this.state.messages.map(message =>{
-      // console.log("Recipient id here", message.recipient._id)
-      // let uniqueName = []
-      // for (let i=0; i < message.lenght; i++){
-      //   if (message.recipient._id[i] !== message.recipient._id){
-      //     uniqueName.push(message)
-            
-      //   }
-      // }
+     const UsersList = unique.map(message =>{
       return (
          <div key={message._id}>
-            <p>{message.recipient.name}</p>
-            <button value={message.recipient._id} onClick={this.handleClick}>see messages</button>
+            <p>{message.name}</p>
+            <button value={message._id} onClick={this.handleClick}>see messages</button>
         </div>
+       )
+     })
+
+     const displayMessages = filtered.map(message => {
+       return (
+         <div>
+           <p><b>from {message.sender.name} to {message.recipient.name}</b></p>
+           <p>{message.content}</p>
+           
+
+         </div>
        )
      })
 
@@ -127,14 +113,15 @@ export default class MessagesContainer  extends Component{
 
 
             <div> <p>conversation with one of the user</p>
-                  <p>{displayMessages}</p>
+                  <p>{UsersList}</p>
 
                   
             
             </div>
             <div className=" profile-edu bg-white p-3">
               <p> display messaye here </p>
-              <p>{this.state.recipientIdforConversation}</p>
+              <p>{displayMessages}</p>
+              
             </div>
           </div>
         </div>
