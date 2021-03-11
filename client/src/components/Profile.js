@@ -84,7 +84,7 @@ handleLogout = () => {
 <div className="profile-exp bg-white p-2 ">
 
 <h2 ><i class="fas fa-user my-1"></i> Settings</h2>
-<ul className="flex-smart " >
+<ul className="flex-smart" >
 <li><Link to="/profile" className="btn my-1 btn-width btn-smart ">Profile</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width btn-smart">Languages</Link></li>
 <li><Link to="/upload" className="btn my-1 btn-width btn-smart ">Picture </Link></li>
@@ -152,8 +152,8 @@ handleLogout = () => {
             id="description"
           />
           <label htmlFor="goal" className="grey" >Edit your learning Goals</label>
-          <textarea  
-            type="text"
+          <textarea 
+            type="text" rows="5" cols="30" 
             name="goal"
             value={this.state.goal}
             onChange={this.handleChange}
