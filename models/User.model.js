@@ -15,7 +15,8 @@ const userSchema = new Schema({
   gender: String,
   // tag: String,
   description: String, 
-  goal: String
+  goal: String,
+  imageUrl: { type: String, required: true }
   //image: String, look if possible with heroko clounderari (link: string id: string}
 });
 

@@ -64,6 +64,7 @@ export default class MessagesContainer  extends Component{
       // this.setState(response.data)
       // console.log('STATE', this.state)
       this.getData()
+      this.setState({reply:''})
       // console.log('STEP 3', response.data)
     })
     .catch(err =>{

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import { signup } from '../services/auth';
 import axios from 'axios';
+import { logout } from "../services/auth";
 
 
 
@@ -28,6 +29,9 @@ export default class Languages extends Component{
     })
   }
 
+ 
+  
+
   handleSubmit = event => {
     event.preventDefault();
     console.log('Step 2')
@@ -49,6 +53,13 @@ export default class Languages extends Component{
     })
   }
 
+  handleLogout = () => {
+    // event.preventDefault();
+     logout().then(() => {
+       this.props.setUser(null)
+       this.props.history.push('/');
+     }) 
+   }
 
 
   render() {
@@ -63,40 +74,50 @@ export default class Languages extends Component{
         <ul className="flex-smart " >
         <li><Link to="/profile" className="btn my-1 btn-width">Profile</Link></li>
         <li><Link to="/languages" className="btn my-1 btn-width">Languages</Link></li>
-        <li><Link to="/languages" className="btn my-1 btn-width ">Picture </Link></li>
-        <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li>
+        <li><Link to="/upload" className="btn my-1 btn-width ">Picture </Link></li>
+        <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width">Logout </Link></li>
         </ul> 
         </div>
 
 
 
-        <section className=" profile-edu bg-white p-3">
+        <section className=" profile-edu bg-white p-2">
       <div className="form-group" > 
 
-        <h2 class="large text-primary center ">Edit your Languages</h2>
+        <h3 class="large text-primary center my-3-profile p-3">Edit your Languages</h3>
 
-        <form className="form profile-top" onSubmit={this.handleSubmit}>   
-        <h2 className="m-3"> Choose your native Language</h2>
+        <form className="form profile-top-profile" onSubmit={this.handleSubmit}>   
+    
+        <label className="grey" htmlFor="goal">Choose your native Language</label>
           
-          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <select className="my-3-profile" name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
           <option selected>{this.state.nativeLanguages}</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>    
           </select>
+
+        
+          <label className="grey" htmlFor="goal">Choose your learning Language</label>
          
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} multiple>
+          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
           <option selected>{this.state.learningLanguages}</option>
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="italian">Italian</option>
-          <option value="spanish">Spanish</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Russian">Russian</option>
           </select>
          
-          <button  className="btn btn-primary m-2" type="submit"> 
+          <button  className="btn btn-primary m-3" type="submit"> 
           <h3 >Submit changes </h3></button>
           {this.state.message && (
             <h3>{this.state.message}</h3>

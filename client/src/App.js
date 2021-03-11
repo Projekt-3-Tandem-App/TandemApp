@@ -12,6 +12,7 @@ import Languages from './components/Languages';
 import ShowProfile from './components/ShowProfile';
 import MessagesContainer from './components/messages/MessagesContainer';
 import MessageForm from './components/messages/MessageForm'; 
+import Picture from './components/Picture'
 
 
 class App extends React.Component {
@@ -61,6 +62,15 @@ class App extends React.Component {
           render={props => {
             if (this.state.user) {
               return <Languages user={this.state.user} {...props} />
+            } else return <Redirect to='/' />
+          }}
+        />
+
+        <Route
+          exact path='/upload'
+          render={props => {
+            if (this.state.user) {
+              return <Picture user={this.state.user} {...props} />
             } else return <Redirect to='/' />
           }}
         />
