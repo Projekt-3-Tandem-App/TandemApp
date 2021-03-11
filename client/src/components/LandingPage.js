@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../services/auth';
+import AboutPapagei from './AboutPapagei'; 
 
 
 
@@ -37,6 +38,11 @@ export default function LandingPage(props) {
                 <h1>Papagei</h1>
               </ul>
               <ul>
+              <li>
+                  <Link to="/" className="">
+                    About Papagei 
+                  </Link>
+                </li>
                 <li>
                   <Link to="/signup" className="">
                     Signup
