@@ -35,7 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
     })
   })
 )
