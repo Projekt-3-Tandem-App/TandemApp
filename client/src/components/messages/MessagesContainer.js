@@ -88,8 +88,10 @@ export default class MessagesContainer  extends Component{
      })
      const displayMessages = filtered.map(message => {
        return (
+
          <div className="p">
            <p className="text-dark"><b>{message.sender.name}</b></p>
+
            <p>{message.content}</p>
            <div class="line-light"></div>
            
@@ -211,8 +213,16 @@ export default class MessagesContainer  extends Component{
                 <p>{UsersList}</p>
               </div>
               <div className=" profile-edu bg-white p-3">
-                <p>{displayMessages}</p>
-                <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
+
+             
+                <p> To see your messages click on the name of your tandem.If you do not have any messages yet you can contact a new tandem from community
+  </p>
+
+              
+          
+
+                <p> Message box  </p>
+
                 <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
               </div>
             </div>
