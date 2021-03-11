@@ -61,7 +61,7 @@ class App extends React.Component {
           exact path='/languages'
           render={props => {
             if (this.state.user) {
-              return <Languages user={this.state.user} {...props} />
+              return <Languages user={this.state.user} {...props} setUser={this.setUser} />
             } else return <Redirect to='/' />
           }}
         />
@@ -70,7 +70,7 @@ class App extends React.Component {
           exact path='/upload'
           render={props => {
             if (this.state.user) {
-              return <Picture user={this.state.user} {...props} />
+              return <Picture user={this.state.user} {...props} setUser={this.setUser}/>
             } else return <Redirect to='/' />
           }}
         />
