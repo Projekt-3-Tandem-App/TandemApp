@@ -8,9 +8,10 @@ import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './components/HomePage';
 import Profile from './components/Profile';
-import AboutMe from './components/AboutMe';
 import Languages from './components/Languages';
-import ShowProfile from './components/ShowProfile'
+import ShowProfile from './components/ShowProfile';
+import MessagesContainer from './components/messages/MessagesContainer';
+import MessageForm from './components/messages/MessageForm'; 
 import Picture from './components/Picture'
 
 
@@ -48,10 +49,10 @@ class App extends React.Component {
         />
 
         <Route
-          exact path='/aboutme'
+          exact path='/messages'
           render={props => {
             if (this.state.user) {
-              return <AboutMe user={this.state.user} {...props} />
+              return <MessagesContainer user={this.state.user} {...props} setUser={this.setUser} />
             } else return <Redirect to='/' />
           }}
         />
@@ -82,6 +83,19 @@ class App extends React.Component {
             } else return <Redirect to='/' />
           }}
         />
+
+        <Route
+          //exact path='/showprofil'
+          exact path='/users/:id/message'          render={props => {
+            if (this.state.user) {
+              return <MessageForm user={this.state.user} {...props} />
+            } else return <Redirect to='/' />
+          }}
+        />
+
+        
+
+
 
         {/* <Route exact path ="/" component={HomePage} /> */}
         {/* <Route exact path ="/profile" component={Profile} /> */}

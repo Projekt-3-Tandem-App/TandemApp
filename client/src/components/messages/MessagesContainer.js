@@ -1,0 +1,205 @@
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import Navbar from '../layout/Navbar'
+import axios from 'axios';
+
+//import UsersList from './UsersList'
+
+export default class MessagesContainer  extends Component{
+
+
+  state= {
+    messages : [], 
+    recipientIdforConversation: null,
+    reply: ''
+  }
+
+  componentDidMount() {
+    this.getData()
+  }
+
+  getData = () => {
+    const id = this.props.user._id
+    // const recipientId = this.props.recipientId._id
+    // console.log('RECIPIENT', recipientId)
+    console.log('SENDER', id)
+     axios.get(`/api/message/history`)
+    .then(response => {
+      console.log('RESPONSE FRONTEND', response.data)
+      this.setState({messages :response.data})
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  }
+
+
+  handleClick = event => {
+    console.log("ICI", event.target)
+    const { value } = event.target;
+    this.setState({
+      recipientIdforConversation : value 
+    })
+  }
+
+
+
+  handleChange = event => {
+    console.log("Event target", event.target)
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+
+  handleSubmit = event => {
+    console.log('STEP 1')
+    event.preventDefault();
+    axios.post(`/api/message`, {
+      recipient: this.state.recipientIdforConversation, 
+      content: this.state.reply, 
+    })
+    .then(response =>{
+      // this.setState(response.data)
+      // console.log('STATE', this.state)
+      this.getData()
+      this.setState({reply:''})
+      // console.log('STEP 3', response.data)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }
+
+  
+
+
+
+
+  // renderingMessages(id) {
+  //   const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
+  // }
+
+
+ 
+
+  render() {
+    console.log(this.state.messages);
+
+    console.log("TEST TO GET MESSAGES", this.state.recipientIdforConversation)
+
+  
+
+    const id = this.props.user._id //loggedin user id
+    const unique = []
+    // messages will be replaced with this.state.messages
+    const usernames = [...this.state.messages.map(message => message.recipient),
+    ...this.state.messages.map(message => message.sender)]
+    console.log(usernames)
+    // id will be replaces with this.props.user._id - 
+    usernames.forEach(user => {
+      if (user._id !== id && unique.filter(x => x._id === user._id).length === 0) {
+      unique.push(user)
+      }
+    })
+    console.log("Unique", unique)
+  // clicked name is alice: show all messages where bob is sender
+  // or recipient
+  // this clickedId is in the state
+    const clickedId = this.state.recipientIdforConversation
+    const filtered = this.state.messages.filter(m => m.recipient._id === clickedId || m.sender._id === clickedId)
+    console.log("Filtered", filtered)
+
+
+
+     const UsersList = unique.map(message =>{
+      return (
+        <div>
+          <div key={message._id}>
+            <p>{message.name}</p>
+            <button value={message._id} onClick={this.handleClick}>see messages</button>
+          </div>
+        </div>
+         
+       )
+     })
+
+     const displayMessages = filtered.map(message => {
+       return (
+         <div>
+           <p><b>from {message.sender.name} to {message.recipient.name}</b></p>
+           <p>{message.content}</p>
+           
+         </div>
+
+
+       )
+     })
+
+
+    
+    return (
+      <div>
+        <Navbar/>  
+        <div className="profile-grid my-5 container">
+          <div className="profile-exp bg-white p-2 ">
+            <h2><i class="fas fa-user my-1"></i> Your messages</h2>
+            <div> 
+              <h3>Contacts</h3>
+              <p>{UsersList}</p></div>
+
+
+          
+            <div className=" profile-edu bg-white p-3">
+            
+              
+              <p>{displayMessages}</p>
+
+
+
+
+              <form className="form profile-top" onSubmit={this.handleSubmit}>   
+  
+  
+                 <input
+                 className="form-group" 
+                  type="text"
+                name="reply"
+                value={this.state.reply}
+                  onChange={this.handleChange}
+                  id="reply"
+                  placeholder="Write you message here"
+  />  
+ 
+
+
+
+<button  className="btn btn-primary m-2" type="submit"> 
+<h3 >Submit changes </h3></button>
+{this.state.message && (
+<h3>{this.state.message}</h3>
+)}
+</form>
+
+
+
+
+
+
+
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+   
+    
+      
+      
+    )
+  }
+}

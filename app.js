@@ -35,7 +35,7 @@ app.use(
     //Forces the session to be saved back to the session store, 
     // even if the session was never modified during the request.
     resave: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL
     })
   })
 )
@@ -46,6 +46,7 @@ const User = require('./models/User.model');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+// const Message = require('./models/Message.model');
 
 // we serialize only the `_id` field of the user to keep the information stored minimum
 passport.serializeUser((user, done) => {
@@ -123,6 +124,11 @@ app.use("/api", index)
 
 const auth = require('./routes/auth')
 app.use('/api/auth', auth);
+
+const message = require("./routes/message")
+app.use('/api/message', message);
+// const message = require("./route/message")
+// app.use('/api', message)
 
 
 
