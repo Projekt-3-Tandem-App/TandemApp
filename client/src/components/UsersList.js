@@ -40,6 +40,18 @@ export default class UsersList extends Component {
     })
     }
 
+
+
+    // sortbyName = () => {
+    //   const sortedUsers = this.state.users.sort((a,b) => {
+    //     if (a.name < b.name) return -1
+    //     if (a.name > b.name) return 1
+    //     return 0
+    //   })
+    //   this.setState({
+    //     users: sortedUsers
+    //   })
+    // }
     /*
     toggleFilterHandler = () => {
 
@@ -74,10 +86,10 @@ export default class UsersList extends Component {
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
       && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-      && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
+     // && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
       && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
-    
+
     console.log(filteredUsers)
     return (
       <div> 
@@ -151,6 +163,8 @@ export default class UsersList extends Component {
           <option value="Portuguese">Portuguese</option> 
           </select>
           </div>
+
+          {/* <div><button onClick={this.sortbyName}>Sort by name</button></div> */}
           {/* <button  className="btn btn-primary m-2" type="submit"> 
           <h3> Filter </h3></button> */}
       </form>
