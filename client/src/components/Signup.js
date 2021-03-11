@@ -109,6 +109,8 @@ export default class Signup extends Component {
           <option value="Chinese">Chinese</option>
           <option value="Arabic">Arabic</option>
           <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option>   
           </select>
           <label htmlFor="learningLanguages" className="m-1"></label>
           <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} required >
@@ -121,9 +123,10 @@ export default class Signup extends Component {
           <option value="Chinese">Chinese</option>
           <option value="Arabic">Arabic</option>
           <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option>  
           </select>
-        {/* languages
-        location */}
+        
           <label htmlFor="location" className="m-1"></label>
           <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option selected>Choose a city</option>
@@ -131,8 +134,12 @@ export default class Signup extends Component {
           <option value="Hamburg">Hamburg</option>
           <option value="Köln">Köln</option>
           <option value="Paris">Paris</option>
+          <option value="Grenoble">Grenoble</option>
           <option value="London">London</option>
           <option value="Barcelona">Barcelona</option>
+          <option value="Rome">Rome</option>
+          <option value="Poznan">Poznan</option>
+          <option value="Amsterdam">Amsterdam</option>
         
            
           </select>

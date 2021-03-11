@@ -182,7 +182,7 @@ export default class MessagesContainer  extends Component{
   
               <div className=" profile-edu bg-white p-3">
               
-                <p>{displayMessages}</p>
+                {/* <p>{displayMessages}</p> */}
 
                 <p> You don't have any message now, if you want you can contact a tandem partner in the list  </p>
                 <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
