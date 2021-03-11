@@ -8,10 +8,11 @@ const User = require('../models/User.model');
 
 router.post('/', (req, res, next) => {
   const {recipient, content} = req.body;
-  console.log("USER ROUTE MESS", req.user._id)
+  console.log("STEP 2", recipient, content)
   Message.create({ recipient, content, sender: req.user._id })
-  .then(() =>{
-    //res.redirect('/message'); 
+  .then((response) =>{
+    console.log("STEP 2.5", response)
+    res.status(200).json(response)
   })
   .catch(err =>{
     next(err);

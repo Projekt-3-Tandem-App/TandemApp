@@ -10,8 +10,8 @@ export default class MessagesContainer  extends Component{
 
   state= {
     messages : [], 
-    // users: [], 
-    recipientIdforConversation: null 
+    recipientIdforConversation: null,
+    reply: ''
   }
 
   componentDidMount() {
@@ -33,21 +33,52 @@ export default class MessagesContainer  extends Component{
     })
   }
 
-  
-
 
   handleClick = event => {
     console.log("ICI", event.target)
-    const { name, value } = event.target;
+    const { value } = event.target;
     this.setState({
-      // [name]: value,
       recipientIdforConversation : value 
     })
   }
 
-  renderingMessages(id) {
-    const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
+
+
+  handleChange = event => {
+    console.log("Event target", event.target)
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
   }
+
+
+  handleSubmit = event => {
+    console.log('STEP 1')
+    event.preventDefault();
+    axios.post(`/api/message`, {
+      recipient: this.state.recipientIdforConversation, 
+      content: this.state.reply, 
+    })
+    .then(response =>{
+      // this.setState(response.data)
+      // console.log('STATE', this.state)
+      this.getData()
+      // console.log('STEP 3', response.data)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }
+
+  
+
+
+
+
+  // renderingMessages(id) {
+  //   const filteredMessages = this.state.messages.filter(message => message.recipient._id === id || message.sender._id === id);
+  // }
 
 
  
@@ -83,10 +114,13 @@ export default class MessagesContainer  extends Component{
 
      const UsersList = unique.map(message =>{
       return (
-         <div key={message._id}>
+        <div>
+          <div key={message._id}>
             <p>{message.name}</p>
             <button value={message._id} onClick={this.handleClick}>see messages</button>
+          </div>
         </div>
+         
        )
      })
 
@@ -96,8 +130,9 @@ export default class MessagesContainer  extends Component{
            <p><b>from {message.sender.name} to {message.recipient.name}</b></p>
            <p>{message.content}</p>
            
-
          </div>
+
+
        )
      })
 
@@ -109,18 +144,51 @@ export default class MessagesContainer  extends Component{
         <div className="profile-grid my-5 container">
           <div className="profile-exp bg-white p-2 ">
             <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-            <div> <p>List users you had a message with</p></div>
+            <div> 
+              <h3>Contacts</h3>
+              <p>{UsersList}</p></div>
 
 
-            <div> <p>conversation with one of the user</p>
-                  <p>{UsersList}</p>
-
-                  
-            
-            </div>
+          
             <div className=" profile-edu bg-white p-3">
-              <p> display messaye here </p>
+            
+              
               <p>{displayMessages}</p>
+
+
+
+
+              <form className="form profile-top" onSubmit={this.handleSubmit}>   
+  
+  
+                 <input
+                 className="form-group" 
+                  type="text"
+                name="reply"
+                value={this.state.reply}
+                  onChange={this.handleChange}
+                  id="reply"
+                  placeholder="Write you message here"
+  />  
+ 
+
+
+
+<button  className="btn btn-primary m-2" type="submit"> 
+<h3 >Submit changes </h3></button>
+{this.state.message && (
+<h3>{this.state.message}</h3>
+)}
+</form>
+
+
+
+
+
+
+
+
+
               
             </div>
           </div>

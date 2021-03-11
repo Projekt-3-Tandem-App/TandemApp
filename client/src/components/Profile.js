@@ -166,6 +166,8 @@ handleLogout = () => {
   )}
 </form>
 
+<Link to={`/users/${this.props.user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
+
 </div>
 </section>
 </div>

@@ -64,8 +64,9 @@ export default class MessageForm  extends Component{
       recipient: this.state.recipient._id, 
       content: this.state.content, 
     })
-    .then(response =>{
-      this.setState(response.data)
+    .then(() =>{
+      // this.setState(response.data)
+      this.props.history.push('/messages')
     })
     .catch(err =>{
       console.log(err)
