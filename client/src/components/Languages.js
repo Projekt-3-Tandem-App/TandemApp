@@ -93,7 +93,9 @@ export default class Languages extends Component{
           <option value="Spanish">Spanish</option>
           <option value="Chinese">Chinese</option>
           <option value="Arabic">Arabic</option>
-          <option value="Russian">Russian</option>    
+          <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option>    
           </select>
 
         
@@ -109,6 +111,8 @@ export default class Languages extends Component{
           <option value="Chinese">Chinese</option>
           <option value="Arabic">Arabic</option>
           <option value="Russian">Russian</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese">Portuguese</option>
           </select>
          
           <button  className="btn btn-primary m-3" type="submit"> 

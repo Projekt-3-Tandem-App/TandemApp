@@ -16,8 +16,6 @@ export default class MessagesContainer  extends Component{
   }
   getData = () => {
     const id = this.props.user._id
-    // const recipientId = this.props.recipientId._id
-    // console.log('RECIPIENT', recipientId)
     console.log('SENDER', id)
      axios.get(`/api/message/history`)
     .then(response => {
@@ -50,11 +48,8 @@ export default class MessagesContainer  extends Component{
       content: this.state.reply, 
     })
     .then(response =>{
-      // this.setState(response.data)
-      // console.log('STATE', this.state)
       this.getData()
       this.setState({reply:''})
-      // console.log('STEP 3', response.data)
     })
     .catch(err =>{
       console.log(err)

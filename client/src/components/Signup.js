@@ -74,7 +74,7 @@ export default class Signup extends Component {
             value={this.state.username}
             onChange={this.handleChange}
             id="username"
-            placeholder="Username"
+            placeholder="username"
           />
           <label htmlFor="password" > </label>
           <input
