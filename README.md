@@ -8,6 +8,6 @@ Wander is a MERN application to find your tandem!
 *:camera: possibility to add a picture
 *:email: possibility to write a message to the tandem you wish to contact, to exchange with them on the application and to see the history of your messages
 
-##How to quickly try it?
+## How to quickly try it?
 🌞 The project is hosted on Heroku: https://papagei-app.herokuapp.com/
 
