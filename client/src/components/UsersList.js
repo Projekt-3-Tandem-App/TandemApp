@@ -9,9 +9,7 @@ export default class UsersList extends Component {
     location: '',
     nativeLanguages: '',
     learningLanguages: '',
-    imageUrl: '',
-    /*showFilter: false,*/
-    
+    imageUrl: '',    
   }
 
 
@@ -41,52 +39,17 @@ export default class UsersList extends Component {
     }
 
 
-
-    // sortbyName = () => {
-    //   const sortedUsers = this.state.users.sort((a,b) => {
-    //     if (a.name < b.name) return -1
-    //     if (a.name > b.name) return 1
-    //     return 0
-    //   })
-    //   this.setState({
-    //     users: sortedUsers
-    //   })
-    // }
-    /*
-    toggleFilterHandler = () => {
-
-     this.setState( (state , props ) => ( {showFilter : !state.showFilter}))
-     console.log('Hey from FilterHandler')
-   }
-
-  */
-
-
-
-
   render() {
- /*
-    let toggleFilter = null;
-    if ( this.state.showPersons) {
-      toggleFilter = ( 
-          
-     )
-   }
-*/
+
     console.log("IMG URL ", this.state.imageUrl)
     //console.log(this.props, "props at userslist")
     
     console.log("USER location", this.state.currentUser.location)
-    // const filteredUsers = this.state.users.filter(eachuser => {
-    //   return (eachuser.location === this.state.location || !this.state.location)
-    //   && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-    //   || (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
-    // })
+    
 
     const filteredUsers = this.state.users.filter(eachuser => {
       return (eachuser.location === this.state.location || !this.state.location)
       && (eachuser.nativeLanguages === this.state.learningLanguages ||!this.state.learningLanguages)
-     // && (eachuser.learningLanguages === this.state.nativeLanguages ||!this.state.nativeLanguages)
       && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
 
@@ -164,21 +127,13 @@ export default class UsersList extends Component {
           </select>
           </div>
 
-          {/* <div><button onClick={this.sortbyName}>Sort by name</button></div> */}
-          {/* <button  className="btn btn-primary m-2" type="submit"> 
-          <h3> Filter </h3></button> */}
-      </form>
+        </form>
       </div>
       </div>
       
      
       
-{/*     
-      {this.state.users.length === 0 ? (
-        <div>Loading.....</div>
-      ):
-       ( */}
-        {/* this.state.users.map((user, index) => { */}
+
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
           return (
@@ -196,7 +151,7 @@ export default class UsersList extends Component {
             <h3> Age:{user.age}</h3>
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
-            {/* <Link to="/showprofil"  className="btn  btn-dark my-2">View Profile</Link> */}
+           
             <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
             <Link to={`/users/${user._id}/message`} className="btn btn-dark my-2"> <i class="fas fa-paper-plane"></i></Link>
           </div>
@@ -220,9 +175,3 @@ export default class UsersList extends Component {
   }
 }
 
-/*   <button 
-      className="btn btn-primary"
-      onClick={this.toggleFilterHandler}
-    >
-       <i className="fas fa-sliders-h  margin-y"></i>
-      </button>*/

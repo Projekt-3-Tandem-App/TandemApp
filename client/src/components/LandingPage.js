@@ -35,6 +35,7 @@ export default function LandingPage(props) {
                   src="https://images.vexels.com/media/users/3/156819/isolated/lists/9ef07f640db3ffba01c183d3a0864f21-macaw-parrot-bird-illustration.png"
                   alt=""
                 />
+                
                 <h1>Papagei</h1>
               </ul>
               <ul>
@@ -54,12 +55,6 @@ export default function LandingPage(props) {
                   </Link>
                 </li>
 
-                
-
-
-                {/* <li>
-              <Link to='/' onClick={() => handleLogout(props)} >Logout</Link>
-        </li> */}
               </ul>
             </nav>
 

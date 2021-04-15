@@ -29,17 +29,7 @@ class App extends React.Component {
 
     console.log('check the user', this.state.user)
     return (
-      // <div className="App">
-      //   <LandingPage user={this.state.user} setUser={this.setUser} />
-      //   <Route
-      //     exact path='/'
-      //     render={props => {
-      //       if (this.state.user) {
-      //         return <HomePage user={this.state.user} {...props} />
-      //       } else return <Redirect to='/' />
-      //     }}
-      //   />
-
+     
          <div className="App">
           <LandingPage user={this.state.user} setUser={this.setUser} />
           <Route
@@ -88,7 +78,6 @@ class App extends React.Component {
         />
         
         <Route
-          //exact path='/showprofil'
           exact path='/users/:id'          render={props => {
             if (this.state.user) {
               return <ShowProfile user={this.state.user} {...props} />
@@ -97,7 +86,6 @@ class App extends React.Component {
         />
 
         <Route
-          //exact path='/showprofil'
           exact path='/users/:id/message'          render={props => {
             if (this.state.user) {
               return <MessageForm user={this.state.user} {...props} />
@@ -106,17 +94,6 @@ class App extends React.Component {
         />
 
         
-
-
-
-        {/* <Route exact path ="/" component={HomePage} /> */}
-        {/* <Route exact path ="/profile" component={Profile} /> */}
-
-
-        {/* <Route
-          exact path='/projects/:id'
-          component={ProjectDetails}
-        /> */}
         <Route
           exact path='/signup'
           // component={Signup}
@@ -128,11 +105,6 @@ class App extends React.Component {
           render={props => <Login setUser={this.setUser} {...props} />}
         />
 
-
-        {/* <Route
-          exact path='/'
-          render={props => <AboutPapagei {...props} />}
-        /> */}
       </div>
     );
   }

@@ -124,7 +124,6 @@ export default class MessagesContainer  extends Component{
               
                 <form
                   className="form profile-top-profile" onSubmit={this.handleSubmit}
-                  /* onSubmit={(e) => this.handleSubmit(e)}*/
                 ><textarea 
                 type="text" rows="5" cols="10"
                     className="form-group" 
@@ -135,7 +134,7 @@ export default class MessagesContainer  extends Component{
                     placeholder="Write you message here"
                     />  
                   <button  className="btn btn-primary m-2" type="submit"> 
-                    <h3 >Submit changes </h3>
+                    <h3 >Send message </h3>
                   </button>
                 
                 </form>
@@ -173,57 +172,3 @@ export default class MessagesContainer  extends Component{
      }
   }
 }
-
-
-/*  1 return 
-
-
-<div className="profile-grid my-5 container">
-            <div className="profile-exp bg-white p-2 ">
-              <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-              <div> 
-                <h3>Contacts</h3>
-                <p>{UsersList}</p>
-              </div>
-              <div className=" profile-edu bg-white p-3">
-                <p>{displayMessages}</p>
-                <form className="form profile-top" onSubmit={this.handleSubmit}>   
-                  <input
-                    className="form-group" 
-                    type="text"
-                    name="reply"
-                    value={this.state.reply}
-                    onChange={this.handleChange}
-                    id="reply"
-                    placeholder="Write you message here"
-                    />  
-                  <button  className="btn btn-primary m-2" type="submit"> 
-                    <h3 >Submit changes </h3>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div> */
-
-/*   <div className="profile-grid my-5 container">
-            <div className="profile-exp bg-white p-2 ">
-              <h2><i class="fas fa-user my-1"></i> Your messages</h2>
-              <div> 
-                <h3>Contacts</h3>
-                <p>{UsersList}</p>
-              </div>
-              <div className=" profile-edu bg-white p-3">
-
-             
-                <p> To see your messages click on the name of your tandem.If you do not have any messages yet you can contact a new tandem from community
-  </p>
-
-              
-          
-
-                <p> Message box  </p>
-
-                <Link className="btn my-1 btn-width btn-smart " to="/">Community</Link>
-              </div>
-            </div>
-          </div>*/

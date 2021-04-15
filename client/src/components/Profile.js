@@ -88,7 +88,7 @@ handleLogout = () => {
 <li><Link to="/profile" className="btn my-1 btn-width btn-smart ">Profile</Link></li>
 <li><Link to="/languages" className="btn my-1 btn-width btn-smart">Languages</Link></li>
 <li><Link to="/upload" className="btn my-1 btn-width btn-smart ">Picture </Link></li>
-{/* <li> <Link to="/" className="btn my-1 btn-width">Logout </Link></li> */}
+
 <li> <Link to="/" onClick={() => this.handleLogout()} className="btn my-1 btn-width btn-smart">Logout </Link></li>
 
 </ul> 
