@@ -20,7 +20,6 @@ Wander is a MERN application to find your tandem!
 <img src="/client/public/papagei4.JPG">
 <img src="/client/public/papagei5.JPG">
 <img src="/client/public/papagei6.JPG">
-<img src="/client/public/papagei7.JPG">
 
 
 ## Credits
