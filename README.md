@@ -15,7 +15,6 @@ Wander is a MERN application to find your tandem!
 
 ## What it looks like 
 <img src="/client/public/papagei1.JPG">
-<img src="/client/public/papagei2.JPG">
 <img src="/client/public/papagei3.JPG">
 <img src="/client/public/papagei4.JPG">
 <img src="/client/public/papagei5.JPG">
