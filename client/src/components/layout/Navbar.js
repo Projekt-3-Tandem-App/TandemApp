@@ -17,7 +17,7 @@ const Navbar = (props) => {
     <ul>
     <img 
      className=" img-smart round-img png margin-y"
-     src="https://images.vexels.com/media/users/3/156819/isolated/lists/9ef07f640db3ffba01c183d3a0864f21-macaw-parrot-bird-illustration.png"
+     src="https://img.icons8.com/color/48/000000/parrot.png"
     alt=""
     />
      <h1>Papagei</h1>

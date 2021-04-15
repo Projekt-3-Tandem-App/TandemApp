@@ -23,3 +23,6 @@ Wander is a MERN application to find your tandem!
 
 ## Credits
 :raised_hands: Built and designed by  [@lilanika](https://github.com/lilanika) & [@orianemgn](https://github.com/orianemgn/)
+
+
+Papagei logo from [Icones8](https://icones8.fr/icons/set/bird)
