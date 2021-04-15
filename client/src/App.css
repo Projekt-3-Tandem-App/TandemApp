@@ -13,6 +13,8 @@
 }
 
 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -220,6 +222,10 @@ img {
   padding: 0 3rem 0 0; 
 }
 
+.padding-top {
+  padding: rem 0 0 0; 
+}
+
 
 .margin-landing { 
   margin: 0 3rem 0 0; 
@@ -344,7 +350,7 @@ padding-y {
 .img-profile { 
     border: 2rem grey;
     border-radius:10rem;
-     height: 230px;
+    height: 230px;
     width: 230px !important;
     object-fit: cover;
     object-position: top center;
@@ -528,7 +534,20 @@ button {
   text-align: center;
 }
 
-/* Profiles Page */
+
+/* UserList.js */
+
+.profile-grid {
+  display: grid;
+  grid-template-areas:
+    'top top'
+    'about about'
+    'exp edu '
+    'github github';
+  grid-gap: 1rem;
+}
+
+/* UserList.js --> cards*/
 .profile {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
@@ -540,27 +559,7 @@ button {
   border-radius:5px;
   margin:2rem 2rem 0 2rem;
 }
-
-/* Profile Page */
-.profile-grid {
-  display: grid;
-  grid-template-areas:
-    'top top'
-    'about about'
-    'exp edu '
-    'github github';
-  grid-gap: 1rem;
-}
-
-
-
-
-.profile-exp{
-  grid-area: exp;
-  border-radius: 0.2rem;
-
-}
-
+/* UserList.js --> für den Abstand  */
 .profile-top {
   grid-area: top;
   display: flex;
@@ -569,8 +568,15 @@ button {
   justify-content: center;
   text-align: center;
   grid-gap: 1rem;
-  
 }
+
+
+.profile-exp{
+  grid-area: exp;
+  border-radius: 0.2rem;
+
+}
+
 
 .profile-button{
   grid-area: top;

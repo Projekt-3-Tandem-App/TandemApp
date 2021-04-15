@@ -131,9 +131,9 @@ class Picture extends Component {
               </ul>
             </div>
 
-            <section className=" profile-edu bg-white p-2">
+            <section className=" profile-edu bg-white">
               <div className="form-group">
-                <h2 class="large text-primary center my-3-profile  ">
+                <h2 class="large text-primary center my-3-profile p-2 ">
                   Upload your Picture
                 </h2>
                 <form

@@ -115,9 +115,9 @@ export default class MessagesContainer  extends Component{
          
               
             </div>
-            <section className=" profile-edu bg-white p-2">
+            <section className=" profile-edu bg-white">
               <div className="form-group">
-                <h2 class="large text-primary center my-3-profile p-2  ">
+                <h2 class="large text-primary center my-3-profile p-2 ">
                  messages
                 </h2>
                 <div className=" p-2 btn-light flexbox border "> <p>{displayMessages}</p></div>

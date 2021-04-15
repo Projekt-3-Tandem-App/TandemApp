@@ -91,9 +91,9 @@ export default class MessageForm extends Component {
               </div>
 
                
-              <section className=" profile-edu bg-white p-2">
+              <section className=" profile-edu bg-white">
                 <div className="form-group">
-                  <h2 class="large text-primary center my-3-profile p-3 ">
+                  <h2 class="large text-primary center my-3-profile p-2 ">
                     Write {this.state.recipient.name} a message
                   </h2>
 
@@ -102,7 +102,6 @@ export default class MessageForm extends Component {
                     onSubmit={this.handleSubmit}
                   >
                     <textarea
-                      className="form-group"
                       type="text"
                       rows="4"
                       name="content"
