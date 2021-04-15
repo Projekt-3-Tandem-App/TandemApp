@@ -7,8 +7,6 @@ import { logout } from "../services/auth";
 
 
 
-//import UsersList from './UsersList'
-
 export default class Languages extends Component{
   state = {
     nativeLanguages: this.props.user.nativeLanguages, 
@@ -29,13 +27,7 @@ export default class Languages extends Component{
   handleSubmit = event => {
     event.preventDefault();
     console.log('Step 2')
-    axios.put(`/api/user/${this.props.user._id}`, { 
-      //name: this.state.name,
-      // location: this.state.location,
-      // age: this.state.age,
-      // gender: this.state.gender, 
-      // description: this.state.description, 
-      // goal: this.state.goal, 
+    axios.put(`/api/user/${this.props.user._id}`, {  
       nativeLanguages: this.state.nativeLanguages,
       learningLanguages: this.state.learningLanguages
     })
@@ -48,7 +40,6 @@ export default class Languages extends Component{
   }
 
   handleLogout = () => {
-    // event.preventDefault();
      logout().then(() => {
        this.props.setUser(null)
        this.props.history.push('/');
@@ -128,23 +119,10 @@ export default class Languages extends Component{
 
 
       </div>
-
-
     
-
-
-
-    
-      
       
     )
   }
 }
 
         
-/*  <div className="profile-edu bg-white p-2">
-        <h1>Languages</h1>
-        <h2>{this.props.user.name}</h2>
-        <p>Navite Language : {this.props.user.nativeLanguages}</p>
-        <p>Learning Language : {this.props.user.learningLanguages}</p>     
-        </div> */

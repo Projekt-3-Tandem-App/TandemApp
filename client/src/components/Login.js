@@ -42,8 +42,8 @@ export default class Login extends Component {
     return (
       <section  className="container-auth p-2" >
       <div>
-         <h1 class="large text-primary">Sign In</h1>
-         <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
+         <h1 class="large text-primary">Login</h1>
+         <p class="lead"><i class="fas fa-user"></i> Login to Your Account</p>
         <form class="form profile-top auth" s onSubmit={this.handleSubmit}>
           <label htmlFor="username"></label>
           <input
@@ -81,35 +81,3 @@ export default class Login extends Component {
   }
 }
 
-
-/* 
-
- <div class="alert alert-danger">
-        Invalid credentials
-      </div>
-      <h1 class="large text-primary">Sign In</h1>
-      <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
-      <form class="form" action="dashboard.html">
-        <div class="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-          />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Login" />
-      </form>
-      <p class="my-1">
-        Don't have an account? <a href="register.html">Sign Up</a>
-      </p>
-    </section>
-
-*/ 

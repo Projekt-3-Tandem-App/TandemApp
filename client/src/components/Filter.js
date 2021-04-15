@@ -32,8 +32,7 @@ const Filter = (props) => {
           <option value="italian">Italian</option>
           <option value="spanish">Spanish</option>
           </select>
-          {/* <button  className="btn btn-primary m-2" type="submit"> 
-          <h3> Filter </h3></button> */}
+         
       </form>
   
     </div>
@@ -43,4 +42,3 @@ const Filter = (props) => {
 
 export default Filter
 
-/*    <button onClick={props.click}> delete</button> */
