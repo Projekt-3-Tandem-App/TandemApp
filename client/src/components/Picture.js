@@ -83,11 +83,11 @@ class Picture extends Component {
 
   handleLogout = () => {
     // event.preventDefault();
-     logout().then(() => {
-       this.props.setUser(null)
-       this.props.history.push('/');
-     }) 
-   }
+    logout().then(() => {
+      this.props.setUser(null);
+      this.props.history.push("/");
+    });
+  };
 
   render() {
     return (
@@ -112,19 +112,17 @@ class Picture extends Component {
                 </li>
                 <li>
                   <Link to="/upload" className="btn my-1 btn-width ">
-                    Picture{" "}
+                    Picture
                   </Link>
                 </li>
                 <li>
-                  {" "}
                   <li>
-                    {" "}
                     <Link
                       to="/"
                       onClick={() => this.handleLogout()}
                       className="btn my-1 btn-width"
                     >
-                      Logout{" "}
+                      Logout
                     </Link>
                   </li>
                 </li>
@@ -133,19 +131,15 @@ class Picture extends Component {
 
             <section className=" profile-edu bg-white">
               <div className="form-group">
-                <h2 class="large text-primary center my-3-profile p-2 ">
+                <h2 class="large text-primary center p-2 ">
                   Upload your Picture
                 </h2>
-                <form
-                  className="form profile-top-profile"
-                  /* onSubmit={(e) => this.handleSubmit(e)}*/
-                >
+                <form className="form message-form ">
                   <img
                     className="img-profile m-3"
                     src={this.props.user.imageUrl}
                     alt=""
                   />
-
                   <input
                     classname="btn"
                     type="file"
@@ -153,9 +147,8 @@ class Picture extends Component {
                     name="iage"
                     onChange={(e) => this.handleFileUpload(e)}
                   />
-
                   <button className="btn btn-primary m-3" type="submit">
-                    <h3>Submit changes </h3>
+                    <h3>Submit changes</h3>
                   </button>
                 </form>
               </div>

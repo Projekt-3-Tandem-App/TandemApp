@@ -47,7 +47,7 @@ export default class MessageForm extends Component {
       });
   };
 
-    handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post(`/api/message`, {
@@ -70,8 +70,7 @@ export default class MessageForm extends Component {
       return (
         <div>
           <Navbar />
-
-          <section class=" profile-grid my-5 container">
+          <section class="profile-grid my-5 container">
             <div className=" profile-button ">
               {" "}
               <Link to="/" className=" btn btn-light button ">
@@ -81,26 +80,20 @@ export default class MessageForm extends Component {
 
             <div className="profile-grid ">
               <div className="profile-exp bg-dark p-2 ">
-              
-                  <img
-                    className="img-profile m-3 center"
-                    src={this.state.recipient.imageUrl}
-                    alt=""
-                  />
-               
+                <img
+                  className="img-profile m-3"
+                  src={this.state.recipient.imageUrl}
+                  alt=""
+                />
               </div>
 
-               
               <section className=" profile-edu bg-white">
                 <div className="form-group">
-                  <h2 class="large text-primary center my-3-profile p-2 ">
+                  <h2 class="large text-primary center p-2 ">
                     Write {this.state.recipient.name} a message
                   </h2>
 
-                  <form
-                    className="form profile-top-profile"
-                    onSubmit={this.handleSubmit}
-                  >
+                  <form className="form message-form " onSubmit={this.handleSubmit}>
                     <textarea
                       type="text"
                       rows="4"
@@ -110,7 +103,6 @@ export default class MessageForm extends Component {
                       id="content"
                       placeholder="Write you message here"
                     />
-
                     <button className="btn btn-primary m-2" type="submit">
                       <h3>Send message </h3>
                     </button>
