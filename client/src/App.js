@@ -1,5 +1,8 @@
 import React from 'react';
 import './css/App.css';
+import './css/landing.css';
+import './css/utilities.css';
+import './css/navbar.css';
 import './auth.css';
 import { Route, Redirect } from 'react-router-dom';
 import LandingPage from './components/LandingPage'

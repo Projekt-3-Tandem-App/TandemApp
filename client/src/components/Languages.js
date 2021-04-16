@@ -46,8 +46,8 @@ export default class Languages extends Component {
     return (
       <div>
         <Navbar />
-        <div className="profile-grid my-5 container">
-          <div className="profile-exp bg-white p-2 ">
+        <div className="grid-layout my-5 container">
+          <div className="grid-three bg-white p-2 ">
             <h2>
               <i class="fas fa-user my-1"></i> Settings
             </h2>
@@ -80,11 +80,11 @@ export default class Languages extends Component {
             </ul>
           </div>
 
-          <section className=" profile-edu bg-white p-2">
-            <div className="form-group">
+          <section className=" grid-four bg-white p-2">
+            <div className="form-group form-text">
               <h3 class="large text-primary center p-3">Edit your Languages</h3>
 
-              <form className="form message-form" onSubmit={this.handleSubmit}>
+              <form className="form message-form form-text" onSubmit={this.handleSubmit}>
                 <label className="grey" htmlFor="goal">
                   Choose your native Language
                 </label>

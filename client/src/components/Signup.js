@@ -65,10 +65,10 @@ export default class Signup extends Component {
       <div className="form-group" > 
         <h1 class="large text-primary">Sign Up</h1>
         <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
-        <form className="form profile-top auth" onSubmit={this.handleSubmit}>
+        <form className="form grid-one auth" onSubmit={this.handleSubmit}>
           <label htmlFor="username"> </label>
           <input
-            className="form-group" 
+            className="form-group form-text " 
             type="text"
             name="username"
             value={this.state.username}
@@ -78,7 +78,7 @@ export default class Signup extends Component {
           />
           <label htmlFor="password" > </label>
           <input
-             className="form-group" 
+             className="form-group form-text" 
             type="password"
             name="password"
             value={this.state.password}
@@ -86,9 +86,9 @@ export default class Signup extends Component {
             id="password"
             placeholder="password"
           />
-          <label htmlFor="name" ></label>
+          <label htmlFor="name " ></label>
           <input
-          className="form-group" 
+          className="form-group form-text" 
             type="text"
             name="name"
             value={this.state.name}
@@ -146,7 +146,7 @@ export default class Signup extends Component {
           <h2 className="m-3"> Profile Settings </h2>
           <label className="grey " htmlFor="age "><p>choose your age</p></label>
           <input
-            className="form-group" 
+            className="form-group form-text" 
             type="Number"
             name="age"
             value={this.state.age}
@@ -165,7 +165,7 @@ export default class Signup extends Component {
           </select>
           <label htmlFor="description" className="m"></label>
           <textarea
-             className="form-group" 
+             className="form-group form-text" 
              type="text" rows="4" cols="50"
             name="description"
             value={this.state.description}
@@ -175,7 +175,7 @@ export default class Signup extends Component {
           />
           <label htmlFor="goal" ></label>
           <textarea
-            className="form-group" 
+            className="form-group form-text" 
             type="text" rows="4" cols="50"
             name="goal"
             value={this.state.goal}

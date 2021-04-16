@@ -70,16 +70,15 @@ export default class MessageForm extends Component {
       return (
         <div>
           <Navbar />
-          <section class="profile-grid my-5 container">
+          <section class="grid-layout my-5 container">
             <div className=" profile-button ">
-              {" "}
               <Link to="/" className=" btn btn-light button ">
                 Back To Profiles
               </Link>
             </div>
 
-            <div className="profile-grid ">
-              <div className="profile-exp bg-dark p-2 ">
+            <div className="grid-layout ">
+              <div className="grid-three bg-dark p-2 ">
                 <img
                   className="img-profile m-3"
                   src={this.state.recipient.imageUrl}
@@ -87,7 +86,7 @@ export default class MessageForm extends Component {
                 />
               </div>
 
-              <section className=" profile-edu bg-white">
+              <section className=" grid-four bg-white">
                 <div className="form-group">
                   <h2 class="large text-primary center p-2 ">
                     Write {this.state.recipient.name} a message

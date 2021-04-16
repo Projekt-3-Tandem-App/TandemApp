@@ -94,8 +94,8 @@ class Picture extends Component {
       <div>
         <div>
           <Navbar />
-          <div className="profile-grid my-5 container">
-            <div className="profile-exp bg-white p-2 ">
+          <div className="grid-layout my-5 container">
+            <div className="grid-three bg-white p-2 ">
               <h2>
                 <i class="fas fa-user my-1"></i> Settings
               </h2>
@@ -129,7 +129,7 @@ class Picture extends Component {
               </ul>
             </div>
 
-            <section className=" profile-edu bg-white">
+            <section className=" grid-four bg-white">
               <div className="form-group">
                 <h2 class="large text-primary center p-2 ">
                   Upload your Picture

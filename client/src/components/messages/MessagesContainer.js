@@ -117,8 +117,8 @@ export default class MessagesContainer extends Component {
       return (
         <div>
           <Navbar />
-          <div className="profile-grid my-5 container">
-            <div className="profile-exp bg-white p-2 ">
+          <div className="grid-layout my-5 container">
+            <div className="grid-three bg-white p-2 ">
               <h2>
                 <i class="fas fa-user my-1"></i> Your Contacts
               </h2>
@@ -126,7 +126,7 @@ export default class MessagesContainer extends Component {
               </div>
             </div>
 
-            <section className=" profile-edu bg-white">
+            <section className=" grid-four bg-white">
 
               <div className="form-group">
                 <h2 class="large text-primary center p-2 ">messages</h2>
@@ -164,15 +164,15 @@ export default class MessagesContainer extends Component {
         
           <Navbar />
 
-          <div className="profile-grid my-5 container">
-            <div className="profile-exp bg-white p-2 ">
+          <div className="grid-layout my-5 container">
+            <div className="grid-three bg-white p-2 ">
               <h2>
                 <i class="fas fa-user my-1"></i> Your Contacts
               </h2>
               <div className="flex-smart">{UsersList}</div>
             </div>
 
-            <section className=" profile-edu bg-white p-2">
+            <section className=" grid-four bg-white p-2">
               <div className="form-group">
                 <h2 class="large text-primary center p-2 ">messages</h2>
                 <p>{displayMessages}</p>

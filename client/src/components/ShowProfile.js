@@ -49,8 +49,8 @@ export default class ShowProfile extends Component {
             Back To Profiles
           </Link>
 
-          <div class="profile-grid my-1">
-            <div class="profile-top bg-primary p-2">
+          <div class="grid-layout my-1">
+            <div class="grid-one bg-primary p-2">
               <img
                 className="img-profile"
                 src={this.state.user.imageUrl}
@@ -66,7 +66,7 @@ export default class ShowProfile extends Component {
               </Link>
             </div>
 
-            <div class="profile-exp bg-white p-2">
+            <div class="grid-three bg-white p-2">
               <h2 class="text-dark"> {this.state.user.name} Speaks </h2>
               <h3>{this.props.user.nativeLanguages} </h3>
               <div></div>
@@ -74,7 +74,7 @@ export default class ShowProfile extends Component {
               <h3>{this.props.user.learningLanguages}</h3>
             </div>
 
-            <div class="profile-edu bg-white p-2">
+            <div class="grid-four bg-white p-2">
               <h3> About {this.state.user.name}</h3>
               <p> {this.state.user.age} years old </p>
               <p>
@@ -83,7 +83,7 @@ export default class ShowProfile extends Component {
               </p>
             </div>
 
-            <div class="profile-about bg-light p-2">
+            <div class="grid-two  bg-light p-2">
               <h2 class="text-primary ">Goals</h2>
               <p> {this.state.user.goal}</p>
               <div class="line"></div>

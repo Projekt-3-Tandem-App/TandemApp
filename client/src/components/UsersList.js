@@ -54,9 +54,9 @@ export default class UsersList extends Component {
     return (
       <div> 
       
-      <div class="profile p-2 "> das macht den abstand </div>
+      <div class="profile p-2 "></div>
       
-      <form className="form profile bg-light " onSubmit={this.handleSubmit}>
+      <form className="form profile bg-light form-text" onSubmit={this.handleSubmit}>
       <div>
       <select name="location" id="location" form="form" onChange={this.handleChange}>
           <option value='' selected> Select a city </option>
@@ -129,7 +129,7 @@ export default class UsersList extends Component {
             <h3> Location: {user.location}</h3>
            
             <Link to={`/users/${user._id}`}  className="btn btn-dark my-2">View Profile</Link>
-            <Link to={`/users/${user._id}/message`} className="btn btn-dark my-2"> <i class="fas fa-paper-plane"></i></Link>
+            <Link to={`/users/${user._id}/message`} className="btn btn-dark my-2 "> <i class="fas fa-paper-plane"></i></Link>
           </div>
           <ul>
             <li className="text-primary">
