@@ -10,6 +10,7 @@ Wander is a MERN application to find your tandem!
 
 ## How to quickly try it?
 🌞 The project is hosted on Heroku: https://papagei-app.herokuapp.com/
+
 :bulb: If you don't want to go through the sign-up process, you can use the following credentials:
 * Paula // XXXVls!!52
 
