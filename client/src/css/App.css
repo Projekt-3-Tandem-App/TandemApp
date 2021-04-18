@@ -2,7 +2,10 @@
 
 :root {
   --primary-color:#e6b141;
-  --dark-color:   #056d5a;
+ /* --dark-color:   #807da8; */
+
+ /*--primary-color:linear-gradient(to right,#313B47,#00C8AA);*/
+  --dark-color:  #056d5a;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -26,6 +29,13 @@ body {
 
 a {
   color: var(--light-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.navbar a {
+  color: var(--dark-color);
   text-decoration: none;
   font-size: 1rem;
   font-weight: bolder;
@@ -66,19 +76,11 @@ img {
   display: grid;
   grid-template-areas:
     'one one'
-    'about about'
-    'exp edu ';
-  grid-gap: 1rem;
-}
-
-.grid-layout {
-  display: grid;
-  grid-template-areas:
-    'one one'
     'two two'
     'three four ';
   grid-gap: 1rem;
 }
+
 
 /* UserList.js --> cards*/
 .profile {
@@ -103,6 +105,15 @@ img {
   grid-gap: 1rem;
 }
 
+.profile-button{
+  grid-area: one ;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+  
+}
+
 .grid-one img {
   width: 250px;
 }
@@ -121,15 +132,7 @@ img {
   color: var(--dark-color);
 }
 
-.profile-button{
-  grid-area: one ;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  grid-gap: 1rem;
-  
-}
+
 
 /* MessageForm & Container*/ 
 .message-form {

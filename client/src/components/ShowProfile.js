@@ -50,7 +50,7 @@ export default class ShowProfile extends Component {
           </Link>
 
           <div class="grid-layout my-1">
-            <div class="grid-one bg-primary p-2">
+            <div class="grid-one bg-primary p-2 ">
               <img
                 className="img-profile"
                 src={this.state.user.imageUrl}
