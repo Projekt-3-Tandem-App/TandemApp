@@ -50,13 +50,14 @@ export default class UsersList extends Component {
       && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
 
+   
     console.log(filteredUsers)
     return (
       <div> 
       
       <div class="profile p-2 "></div>
     
-      <form className="form profile bg-light form-text" onSubmit={this.handleSubmit}>
+      <form className="form filter bg-light form-text" onSubmit={this.handleSubmit}>
       <div>
       <select name="location" id="location" form="form" onChange={this.handleChange}>
           <option value='' selected> Select a city </option>
@@ -108,13 +109,15 @@ export default class UsersList extends Component {
           </select>
           </div>
         </form>
- 
-
+        <div className=" profile-user ">
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
+        
           return (
-            <div className= "profiles" key={index} >
-            <div className= "profile bg-light" >
+            
+              
+            <div className="  ">
+            <div className= "profile bg-light" key={index}  >
           <img className="img-profile"
            
             src={user.imageUrl}
@@ -143,11 +146,19 @@ export default class UsersList extends Component {
             </li>
           </ul>
         </div>
-            </div>
+        </div>
+        
             ) 
         })}
-      </div>
+        </div>
+        </div>
+     
+       
+      
+    
     )
+   
   }
+ 
 }
 
