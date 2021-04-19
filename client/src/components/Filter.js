@@ -4,7 +4,7 @@ import React from 'react';
 const Filter = (props) => {
   return(
     <div  >
-     <form className="form profile-top" onSubmit={this.handleSubmit}>
+     <form className="form grid-top" onSubmit={this.handleSubmit}>
       <select name="location" id="location" form="carform" onChange={this.handleChange}>
           <option value='' selected> Choose your tandem location</option>
           <option value="">Show all location</option>

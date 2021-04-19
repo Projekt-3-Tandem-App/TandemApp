@@ -12,9 +12,6 @@ export default class UsersList extends Component {
     imageUrl: '',    
   }
 
-
- 
-
   componentDidMount(){
     this.getUsers()
   }
@@ -53,31 +50,16 @@ export default class UsersList extends Component {
       && (eachuser.learningLanguages.includes(this.state.nativeLanguages) ||!this.state.nativeLanguages)
     })
 
+   
     console.log(filteredUsers)
     return (
       <div> 
-      <div>
-     
-      <div class="profile-top  p-2">
-  
+      
+      <div class="profile p-2 "></div>
     
-   
-         
-      </div>
-      </div>
-      
-
-
-      
-      
-     
-      
-      <div className="" >
-      <div className=" ">
-   
-      <form className="form profile bg-light" onSubmit={this.handleSubmit}>
+      <form className="form filter bg-light form-text" onSubmit={this.handleSubmit}>
       <div>
-      <select name="location" id="location" form="carform" onChange={this.handleChange}>
+      <select name="location" id="location" form="form" onChange={this.handleChange}>
           <option value='' selected> Select a city </option>
           <option value="">all locations</option>
           <option value="Berlin">Berlin</option>
@@ -95,7 +77,7 @@ export default class UsersList extends Component {
           <div>
 
           <label htmlFor="learningLanguages" ></label>
-          <select name="learningLanguages" id="learningLanguages" form="carform" onChange={this.handleChange} >
+          <select name="learningLanguages" id="learningLanguages" form="form" onChange={this.handleChange} >
           <option value="" selected>Select your learning language</option>
           <option value="">All</option>
           <option value="English">English</option>
@@ -111,7 +93,7 @@ export default class UsersList extends Component {
           </select>
           </div>
           <div>
-          <select name="nativeLanguages" id="nativeLanguages" form="carform" onChange={this.handleChange}>
+          <select name="nativeLanguages" id="nativeLanguages" form="form" onChange={this.handleChange}>
           <option value="" selected>Select your native language </option>
           <option value="">All</option>
           <option value="English">English</option>
@@ -126,19 +108,16 @@ export default class UsersList extends Component {
           <option value="Portuguese">Portuguese</option> 
           </select>
           </div>
-
         </form>
-      </div>
-      </div>
-      
-     
-      
-
+        <div className=" profile-user ">
         {filteredUsers.map((user, index) => {
           console.log('HERE USER', user)
+        
           return (
-            <div  className="profiles " key={index} >
-            <div className= "profile bg-light" >
+            
+              
+            <div className="  ">
+            <div className= "profile bg-light" key={index}  >
           <img className="img-profile"
            
             src={user.imageUrl}
@@ -152,26 +131,34 @@ export default class UsersList extends Component {
             <h3> Gender: {user.gender}</h3>
             <h3> Location: {user.location}</h3>
            
-            <Link to={`/users/${user._id}`}  className="btn  btn-dark my-2">View Profile</Link>
-            <Link to={`/users/${user._id}/message`} className="btn btn-dark my-2"> <i class="fas fa-paper-plane"></i></Link>
+            <Link to={`/users/${user._id}`}  className="btn btn-dark my-2">View Profile</Link>
+            <Link to={`/users/${user._id}/message`} className="btn btn-dark my-2 "> <i class="fas fa-paper-plane"></i></Link>
           </div>
           <ul>
-            <li className="text-primary ">
-              <p className="grey   "> <i class="far fa-comments text-secondary "></i>Speaks</p>
+            <li className="text-primary">
+              <p className="grey"> <i class="far fa-comments text-secondary "></i>Speaks</p>
               <h3>{user.nativeLanguages}</h3>
             </li>
             <li className="text-primary">
-            <p className="grey "><i class="fas fa-comments  "></i> Learns</p>
+            <p className="grey "><i class="fas fa-comments">
+            </i>Learns</p>
               <h3>{user.learningLanguages}</h3>   
             </li>
           </ul>
         </div>
-            </div>
+        </div>
+        
             ) 
         })}
-      {/* )} */}
-      </div>
+        </div>
+        </div>
+     
+       
+      
+    
     )
+   
   }
+ 
 }
 

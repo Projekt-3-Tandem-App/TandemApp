@@ -44,10 +44,10 @@ export default class Login extends Component {
       <div>
          <h1 class="large text-primary">Login</h1>
          <p class="lead"><i class="fas fa-user"></i> Login to Your Account</p>
-        <form class="form profile-top auth" s onSubmit={this.handleSubmit}>
+        <form class="form grid-one auth" s onSubmit={this.handleSubmit}>
           <label htmlFor="username"></label>
           <input
-            className="form-group" 
+            className="form-group form-text" 
             type="text"
             name="username"
             value={this.state.username}
@@ -57,7 +57,7 @@ export default class Login extends Component {
           />
           <label htmlFor="password"></label>
           <input
-            className="form-group" 
+            className="form-group form-text" 
             type="password"
             name="password"
             value={this.state.password}

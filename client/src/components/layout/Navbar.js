@@ -7,13 +7,9 @@ import {Link} from 'react-router-dom'
 
 
 /*  <nav class="navbar bg-dark">  */
-
-
-
-
 const Navbar = (props) => {
   return (
-    <nav className="navbar bg-dark ">
+    <nav className="navbar bg-dark">
     <ul>
     <img 
      className=" img-smart round-img png margin-y"

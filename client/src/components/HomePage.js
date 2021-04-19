@@ -12,9 +12,7 @@ export default class HomePage extends Component {
     return (
       <div>
         <Navbar/>
-
         <UsersList {...this.props}/>
-
       </div>
     )
   }
