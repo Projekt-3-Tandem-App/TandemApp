@@ -1,7 +1,7 @@
 ## :bird::speech_balloon:PAPAGEI - Tandem App
 ### Build with React.js, NodeJS, MongoDB, Cloudinary in 8 days during Ironhacks bootcamp
 ## The project
-Wander is a MERN application to find your tandem! 
+Papagei is a MERN application to find your tandem! 
 
 * 🔍 filter function by city, language learned or language spoken to find matching tandems 
 * ✏️ possibility to edit your profile and change your personal details
